@@ -7,9 +7,9 @@ This calculator has two currently implemented modes: Arithmetic and Graphing. Th
 ### Sub header, will elaborate later
 
 > More features are planned such as
-> -Euler approximation
-> -Simple derivatives
-> -GUI features
+> - Euler approximation
+> - Simple derivatives
+> - GUI features
 >
 > more block quotes
 
