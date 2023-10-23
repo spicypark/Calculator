@@ -16,6 +16,7 @@ This calculator has two currently implemented modes: Arithmetic and Graphing. Th
 > - Euler approximation
 > - Simple derivatives
 > - GUI features
+> - Conversion feature (on the level of Arithmetic and Graphing) (tentative)
 >
 > more block quotes
 
