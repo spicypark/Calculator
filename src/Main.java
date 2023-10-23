@@ -1,7 +1,7 @@
 /** MADE BY JERRY ZHENG
  *  INSPIRED BY NICHOLAS MOFFA
  *  VERSION 2.0 - 05/05/2023
- *  code isnt weird anymore :)
+ *  THIS IS OLD AND POSSIBLY REDUNDANT CODE
  */
 
 public class Main {
