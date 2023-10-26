@@ -9,8 +9,8 @@ This calculator has two currently implemented modes: Arithmetic and Graphing. Th
 ***This is bold and italicized text***
 
 ## Changelog
-- Alpha - First iteration of the calculator. All code was in one class so it was not good. Only one operation was able to run before the program closed.
-- Beta - Second iteration of the calculator. Code was organized into some questionable classes, code did not work and redundancies ran wild. Battery was implemented in this version.
+- Alpha - 4.16.2023 - First iteration of the calculator. All code was in one class so it was not good. Only one operation was able to run before the program closed.
+- Beta - 4.19.2023 - Second iteration of the calculator. Code was organized into some questionable classes, code did not work and redundancies ran wild. Battery was implemented in this version.
 - 2.0 - 5.5.2023 - Third finalized version of calculator. Methods are now distributed in appropriate and somewhat not redundant classes and the Main class is simplified.
 
 ### Sub header, will elaborate later
