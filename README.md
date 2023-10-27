@@ -4,7 +4,7 @@
 Portions of this code are extremely old and may seem extremely redundant or erroneous, however, this program does work as intended.***
 
 ## Overview
-This calculator has two currently implemented modes: Arithmetic, Graphing, and Conversion. The Arithmetic mode has functions such as adding, subtracting, dividing, multiplying, and various circle and sphere calculations. The Graphing mode can graph four types of functions: linear, quadratic, cubic, and exponential. The Conversion mode can calculate six different conversions, each with a Metric to Imperial or Imperial to Metric option.
+This calculator has three currently implemented modes: Arithmetic, Graphing, and Conversion. The Arithmetic mode has functions such as adding, subtracting, dividing, multiplying, and various circle and sphere calculations. The Graphing mode can graph four types of functions: linear, quadratic, cubic, and exponential. The Conversion mode can calculate six different conversions, each with a Metric to Imperial or Imperial to Metric option.
 
 ## Potential Future Features
 - Euler approximation
