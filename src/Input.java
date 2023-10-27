@@ -4,46 +4,29 @@ public class Input {
     Scanner scnr = new Scanner(System.in);
     private static String function;
     private static String operation;
-    private static int numVals = 1;
-    private static int conversion;
+    private static int numVals;
     private static double[] userArray;
     private static String[][] userPlane = new String[31][31];
 
     public void setFunction() {
-        System.out.println("");
         System.out.println("Select desired function (Arithmetic [a] | Graphing [g] | Conversion [c]):");
         function = scnr.next();
     }
-
     public String getFunction() {return function;}
 
     public void setOperation() {
         if (function.equals("a")) {
-            System.out.println("");
             System.out.println("Please input an operation:\nAdd\nSubtract\nMultiply\nDivide\nCircleArea\nCircleCircumference\nSphereSurface\nSphereVolume");
             operation = scnr.next();
             if (!"Add".equals(operation) && !"Subtract".equals(operation) && !"Multiply".equals(operation) && !"Divide".equals(operation) && !"CircleArea".equals(operation) && !"CircleCircumference".equals(operation) && !"SphereSurface".equals(operation) && !"SphereVolume".equals(operation) && !"EasterEgg".equals(operation)) {
-                System.out.println("");
                 System.out.println("Invalid operation.");
                 setOperation();
             }   
         }
         else if (function.equals("g")) {
-            System.out.println("");
             System.out.println("Please input graphing function (Linear | Quadratic | Cubic | Exponential):");
             operation = scnr.next();
             if (!"Linear".equals(operation) && !"Quadratic".equals(operation) && !"Cubic".equals(operation) && !"Exponential".equals(operation)) {
-                System.out.println("");
-                System.out.println("Invalid operation.");
-                setOperation();
-            }
-        }
-        else if (function.equals("c")) {
-            System.out.println("");
-            System.out.println("Please input desired conversion:\n[IM] Imperial to Metric\n[MI] Metric to Imperial");
-            operation = scnr.next();
-            if (!"MI".equals(operation) && !"IM".equals(operation)) {
-                System.out.println("");
                 System.out.println("Invalid operation.");
                 setOperation();
             }
@@ -53,57 +36,30 @@ public class Input {
 
     public void setNumVals() {
         if (operation.equals("Add") || operation.equals("Multiply")) {
-            System.out.println("");
             System.out.println("Please input the number of values (2-100)");
             numVals = scnr.nextInt();
             if (numVals > 100 || numVals < 2) {
                 numVals = 0;
-                System.out.println("");
                 System.out.println("Invalid number of values.");
                 setNumVals();
             }
         }
         else if (operation.equals("Subtract") || operation.equals("Divide")) {numVals = 2;}
-        // else {numVals = 1;}
+        else {numVals = 1;}
     }
     public int getNumVals() {return numVals;}
 
-    public int setConversion() {
-        if (operation.equals("MI")) {
-            System.out.println("");
-            System.out.println("Please input desired conversion:\n[1] Centimeter to Inch\n[2] Meter to Foot\n[3] Kilometer to Mile\n[4] Kilogram to Pound\n[5] Gram to Ounce\n[6] Liter to Gallon");
-        }
-        if (operation.equals("IM")) {
-            System.out.println("");
-            System.out.println("Please input desired conversion:\n[1] Inch to Centimeter\n[2] Foot to Meter\n[3] Mile to Kilometer\n[4] Pound to Kilogram\n[5] Ounce to Gram\n[6] Gallon to Liter");
-        }
-        conversion = scnr.nextInt();
-        return conversion;
-    }
-
-    public int getConversion() {return conversion;}
-
     public void setUserArray() {
         userArray = new double[numVals];
-
-        if (function.equals("a")) {
-            if (operation.equals("CircleArea") || operation.equals("CircleCircumference") || operation.equals("SphereSurface") || operation.equals("SphereVolume")) {
-                System.out.println("");
-                System.out.println("Please input the radius:");
-                userArray[0] = scnr.nextDouble();
-            }
-            else if (numVals <= 100 && numVals >= 2) {
-                System.out.println("");
-                System.out.println("Please input your values:");
-                for (int i = 0; i < numVals; i++) {
-                    userArray[i] = scnr.nextDouble();
-                }
-            }
-        }
-        else if (function.equals("c")) {
-            System.out.println("");            
-            System.out.println("Please input the number of units to be converted:");
+        if (operation.equals("CircleArea") || operation.equals("CircleCircumference") || operation.equals("SphereSurface") || operation.equals("SphereVolume")) {
+            System.out.println("Please input the radius:");
             userArray[0] = scnr.nextDouble();
+        }
+        else if (numVals <= 100 && numVals >= 2) {
+            System.out.println("Please input your values:");
+            for (int i = 0; i < numVals; i++) {
+                userArray[i] = scnr.nextDouble();
+            }
         }
     }
     public double[] getUserArray() {return userArray;}

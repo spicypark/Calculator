@@ -62,7 +62,6 @@ public class Operations {
 
         //GRAPHING FUNCTION
         if (userGraphOp.equals("Linear")) {
-            System.out.println("");
             System.out.println("Please input slope and y-intercept:");
             double userSlope = scnr.nextDouble();
             double userYInt = scnr.nextDouble();
@@ -81,9 +80,8 @@ public class Operations {
                 }
             }
         }
-        
+
         else if (userGraphOp.equals("Quadratic")) {
-            System.out.println("");
             System.out.println("Please input a, b, and c values:");
             double aValQ = scnr.nextDouble();
             System.out.println(aValQ);
@@ -108,7 +106,6 @@ public class Operations {
         }
 
         else if (userGraphOp.equals("Cubic")) {
-            System.out.println("");
             System.out.println("Please input a, b, c, and d values:");
             double aValC = scnr.nextDouble();
             double bValC = scnr.nextDouble();
@@ -131,7 +128,6 @@ public class Operations {
         }
 
         else if (userGraphOp.equals("Exponential")) {
-            System.out.println("");
             System.out.println("Please input a value:");
             double aValE = scnr.nextDouble();
 
@@ -172,47 +168,5 @@ public class Operations {
         }
         
         return userPlane;
-    }
-
-    public double runCentimeterInch (String operation, double[] userArray) {
-        double result = 0;
-        if (operation.equals("MI")) {result = userArray[0] * 0.393701;}
-        else {result = userArray[0] * 2.54;}
-        return result;
-    }
-
-    public double runMeterFoot (String operation, double[] userArray) {
-        double result = 0;
-        if (operation.equals("MI")) {result = userArray[0] * 3.28084;}
-        else {result = userArray[0] * 0.3048;}
-        return result;
-    }
-
-    public double runKilometerMile (String operation, double[] userArray) {
-        double result = 0;
-        if (operation.equals("MI")) {result = userArray[0] * 0.621371;}
-        else {result = userArray[0] * 1.60934;}
-        return result;
-    }
-
-    public double runKilogramPound (String operation, double[] userArray) {
-        double result = 0;
-        if (operation.equals("MI")) {result = userArray[0] * 2.20462;}
-        else {result = userArray[0] * 0.453592;}
-        return result;
-    }
-
-    public double runGramOunce (String operation, double[] userArray) {
-        double result = 0;
-        if (operation.equals("MI")) {result = userArray[0] * 0.035274;}
-        else {result = userArray[0] * 28.3495;}
-        return result;
-    }
-
-    public double runLiterGallon (String operation, double[] userArray) {
-        double result = 0;
-        if (operation.equals("MI")) {result = userArray[0] * 0.264172;}
-        else {result = userArray[0] * 3.78541;}
-        return result;
     }
 }
