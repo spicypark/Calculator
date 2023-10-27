@@ -16,6 +16,6 @@ This calculator has two currently implemented modes: Arithmetic and Graphing. Th
 - GUI features
 
 ## Version Log
-- 4.16.2023 - Alpha
-- 4.19.2023 - Beta
+- 04.16.2023 - Alpha
+- 04.19.2023 - Beta
 - 05.05.2023 - 2.0.0
