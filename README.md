@@ -12,8 +12,24 @@ This calculator has three currently implemented modes: Arithmetic, Graphing, and
 - More graphing capabilities
 - GUI features
 
-## Version Log
-- 04.16.2023 - Alpha
-- 04.19.2023 - Beta
-- 05.05.2023 - 2.0.0
-- 10.27.2023 - 2.1.0
+## Changelog
+### 04.16.2023 - Alpha
+- Separate Arithmetic and Graphing features
+- Single-class operation
+- Single-instance operation
+### 04.19.2023 - Beta
+- Integrated Arithmetic and Graphing features
+- Multiple (dysfunctional) classes
+- Multiple-instance operation
+- **Not operational**
+### 05.05.2023 - 2.0.0
+- Integrated Arithmetic and Graphing features
+- Modulated classes
+- Implemented battery
+- Bug fixes
+- Easter egg
+### 10.27.2023 - 2.1.0
+- Integrated Arithmetic, Graphing, and Conversion features
+- FunnyMain removed :(
+- Improved terminal readability
+- Minor efficiency improvements
