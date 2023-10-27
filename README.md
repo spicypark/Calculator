@@ -6,8 +6,8 @@ Portions of this code are extremely old and may seem extremely redundant or erro
 ## Overview
 This calculator has three currently implemented modes: Arithmetic, Graphing, and Conversion. The Arithmetic mode has functions such as adding, subtracting, dividing, multiplying, and various circle and sphere calculations. The Graphing mode can graph four types of functions: linear, quadratic, cubic, and exponential. The Conversion mode can calculate six different conversions, each with a Metric to Imperial or Imperial to Metric option.
 
-## Timeline
-*This timeline is not final and changes may be added or removed during, before, or after the expected dates.*
+## Roadmap
+*This roadmap is not final and changes may be added or removed during, before, or after the expected dates.*
 ### Version 2.2.0
 Expected release: November 2023<br>
 Version 2.2.0 will be the next update to Calculator. Included in this update may be an integrated Derivative mode and a user option to toggle battery limit.
