@@ -8,13 +8,13 @@ CalculatorV2.1.0 will include an integrated conversion feature which will includ
 ## Summary
 This calculator has two currently implemented modes: Arithmetic and Graphing. The Arithmetic mode has functions such as adding, subtracting, dividing, multiplying, and various circle and sphere calculations. The Graphing mode can graph four types of functions: linear, quadratic, cubic, and exponential. 
 
-## Version Log
-- 4.16.2023 - Alpha
-- 4.19.2023 - Beta
-- 05.05.2023 - 2.0.0
-
 ## Potential Future Features
 - Euler approximation
 - Simple derivatives
 - More graphing capabilities
 - GUI features
+
+## Version Log
+- 4.16.2023 - Alpha
+- 4.19.2023 - Beta
+- 05.05.2023 - 2.0.0
