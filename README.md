@@ -38,7 +38,7 @@ Version 3.0.0 will be a major update and will completely rehaul all modules and 
 - Integrated Arithmetic, Graphing, and Conversion features
 - FunnyMain removed :(
 - Improved terminal readability
-- Minor efficiency improvements
+- Minor efficiency improvements<br>
 10.28.2023 - 2.1.1
 - Bug fixes in Input.java
 - Derivative mode is under development and is not yet functional
