@@ -1,4 +1,4 @@
-# Welcome to CalculatorV2.1.0!
+# Welcome to CalculatorV2.1.1!
 
 ***Disclaimer:
 Portions of this code are extremely old and may seem extremely redundant or erroneous, however, this program does work as intended.***
@@ -39,3 +39,6 @@ Version 3.0.0 will be a major update and will completely rehaul all modules and 
 - FunnyMain removed :(
 - Improved terminal readability
 - Minor efficiency improvements
+10.28.2023 - 2.1.1
+- Bug fixes in Input.java
+- Derivative mode is under development and is not yet functional
