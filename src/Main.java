@@ -30,6 +30,9 @@ public class Main {
                 input.setConversion();
                 input.setUserArray();
             }
+            else if (input.getFunction().equals("d")) {
+                input.setOperation();
+            }
             output.operationOutput();
         }
     }

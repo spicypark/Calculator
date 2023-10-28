@@ -4,6 +4,7 @@ public class Input {
     Scanner scnr = new Scanner(System.in);
     private static String function;
     private static String operation;
+    private static int operationD;
     private static int numVals = 1;
     private static int conversion;
     private static double[] userArray;
@@ -11,10 +12,14 @@ public class Input {
 
     public void setFunction() {
         System.out.println("");
-        System.out.println("Select desired function (Arithmetic [a] | Graphing [g] | Conversion [c]):");
+        System.out.println("Select desired function (Arithmetic [a] | Graphing [g] | Conversion [c] | Derivative [d]):");
         function = scnr.next();
+        if (!function.equals("a") && !function.equals("g") && !function.equals("c") && !function.equals("d")) {
+            System.out.println("");
+            System.out.println("Invalid function.");
+            setFunction();
+        }
     }
-
     public String getFunction() {return function;}
 
     public void setOperation() {
@@ -48,8 +53,19 @@ public class Input {
                 setOperation();
             }
         }
+        else if (function.equals("d")) {
+            System.out.println("");
+            System.out.println("Please input the desired derivative:\n[1] nx^a\n[2] sin(ax)\n[3] cos(ax)\n[4] tan(ax)\n[5] sinh(ax)\n[6] cosh(ax)\n[7] tanh(ax)\n[8] arcsin(ax)\n[9] arccos(ax)\n[10] arctan(ax)\n[11] ln(ax)\n[12] a/x\n[13] e^ax\n[14] sqrt(ax)");
+            operationD = scnr.nextInt();
+            if (operationD > 14 || operationD < 1) {
+                System.out.println("");
+                System.out.println("Invalid operation.");
+                setOperation();
+            }
+        }
     }
     public String getOperation() {return operation;}
+    public int getOperationD() {return operationD;}
 
     public void setNumVals() {
         if (operation.equals("Add") || operation.equals("Multiply")) {
@@ -64,7 +80,6 @@ public class Input {
             }
         }
         else if (operation.equals("Subtract") || operation.equals("Divide")) {numVals = 2;}
-        // else {numVals = 1;}
     }
     public int getNumVals() {return numVals;}
 
@@ -78,9 +93,13 @@ public class Input {
             System.out.println("Please input desired conversion:\n[1] Inch to Centimeter\n[2] Foot to Meter\n[3] Mile to Kilometer\n[4] Pound to Kilogram\n[5] Ounce to Gram\n[6] Gallon to Liter");
         }
         conversion = scnr.nextInt();
+        if (conversion > 6 || conversion < 1) {
+            System.out.println("");
+            System.out.println("Invalid conversion.");
+            setConversion();
+        }
         return conversion;
     }
-
     public int getConversion() {return conversion;}
 
     public void setUserArray() {
