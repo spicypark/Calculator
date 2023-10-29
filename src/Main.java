@@ -1,3 +1,7 @@
+import Modules.Battery;
+import Modules.Input;
+import Modules.Output;
+
 /** MADE BY JERRY ZHENG
  *  INSPIRED BY NICHOLAS MOFFA
  *  THANKS TO: JADEN TU, JASON GUO

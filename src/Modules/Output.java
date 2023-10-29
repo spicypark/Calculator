@@ -1,3 +1,4 @@
+package Modules;
 public class Output {
     public void operationOutput() {
         double result = 0;
