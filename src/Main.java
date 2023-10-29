@@ -1,13 +1,13 @@
-import Modules.Battery;
-import Modules.Input;
-import Modules.Output;
-
 /** MADE BY JERRY ZHENG
  *  INSPIRED BY NICHOLAS MOFFA
  *  THANKS TO: JADEN TU, JASON GUO
  *  VERSION 2.1.0 RELEASE
  *  THIS IS OLD AND POSSIBLY REDUNDANT CODE
  */
+
+import Modules.Battery;
+import Modules.Input;
+import Modules.Output;
 
 public class Main {
     public static void main(String[] args) {
