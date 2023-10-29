@@ -1,4 +1,4 @@
-# Welcome to CalculatorV2.1.1!
+# Welcome to Calculator 2.1.1!
 
 ***Disclaimer:
 Portions of this code are extremely old and may seem extremely redundant or erroneous, however, this program does work as intended.***
