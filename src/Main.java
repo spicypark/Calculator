@@ -1,8 +1,8 @@
 /** MADE BY JERRY ZHENG
  *  INSPIRED BY NICHOLAS MOFFA
- *  THANKS TO: JADEN TU, JASON GUO
- *  VERSION 2.1.0 RELEASE
- *  THIS IS OLD AND POSSIBLY REDUNDANT CODE
+ *  THANKS TO JADEN TU, JASON GUO
+ *  VERSION 2.1.2
+ *  PORTIONS OF THIS CODE ARE EXTREMELY OLD
  */
 
 import Modules.Battery;
@@ -11,8 +11,7 @@ import Modules.Output;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("");
-        System.out.println("MADE BY JERRY ZHENG");
+        System.out.println("\nMADE BY JERRY ZHENG\nINSPIRED BY NICHOLAS MOFFA\nTHANKS TO JADEN TU, JASON GUO\n\nVERSION 2.1.2");
         Input input = new Input();
         Output output = new Output();
         Battery battery = new Battery();

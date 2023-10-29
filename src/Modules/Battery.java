@@ -9,17 +9,20 @@ public class Battery {
 
     public boolean continueUse() {
         String continueInput;
-        System.out.println("");
-        System.out.println("Continue using calculator? (y/n)");
+        System.out.println("\nContinue using calculator? (y/n)");
         continueInput = scnr.next();
+
+        if (!continueInput.equals("y") && !continueInput.equals("n")) {
+            System.out.println("Invalid option.");
+            continueUse();
+        }
 
         if (continueInput.equals("y")) {
             continueUsing = true;
         }
 
         else if (continueInput.equals("n")) {
-            System.out.println("");
-            System.out.println("Thank you for using this program.");
+            System.out.println("\nThank you for using this program.");
             continueUsing = false;
         }
 
@@ -36,10 +39,7 @@ public class Battery {
     }
 
     public int getInstance() {
-        if (useInstance == batteryLimit) {
-            System.out.println("");
-            System.out.println("BATTERY IS DEAD");
-        }
+        if (useInstance == batteryLimit) {System.out.println("\nBATTERY IS DEAD");}
         return useInstance;
     }
 }

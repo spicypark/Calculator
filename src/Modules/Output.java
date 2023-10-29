@@ -7,11 +7,12 @@ public class Output {
         double[] userArray = input.getUserArray();
         int numVals = input.getNumVals();
         String function = input.getFunction();
-
+        boolean found = false;
+        //TODO: make arithmetic and graphing operation a number input instead of string for better accessibility
         if (function.equals("a")) {
             switch (input.getOperation()) {
 
-                case "Add":
+                case 1:
                     result = operation.runAddition(userArray);
                     System.out.println("");
                     for (int aIndex = 0; aIndex < numVals; aIndex++) {
@@ -23,7 +24,7 @@ public class Output {
 
                     break;
 
-                case "Subtract":
+                case 2:
 
                     result = operation.runSubtraction(userArray);
                     System.out.println("");
@@ -31,7 +32,7 @@ public class Output {
 
                     break;
 
-                case "Multiply":
+                case 3:
 
                     result = operation.runMultiplication(userArray);
                     System.out.println("");
@@ -44,7 +45,7 @@ public class Output {
 
                     break;
 
-                case "Divide":
+                case 4:
 
                     result = operation.runDivision(userArray);
                     System.out.println("");
@@ -59,46 +60,42 @@ public class Output {
 
                     break;
 
-                case "CircleArea":
+                case 5:
 
                     result = operation.runCircleArea(userArray);
-                    System.out.println("");
-                    System.out.print("The area of a circle with radius " + userArray[0] + " is ");
+                    System.out.print("\nThe area of a circle with radius " + userArray[0] + " is ");
 
                     break;
 
-                case "CircleCircumference":
+                case 6:
 
                     result = operation.runCircleCircumference(userArray);
-                    System.out.println("");
-                    System.out.print("The circumference of a circle with radius " + userArray[0] + " is ");
+                    System.out.print("\nThe circumference of a circle with radius " + userArray[0] + " is ");
 
                     break;
 
-                case "SphereSurface":
+                case 7:
 
                     result = operation.runSphereSurface(userArray);
-                    System.out.println("");
-                    System.out.print("The surface area of a sphere with radius " + userArray[0] + " is ");
+                    System.out.print("\nThe surface area of a sphere with radius " + userArray[0] + " is ");
 
                     break;
 
-                case "SphereVolume":
+                case 8:
 
                     result = operation.runSphereVolume(userArray);
-                    System.out.println("");
-                    System.out.print("The volume of a sphere with radius " + userArray[0] + " is ");
+                    System.out.print("\nThe volume of a sphere with radius " + userArray[0] + " is ");
 
                     break;
 
-                case "EasterEgg":
-                    System.out.println("");    
-                    System.out.println("You found an Easter egg :)");
+                case 9:
+                    System.out.println("\nYou found an Easter egg :)");
+                    found = true;
                     break;
 
             } 
 
-            System.out.printf("%.2f\n", result);
+            if (!found) {System.out.printf("%.2f\n", result);}
         }
         else if (function.equals("g")) {
             String[][] userPlane = new String[31][31];
@@ -124,65 +121,72 @@ public class Output {
                 case 1:
                     result = operation.runCentimeterInch(input.getOperation(), input.getUserArray());
                     System.out.println("");
-                    firstOP = (input.getOperation().equals("MI")) ? " centimeters is " : " inches is ";
+                    firstOP = (input.getOperation() == 2) ? " centimeters is " : " inches is ";
                     System.out.print(input.getUserArray()[0] + firstOP);
                     System.out.printf("%.2f", result);
-                    secondOP = (input.getOperation().equals("MI")) ? " inches." : " centimeters.";
+                    secondOP = (input.getOperation() == 2) ? " inches." : " centimeters.";
                     System.out.println(secondOP);
                     break;
 
                 case 2:
                     result = operation.runMeterFoot(input.getOperation(), input.getUserArray());
                     System.out.println("");
-                    firstOP = (input.getOperation().equals("MI")) ? " meters is " : " feet is ";
+                    firstOP = (input.getOperation() == 2) ? " meters is " : " feet is ";
                     System.out.print(input.getUserArray()[0] + firstOP);
                     System.out.printf("%.2f", result);
-                    secondOP = (input.getOperation().equals("MI")) ? " feet." : " meters.";
+                    secondOP = (input.getOperation() == 2) ? " feet." : " meters.";
                     System.out.println(secondOP);
                     break;
 
                 case 3:
                     result = operation.runKilometerMile(input.getOperation(), input.getUserArray());
                     System.out.println("");
-                    firstOP = (input.getOperation().equals("MI")) ? " kilometers is " : " miles is ";
+                    firstOP = (input.getOperation() == 2) ? " kilometers is " : " miles is ";
                     System.out.print(input.getUserArray()[0] + firstOP);
                     System.out.printf("%.2f", result);
-                    secondOP = (input.getOperation().equals("MI")) ? " miles." : " kilometers.";
+                    secondOP = (input.getOperation() == 2) ? " miles." : " kilometers.";
                     System.out.println(secondOP);
                     break;
 
                 case 4:
                     result = operation.runKilogramPound(input.getOperation(), input.getUserArray());
                     System.out.println("");
-                    firstOP = (input.getOperation().equals("MI")) ? " kilograms is " : " pounds is ";
+                    firstOP = (input.getOperation() == 2) ? " kilograms is " : " pounds is ";
                     System.out.print(input.getUserArray()[0] + firstOP);
                     System.out.printf("%.2f", result);
-                    secondOP = (input.getOperation().equals("MI")) ? " pounds." : " kilograms.";
+                    secondOP = (input.getOperation() == 2) ? " pounds." : " kilograms.";
                     System.out.println(secondOP);
                     break;
                 
                 case 5:
                     result = operation.runGramOunce(input.getOperation(), input.getUserArray());
                     System.out.println("");
-                    firstOP = (input.getOperation().equals("MI")) ? " grams is " : " ounces is ";
+                    firstOP = (input.getOperation() == 2) ? " grams is " : " ounces is ";
                     System.out.print(input.getUserArray()[0] + firstOP);
                     System.out.printf("%.2f", result);
-                    secondOP = (input.getOperation().equals("MI")) ? " ounces." : " grams.";
+                    secondOP = (input.getOperation() == 2) ? " ounces." : " grams.";
                     System.out.println(secondOP);
                     break;
 
                 case 6:
                     result = operation.runLiterGallon(input.getOperation(), input.getUserArray());
                     System.out.println("");
-                    firstOP = (input.getOperation().equals("MI")) ? " liters is " : " gallons is ";
+                    firstOP = (input.getOperation() == 2) ? " liters is " : " gallons is ";
                     System.out.print(input.getUserArray()[0] + firstOP);
                     System.out.printf("%.2f", result);
-                    secondOP = (input.getOperation().equals("MI")) ? " gallons." : " liters.";
+                    secondOP = (input.getOperation() == 2) ? " gallons." : " liters.";
                     System.out.println(secondOP);
                     break;
             }
             
         }
+        else if (function.equals("d")) {
+            switch (input.getOperation()) {
 
+                case 1:
+                    System.out.println();
+
+            }
+        }
     }
 }
