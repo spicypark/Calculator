@@ -1,10 +1,10 @@
-# Welcome to CalculatorV2.1.1!
+# Welcome to CalculatorV2.1.2!
 
 ***Disclaimer:
 Portions of this code are extremely old and may seem extremely redundant or erroneous, however, this program does work as intended.***
 
 ## Overview
-This calculator has three currently implemented modes: Arithmetic, Graphing, and Conversion. The Arithmetic mode has functions such as adding, subtracting, dividing, multiplying, and various circle and sphere calculations. The Graphing mode can graph four types of functions: linear, quadratic, cubic, and exponential. The Conversion mode can calculate six different conversions, each with a Metric to Imperial or Imperial to Metric option.
+This calculator has three currently implemented modes: Arithmetic, Graphing, and Conversion. The Arithmetic mode has functions such as adding, subtracting, dividing, multiplying, and various circle and sphere calculations. The Graphing mode can graph four types of functions: linear, quadratic, cubic, and exponential. The Conversion mode can calculate six different conversions, each with a metric to imperial or imperial to metric option.
 
 ## Roadmap
 *This roadmap is not final and changes may be added or removed during, before, or after the expected dates.*
@@ -42,4 +42,10 @@ Version 3.0.0 will be a major update and will completely rehaul all modules and 
 
 10.28.2023 - 2.1.1
 - Bug fixes in Input.java
-- Derivative mode is under development and is not yet functional
+- Derivative mode is under development and is not yet functional<br>
+
+10.29.2023 - 2.1.2
+- Major rehaul of operation input in Input.java
+- Operation selection for Arithmetic and Graphing modes are now numerical, similar to Conversion and, in the future, Derivative
+- Numerical operation selection significantly improves the speed and comfort of operation for the user
+- Various efficiency optimizations
