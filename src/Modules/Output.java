@@ -9,6 +9,7 @@ public class Output {
         String function = input.getFunction();
 
         if (function.equals("a")) {
+            boolean found = false;
             switch (input.getOperation()) {
 
                 case "Add":
@@ -94,11 +95,12 @@ public class Output {
                 case "EasterEgg":
                     System.out.println("");    
                     System.out.println("You found an Easter egg :)");
+                    found = true;
                     break;
 
             } 
-
-            System.out.printf("%.2f\n", result);
+            
+            if (!found) System.out.printf("%.2f\n", result);
         }
         else if (function.equals("g")) {
             String[][] userPlane = new String[31][31];

@@ -11,6 +11,12 @@ public class Input {
     private static double[] userArray;
     private static String[][] userPlane = new String[31][31];
 
+    private static final String[][] conversionOptions = {new String[]{"Inch to Centimeter\n", "Foot to Meter\n", "Mile to Kilometer\n", "Pound to Kilogram\n", "Ounce to Gram\n", "Gallon to Liter\n"}, 
+                                                   new String[]{"Centimeter to Inch\n", "Meter to Foot\n", "Kilometer to Mile\n", "Kilogram to Pound\n", "Gram to Ounce\n", "Liter to Gallon\n"}};
+
+    private static final int IMPERIAL_METRIC_ID = 0;
+    private static final int METRIC_IMPERIAL_ID = 1;
+
     public void setFunction() {
         System.out.println("");
         System.out.println("Select desired function (Arithmetic [a] | Graphing [g] | Conversion [c] | Derivative [d]):");
@@ -26,7 +32,7 @@ public class Input {
     public void setOperation() {
         if (function.equals("a")) {
             System.out.println("");
-            System.out.println("Please input an operation:\nAdd\nSubtract\nMultiply\nDivide\nCircleArea\nCircleCircumference\nSphereSurface\nSphereVolume");
+            System.out.println("Please input an operation:\nAdd\nSubtract\nMultiply\nDivide\nCircleArea\nCircleCircumference\nSphereSurface\nSphereVolume\n");
             operation = scnr.next();
             if (!"Add".equals(operation) && !"Subtract".equals(operation) && !"Multiply".equals(operation) && !"Divide".equals(operation) && !"CircleArea".equals(operation) && !"CircleCircumference".equals(operation) && !"SphereSurface".equals(operation) && !"SphereVolume".equals(operation) && !"EasterEgg".equals(operation)) {
                 System.out.println("");
@@ -46,7 +52,7 @@ public class Input {
         }
         else if (function.equals("c")) {
             System.out.println("");
-            System.out.println("Please input desired conversion:\n[IM] Imperial to Metric\n[MI] Metric to Imperial");
+            System.out.println("Please input desired conversion:\n[IM] Imperial to Metric\n[MI] Metric to Imperial\n");
             operation = scnr.next();
             if (!"MI".equals(operation) && !"IM".equals(operation)) {
                 System.out.println("");
@@ -56,7 +62,7 @@ public class Input {
         }
         else if (function.equals("d")) {
             System.out.println("");
-            System.out.println("Please input the desired derivative:\n[1] nx^a\n[2] sin(ax)\n[3] cos(ax)\n[4] tan(ax)\n[5] sinh(ax)\n[6] cosh(ax)\n[7] tanh(ax)\n[8] arcsin(ax)\n[9] arccos(ax)\n[10] arctan(ax)\n[11] ln(ax)\n[12] a/x\n[13] e^ax\n[14] sqrt(ax)");
+            System.out.println("Please input the desired derivative:\n[1] nx^a\n[2] sin(ax)\n[3] cos(ax)\n[4] tan(ax)\n[5] sinh(ax)\n[6] cosh(ax)\n[7] tanh(ax)\n[8] arcsin(ax)\n[9] arccos(ax)\n[10] arctan(ax)\n[11] ln(ax)\n[12] a/x\n[13] e^ax\n[14] sqrt(ax)\n");
             operationD = scnr.nextInt();
             if (operationD > 14 || operationD < 1) {
                 System.out.println("");
@@ -71,7 +77,7 @@ public class Input {
     public void setNumVals() {
         if (operation.equals("Add") || operation.equals("Multiply")) {
             System.out.println("");
-            System.out.println("Please input the number of values (2-100)");
+            System.out.println("Please input the number of values (2-100):");
             numVals = scnr.nextInt();
             if (numVals > 100 || numVals < 2) {
                 numVals = 0;
@@ -85,22 +91,27 @@ public class Input {
     public int getNumVals() {return numVals;}
 
     public int setConversion() {
-        if (operation.equals("MI")) {
-            System.out.println("");
-            System.out.println("Please input desired conversion:\n[1] Centimeter to Inch\n[2] Meter to Foot\n[3] Kilometer to Mile\n[4] Kilogram to Pound\n[5] Gram to Ounce\n[6] Liter to Gallon");
+        int metricImperialID = ("MI".equals(operation)) ? METRIC_IMPERIAL_ID : IMPERIAL_METRIC_ID;
+
+        System.out.println("\nPlease input desiered conversions:\n");
+
+        for (int i = 0; i < conversionOptions[metricImperialID].length; i++){
+            System.out.print("[" + (i + 1) + "] " + conversionOptions[metricImperialID][i]);
         }
-        if (operation.equals("IM")) {
-            System.out.println("");
-            System.out.println("Please input desired conversion:\n[1] Inch to Centimeter\n[2] Foot to Meter\n[3] Mile to Kilometer\n[4] Pound to Kilogram\n[5] Ounce to Gram\n[6] Gallon to Liter");
-        }
+
+        System.out.println("");
+
         conversion = scnr.nextInt();
-        if (conversion > 6 || conversion < 1) {
-            System.out.println("");
-            System.out.println("Invalid conversion.");
+
+        if (conversion > 6 || conversion < 1){
+            System.out.println("\nInvalid conversion.");
             setConversion();
         }
+
+        System.out.println("\nYou chose: " + conversionOptions[metricImperialID][conversion - 1] + ".");
         return conversion;
     }
+
     public int getConversion() {return conversion;}
 
     public void setUserArray() {
