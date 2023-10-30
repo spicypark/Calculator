@@ -8,9 +8,9 @@ This calculator has three currently implemented modes: Arithmetic, Graphing, and
 
 ## Roadmap
 *This roadmap is not final and changes may be added or removed during, before, or after the expected dates.*
-### Version 2.2.0
+# Version 2.2.0 is coming.
 Expected release: November 2023<br>
-Version 2.2.0 will be the next update to Calculator. Included in this update may be an integrated Derivative mode and a user option to toggle battery limit.
+Version 2.2.0 will be the next update to Calculator. Included in this update will be an integrated Derivative mode that can solve 14 different simple derivatives and a user option to toggle battery limit.
 ### Version 2.3.0
 Expected release: Summer 2024<br>
 Version 2.3.0 will be the update following 2.2.0. Included in this update may be a revamped Graphing mode, including more graphing options and improved graphing function.
