@@ -64,8 +64,8 @@ public class Operations {
         if (userGraphOp == 1) {
             System.out.println("");
             System.out.println("\nPlease input slope and y-intercept:");
-            double userSlope = scnr.nextDouble();
-            double userYInt = scnr.nextDouble();
+            double userSlope = Input.getUserDouble(scnr);
+            double userYInt = Input.getUserDouble(scnr);
 
             for (int j = 0; j < 31; j++) {
 
@@ -85,11 +85,11 @@ public class Operations {
         else if (userGraphOp == 2) {
             System.out.println("");
             System.out.println("Please input a, b, and c values:");
-            double aValQ = scnr.nextDouble();
+            double aValQ = Input.getUserDouble(scnr);
             System.out.println(aValQ);
-            double bValQ = scnr.nextDouble();
+            double bValQ = Input.getUserDouble(scnr);
             System.out.println(bValQ);
-            double cValQ = scnr.nextDouble();
+            double cValQ = Input.getUserDouble(scnr);
             System.out.println(cValQ);
 
             for (int k = 0; k < 31; k++) {
@@ -110,10 +110,10 @@ public class Operations {
         else if (userGraphOp == 3) {
             System.out.println("");
             System.out.println("Please input a, b, c, and d values:");
-            double aValC = scnr.nextDouble();
-            double bValC = scnr.nextDouble();
-            double cValC = scnr.nextDouble();
-            double dValC = scnr.nextDouble();
+            double aValC = Input.getUserDouble(scnr);
+            double bValC = Input.getUserDouble(scnr);
+            double cValC = Input.getUserDouble(scnr);
+            double dValC = Input.getUserDouble(scnr);
 
             for (int k = 0; k < 31; k++) {
 
@@ -133,7 +133,7 @@ public class Operations {
         else if (userGraphOp == 4) {
             System.out.println("");
             System.out.println("Please input a value:");
-            double aValE = scnr.nextDouble();
+            double aValE = Input.getUserDouble(scnr);
 
             for (int k = 0; k < 31; k++) {
                 userX = k;
@@ -215,4 +215,6 @@ public class Operations {
         else {result = userArray[0] * 3.78541;}
         return result;
     }
+
+    
 }

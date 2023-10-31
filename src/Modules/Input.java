@@ -23,7 +23,7 @@ public class Input {
     public void setOperation() {
         if (function.equals("a")) {
             System.out.println("\nPlease input an operation:\n[1] Add\n[2] Subtract\n[3] Multiply\n[4] Divide\n[5] CircleArea\n[6] CircleCircumference\n[7] SphereSurface\n[8] SphereVolume");
-            operation = scnr.nextInt();
+            operation = getUserInt(scnr);
             if (operation > 9 || operation < 1) {
                 System.out.println("\nInvalid operation.");
                 setOperation();
@@ -31,7 +31,7 @@ public class Input {
         }
         else if (function.equals("g")) {
             System.out.println("\nPlease input graphing function:\n[1] Linear\n[2] Quadratic\n[3] Cubic\n[4] Exponential");
-            operation = scnr.nextInt();
+            operation = getUserInt(scnr);
             if (operation > 4 || operation < 1) {
                 System.out.println("\nInvalid operation.");
                 setOperation();
@@ -39,7 +39,7 @@ public class Input {
         }
         else if (function.equals("c")) {
             System.out.println("\nPlease input desired conversion:\n[1] Imperial to Metric\n[2] Metric to Imperial");
-            operation = scnr.nextInt();
+            operation = getUserInt(scnr);
             if (operation > 2 || operation < 1) {
                 System.out.println("\nInvalid operation.");
                 setOperation();
@@ -47,7 +47,7 @@ public class Input {
         }
         else if (function.equals("d")) {
             System.out.println("\nPlease input the desired derivative:\n[1] nx^a\n[2] sin(ax)\n[3] cos(ax)\n[4] tan(ax)\n[5] sinh(ax)\n[6] cosh(ax)\n[7] tanh(ax)\n[8] arcsin(ax)\n[9] arccos(ax)\n[10] arctan(ax)\n[11] ln(ax)\n[12] a/x\n[13] e^ax\n[14] sqrt(ax)");
-            operation = scnr.nextInt();
+            operation = getUserInt(scnr);
             if (operation > 14 || operation < 1) {
                 System.out.println("\nInvalid operation.");
                 setOperation();
@@ -60,7 +60,7 @@ public class Input {
         if (function.equals("a")) {
             if (operation == 1 || operation == 3) {
                 System.out.println("\nPlease input the number of values (2-100):");
-                numVals = scnr.nextInt();
+                numVals = getUserInt(scnr);
                 if (numVals > 100 || numVals < 2) {
                     numVals = 0;
                     System.out.println("\nInvalid number of values.");
@@ -82,7 +82,7 @@ public class Input {
         if (operation == 1) {
             System.out.println("\nPlease input desired conversion:\n[1] Inch to Centimeter\n[2] Foot to Meter\n[3] Mile to Kilometer\n[4] Pound to Kilogram\n[5] Ounce to Gram\n[6] Gallon to Liter");
         }
-        conversion = scnr.nextInt();
+        conversion = getUserInt(scnr);
         if (conversion > 6 || conversion < 1) {
             System.out.println("\nInvalid conversion.");
             setConversion();
@@ -97,28 +97,28 @@ public class Input {
         if (function.equals("a")) {
             if (operation >= 5 && operation <= 8) {
                 System.out.println("\nPlease input the radius:");
-                userArray[0] = scnr.nextDouble();
+                userArray[0] = getUserDouble(scnr);
             }
             else if (numVals <= 100 && numVals >= 2) {
                 System.out.println("\nPlease input your values:");
                 for (int i = 0; i < numVals; i++) {
-                    userArray[i] = scnr.nextDouble();
+                    userArray[i] = getUserDouble(scnr);
                 }
             }
         }
         else if (function.equals("c")) {
             System.out.println("\nPlease input the number of units to be converted:");
-            userArray[0] = scnr.nextDouble();
+            userArray[0] = getUserDouble(scnr);
         }
         else if (function.equals("d")) {
             if (operation == 1) {
                 System.out.println("\nPlease input your n and a values:");
-                userArray[0] = scnr.nextDouble();
-                userArray[1] = scnr.nextDouble();
+                userArray[0] = getUserDouble(scnr);
+                userArray[1] = getUserDouble(scnr);
             }
             else {
                 System.out.println("\nPlease input your a value:");
-                userArray[0] = scnr.nextDouble();
+                userArray[0] = getUserDouble(scnr);
             }
         }
     }
@@ -151,4 +151,41 @@ public class Input {
         return userPlane;
     }
     public String[][] getUserPlane() {return userPlane;}
+
+    public static int getUserInt(Scanner scnr){
+        return getUserInt(scnr, "\nInvalid response \n\nEnter a valid response: ");
+    }
+    
+    public static int getUserInt(Scanner scnr, String prompt){
+        while (true){
+            try {
+                int x = scnr.nextInt();
+                return x;
+            } catch (Exception e){
+                System.out.println(prompt);
+                scnr.nextLine();
+                continue;
+            }
+        }
+    }
+    
+
+    public static double getUserDouble(Scanner scnr){
+        return getUserDouble(scnr, "\nInvalid response\n\nEnter a valid response: ");
+    }
+
+    public static double getUserDouble(Scanner scnr, String prompt){
+        while (true){
+            try {
+                double x = scnr.nextDouble();
+                return x;
+            } catch (Exception e){
+                System.out.println(prompt);
+                scnr.nextLine();
+                continue;
+            }
+        }
+    }
+
+
 }

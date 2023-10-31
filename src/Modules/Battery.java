@@ -9,7 +9,7 @@ public class Battery {
     
     public void setBatteryLimit() {
         System.out.println("\nPlease input desired battery limit:");
-        batteryLimit = scnr.nextInt();
+        batteryLimit = Input.getUserInt(scnr);
     }
     
     public int getBatteryLimit() {
