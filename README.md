@@ -45,12 +45,12 @@ Version 3.0.0 will be a major update and will completely rehaul all modules and 
 - Bug fixes in Input.java
 - Derivative mode is under development and is not yet functional<br>
 
-10.31.2023 - 2.2.0-pr
-- All 2.2.0 features are in pre-release
-- Known bugs exist and will be patched before full release
-
 10.29.2023 - 2.1.2
 - Major rehaul of operation input in Input.java
 - Operation selection for Arithmetic and Graphing modes are now numerical, similar to Conversion and, in the future, Derivative
 - Numerical operation selection significantly improves the speed and comfort of operation for the user
 - Various efficiency optimizations
+
+10.31.2023 - 2.2.0-pr
+- All 2.2.0 features are in pre-release
+- Known bugs exist and will be patched before full release
