@@ -57,16 +57,21 @@ public class Input {
     public int getOperation() {return operation;}
 
     public void setNumVals() {
-        if (operation == 1 || operation == 3) {
-            System.out.println("\nPlease input the number of values (2-100):");
-            numVals = scnr.nextInt();
-            if (numVals > 100 || numVals < 2) {
-                numVals = 0;
-                System.out.println("\nInvalid number of values.");
-                setNumVals();
+        if (function.equals("a")) {
+            if (operation == 1 || operation == 3) {
+                System.out.println("\nPlease input the number of values (2-100):");
+                numVals = scnr.nextInt();
+                if (numVals > 100 || numVals < 2) {
+                    numVals = 0;
+                    System.out.println("\nInvalid number of values.");
+                    setNumVals();
+                }
             }
+            else if (operation == 2 || operation == 4) {numVals = 2;}
         }
-        else if (operation == 2 || operation == 4) {numVals = 2;}
+        else if (function.equals("d")) {
+            if (operation == 1) {numVals = 2;}
+        }
     }
     public int getNumVals() {return numVals;}
 
@@ -106,7 +111,15 @@ public class Input {
             userArray[0] = scnr.nextDouble();
         }
         else if (function.equals("d")) {
-
+            if (operation == 1) {
+                System.out.println("\nPlease input your n and a values:");
+                userArray[0] = scnr.nextDouble();
+                userArray[1] = scnr.nextDouble();
+            }
+            else {
+                System.out.println("\nPlease input your a value:");
+                userArray[0] = scnr.nextDouble();
+            }
         }
     }
     public double[] getUserArray() {return userArray;}

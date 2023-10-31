@@ -8,7 +8,7 @@ public class Output {
         int numVals = input.getNumVals();
         String function = input.getFunction();
         boolean found = false;
-        //TODO: make arithmetic and graphing operation a number input instead of string for better accessibility
+
         if (function.equals("a")) {
             switch (input.getOperation()) {
 
@@ -181,10 +181,79 @@ public class Output {
             
         }
         else if (function.equals("d")) {
+            double[] dUserArray = input.getUserArray();
+            
             switch (input.getOperation()) {
 
                 case 1:
-                    System.out.println();
+                    System.out.println("");
+                    if (dUserArray[1] == 1) {System.out.println(dUserArray[0]);}
+                    else {System.out.println((dUserArray[0] * dUserArray[1]) + "x^" + (dUserArray[1] - 1));}
+                    break;
+                
+                case 2:
+                    System.out.println("");
+                    System.out.println(dUserArray[0] + "cos(" + dUserArray[0] + "x)");
+                    break;
+
+                case 3:
+                    System.out.println("");
+                    System.out.println("-" + dUserArray[0] + "sin(" + dUserArray[0] + "x)");
+                    break;
+
+                case 4:
+                    System.out.println("");
+                    System.out.println(dUserArray[0] + "/cos^2(" + dUserArray[0] + "x)");
+                    break;
+
+                case 5:
+                    System.out.println("");
+                    System.out.println(dUserArray[0] + "cosh(" + dUserArray[0] + "x)");
+                    break;
+
+                case 6:
+                    System.out.println("");
+                    System.out.println(dUserArray[0] + "sinh(" + dUserArray[0] + "x)");
+                    break;
+
+                case 7:
+                    System.out.println("");
+                    System.out.println(dUserArray[0] + "/cosh^2(" + dUserArray[0] + "x)");
+                    break;
+
+                case 8:
+                    System.out.println("");
+                    System.out.println(dUserArray[0] + "/sqrt(1-" + Math.pow(dUserArray[0], 2) + "x^2)");
+                    break;
+
+                case 9:
+                    System.out.println("");
+                    System.out.println("-" + dUserArray[0] + "/sqrt(1-" + Math.pow(dUserArray[0], 2) + "x^2)");
+                    break;
+
+                case 10:
+                    System.out.println("");
+                    System.out.println(dUserArray[0] + "/1+" + Math.pow(dUserArray[0], 2) + "x^2");
+                    break;
+
+                case 11:
+                    System.out.println("\n1/x, x>0");
+                    break;
+
+                case 12:
+                    System.out.println("");
+                    System.out.println("-" + dUserArray[0] + "/x^2");
+                    break;
+
+                case 13:
+                    if (dUserArray[0] == 1) System.out.println("\ne^x");
+                    else System.out.println("\n" + dUserArray[0] + "e^" + dUserArray[0] + "x");
+                    break;
+
+                case 14:
+                    System.out.println("");
+                    System.out.println("\n" + Math.sqrt(dUserArray[0]) + "/2sqrt(x)");
+                    break;
 
             }
         }
