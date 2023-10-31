@@ -3,12 +3,11 @@
 ***Disclaimer:
 Portions of this code are extremely old and may seem extremely redundant or erroneous, however, this program does work as intended.***
 
-# Version 2.2.0 is coming.
-Expected release: November 2023<br>
-Version 2.2.0 will be the next large update to Calculator. Included in this update will be an integrated Derivative mode that can solve 14 different simple derivatives and a user option to toggle battery limit.
+# Version 2.2.0 is in pre-release.
+The expected full release date for this update is in November 2023. Included in 2.2.0 is an integrated Derivative mode capable of solving 14 simple derivatives, a user option to set battery limit, and various performance and interaction changes.
 
 ## Overview
-This calculator has three currently implemented modes: Arithmetic, Graphing, and Conversion. The Arithmetic mode has functions such as adding, subtracting, dividing, multiplying, and various circle and sphere calculations. The Graphing mode can graph four types of functions: linear, quadratic, cubic, and exponential. The Conversion mode can calculate six different conversions, each with a metric to imperial or imperial to metric option.
+This calculator has three currently implemented modes: Arithmetic, Graphing, and Conversion. The Arithmetic mode has functions such as adding, subtracting, multiplying, dividing, and various circle and sphere calculations. The Graphing mode can graph four types of functions: linear, quadratic, cubic, and exponential. The Conversion mode can calculate six different conversions, each with a metric to imperial or imperial to metric option.
 
 ## Roadmap
 *This roadmap is not final and changes may be added or removed during, before, or after the expected dates.*
@@ -45,6 +44,10 @@ Version 3.0.0 will be a major update and will completely rehaul all modules and 
 10.28.2023 - 2.1.1
 - Bug fixes in Input.java
 - Derivative mode is under development and is not yet functional<br>
+
+10.31.2023 - 2.2.0-pr
+- All 2.2.0 features are in pre-release
+- Known bugs exist and will be patched before full release
 
 10.29.2023 - 2.1.2
 - Major rehaul of operation input in Input.java
