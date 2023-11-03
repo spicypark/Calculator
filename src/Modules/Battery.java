@@ -3,13 +3,14 @@ import java.util.Scanner;
 
 public class Battery {
     Scanner scnr = new Scanner(System.in);
+    Input input = new Input();
     private boolean continueUsing = true;
     private int useInstance = 0;
     private int batteryLimit;
     
     public void setBatteryLimit() {
         System.out.println("\nPlease input desired battery limit:");
-        batteryLimit = scnr.nextInt();
+        batteryLimit = input.getUserInt(scnr);
     }
     
     public int getBatteryLimit() {

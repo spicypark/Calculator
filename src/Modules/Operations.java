@@ -3,6 +3,7 @@ import java.util.Scanner;
 
 public class Operations {
     Scanner scnr = new Scanner(System.in);
+    Input input = new Input();
 
     public double runAddition(double[] inputArray) {
         double addResult = 0;
@@ -62,10 +63,9 @@ public class Operations {
         double userY;
 
         if (userGraphOp == 1) {
-            System.out.println("");
             System.out.println("\nPlease input slope and y-intercept:");
-            double userSlope = scnr.nextDouble();
-            double userYInt = scnr.nextDouble();
+            double userSlope = input.getUserDouble(scnr);
+            double userYInt = input.getUserDouble(scnr);
 
             for (int j = 0; j < 31; j++) {
 
@@ -83,13 +83,12 @@ public class Operations {
         }
         
         else if (userGraphOp == 2) {
-            System.out.println("");
-            System.out.println("Please input a, b, and c values:");
-            double aValQ = scnr.nextDouble();
+            System.out.println("\nPlease input a, b, and c values:");
+            double aValQ = input.getUserDouble(scnr);
             System.out.println(aValQ);
-            double bValQ = scnr.nextDouble();
+            double bValQ = input.getUserDouble(scnr);
             System.out.println(bValQ);
-            double cValQ = scnr.nextDouble();
+            double cValQ = input.getUserDouble(scnr);
             System.out.println(cValQ);
 
             for (int k = 0; k < 31; k++) {
@@ -108,12 +107,11 @@ public class Operations {
         }
 
         else if (userGraphOp == 3) {
-            System.out.println("");
-            System.out.println("Please input a, b, c, and d values:");
-            double aValC = scnr.nextDouble();
-            double bValC = scnr.nextDouble();
-            double cValC = scnr.nextDouble();
-            double dValC = scnr.nextDouble();
+            System.out.println("\nPlease input a, b, c, and d values:");
+            double aValC = input.getUserDouble(scnr);
+            double bValC = input.getUserDouble(scnr);
+            double cValC = input.getUserDouble(scnr);
+            double dValC = input.getUserDouble(scnr);
 
             for (int k = 0; k < 31; k++) {
 
@@ -131,9 +129,8 @@ public class Operations {
         }
 
         else if (userGraphOp == 4) {
-            System.out.println("");
-            System.out.println("Please input a value:");
-            double aValE = scnr.nextDouble();
+            System.out.println("\nPlease input a value:");
+            double aValE = input.getUserDouble(scnr);
 
             for (int k = 0; k < 31; k++) {
                 userX = k;

@@ -1,7 +1,7 @@
 /** MADE BY JERRY ZHENG
  *  INSPIRED BY NICHOLAS MOFFA
- *  THANKS TO JADEN TU, JASON GUO
- *  VERSION 2.2.0-PR
+ *  THANKS TO JASON GUO, JADEN TU
+ *  VERSION 2.2.0
  *  PORTIONS OF THIS CODE ARE EXTREMELY OLD
  */
 
@@ -11,13 +11,13 @@ import Modules.Output;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("\nMADE BY JERRY ZHENG\nINSPIRED BY NICHOLAS MOFFA\nTHANKS TO JADEN TU, JASON GUO\n\nVERSION 2.2.0-PR");
+        System.out.println("\nMADE BY JERRY ZHENG\nINSPIRED BY NICHOLAS MOFFA\nTHANKS TO JASON GUO, JADEN TU\n\nVERSION 2.2.0");
         Input input = new Input();
         Output output = new Output();
         Battery battery = new Battery();
         battery.setBatteryLimit();
         int batteryLimit = battery.getBatteryLimit();
-        while (battery.continueUse() && (battery.getInstance() < batteryLimit)) {
+        while ((battery.getInstance() < batteryLimit) && battery.continueUse()) {
             battery.increaseInstance();
             input.setFunction();
             if (input.getFunction().equals("a")) {
