@@ -157,15 +157,13 @@ public class Input {
     }
     
     public static int getUserInt(Scanner scnr, String prompt){
-        while (true){
-            try {
-                int x = scnr.nextInt();
-                return x;
-            } catch (Exception e){
-                System.out.println(prompt);
-                scnr.nextLine();
-                continue;
-            }
+        try {
+            int x = scnr.nextInt();
+            return x;
+        } catch (Exception e){
+            System.out.println(prompt);
+            scnr.nextLine();
+            return getUserInt(scnr, prompt);
         }
     }
     
@@ -175,15 +173,13 @@ public class Input {
     }
 
     public static double getUserDouble(Scanner scnr, String prompt){
-        while (true){
-            try {
-                double x = scnr.nextDouble();
-                return x;
-            } catch (Exception e){
-                System.out.println(prompt);
-                scnr.nextLine();
-                continue;
-            }
+        try {
+            double x = scnr.nextDouble();
+            return x;
+        } catch (Exception e){
+            System.out.println(prompt);
+            scnr.nextLine();
+            return getUserInt(scnr, prompt);
         }
     }
 
