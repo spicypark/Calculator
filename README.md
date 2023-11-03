@@ -1,23 +1,20 @@
-# Welcome to CalculatorV2.1.2!
+# Welcome to Calculator 2.2.0!
 
 ***Disclaimer:
 Portions of this code are extremely old and may seem extremely redundant or erroneous, however, this program does work as intended.***
 
-# Version 2.2.0 is in pre-release.
-The expected full release date for this update is in November 2023. Included in 2.2.0 is an integrated Derivative mode capable of solving 14 simple derivatives, a user option to set battery limit, and various performance and interaction changes.
-
 ## Overview
-This calculator has three currently implemented modes: Arithmetic, Graphing, and Conversion. The Arithmetic mode has functions such as adding, subtracting, multiplying, dividing, and various circle and sphere calculations. The Graphing mode can graph four types of functions: linear, quadratic, cubic, and exponential. The Conversion mode can calculate six different conversions, each with a metric to imperial or imperial to metric option.
+This calculator has four currently implemented modes: Arithmetic, Graphing, Conversion, and Derivative. The Arithmetic mode has functions such as adding, subtracting, multiplying, dividing, and various circle and sphere calculations. The Graphing mode can graph four types of functions: linear, quadratic, cubic, and exponential. The Conversion mode can calculate six different conversions, each with a metric to imperial or imperial to metric option. The Derivative mode can solve fourteen different simple derivatives.
 
 ## Roadmap
 *This roadmap is not final and changes may be added or removed during, before, or after the expected dates.*
 
 ### Version 2.3.0
 Expected release: Summer 2024<br>
-Version 2.3.0 will be the update following 2.2.0. Included in this update may be a revamped Graphing mode, including more graphing options and improved graphing function.
+Version 2.3.0 will be the next update. Included in this update may be a revamped Graphing mode, including more graphing options and improved graphing function.
 ### Version 3.0.0
 Expected release: Summer 2024<br>
-Version 3.0.0 will be a major update and will completely rehaul all modules and systems within the calculator. Code will likely be optimized much more than it is now. Included in this update will likely be a graphical user interface (GUI) for the calculator, which will complement the revamp to the Graphing mode as well as make it easier for the public to access the program. The expected release for this update is extremely tentative.
+Version 3.0.0 will be a major update and will completely rehaul all modules and systems within the calculator. Code will likely be optimized much more than it is now. Included in this update will likely be a graphical user interface (GUI) or web application for the calculator, which will complement the revamp to the Graphing mode as well as make it easier for the public to access the program. The expected release for this update is extremely tentative.
 
 ## Changelog
 ### 04.16.2023 - Alpha
@@ -54,3 +51,9 @@ Version 3.0.0 will be a major update and will completely rehaul all modules and 
 10.31.2023 - 2.2.0-pr
 - All 2.2.0 features are in pre-release
 - Known bugs exist and will be patched before full release
+
+### 11.03.2023 - 2.2.0
+- Integrated Derivative feature
+- User option to toggle battery limit
+- Various interaction changes
+- Major bug patch (thanks to rocketbooster1000 for discovering and fixing the bug)
