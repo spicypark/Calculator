@@ -1,3 +1,6 @@
+# Surpise Update! Version 2.3.0 is coming.
+Version 2.3.0 will not be what was previously described on the roadmap, with that particular update being bumped up to 2.4.0. This upcoming version can be expected to release mid to late November. Included in this update will be a new undisclosed mode (on the level of Arithmetic, Graphing, Conversion, and Derivative). This new mode will include several useful applications. This version may also initiate version 3.0.0, with code slowly starting to be migrated to a new and improved version (refer to roadmap). Whether 3.0.0 will be released or when it is released is tentative.
+
 # Welcome to Calculator 2.2.0!
 
 ***Disclaimer:
@@ -9,9 +12,9 @@ This calculator has four currently implemented modes: Arithmetic, Graphing, Conv
 ## Roadmap
 *This roadmap is not final and changes may be added or removed during, before, or after the expected dates.*
 
-### Version 2.3.0
+### Version 2.4.0
 Expected release: Summer 2024<br>
-Version 2.3.0 will be the next update. Included in this update may be a revamped Graphing mode, including more graphing options and improved graphing function.
+Version 2.4.0 will be the update following 2.3.0. Included in this update may be a revamped Graphing mode, including more graphing options and improved graphing function.
 ### Version 3.0.0
 Expected release: Summer 2024<br>
 Version 3.0.0 will be a major update and will completely rehaul all modules and systems within the calculator. Code will likely be optimized much more than it is now. Included in this update will likely be a graphical user interface (GUI) or web application for the calculator, which will complement the revamp to the Graphing mode as well as make it easier for the public to access the program. The expected release for this update is extremely tentative.
