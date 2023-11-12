@@ -1,4 +1,4 @@
-# Surpise Update! Version 2.3.0 is coming.
+# Version 2.3.0 is coming.
 Version 2.3.0 will not be what was previously described on the roadmap, with that particular update being bumped up to 2.4.0. This upcoming version can be expected to release mid to late November. Included in this update will be a new undisclosed mode (on the level of Arithmetic, Graphing, Conversion, and Derivative). This new mode will include several useful applications. This version may also initiate version 3.0.0, with code slowly starting to be migrated to a new and improved version (refer to roadmap). Whether 3.0.0 will be released or when it is released is tentative.
 
 # Welcome to Calculator 2.2.0!
