@@ -1,4 +1,5 @@
 package Modules;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Input {
@@ -9,11 +10,12 @@ public class Input {
     private static int conversion;
     private static double[] userArray;
     private static String[][] userPlane = new String[31][31];
+    private static ArrayList<String> s = new ArrayList();
 
     public void setFunction() {
-        System.out.println("\nPlease select desired function:\n[a] Arithmetic\n[g] Graphing\n[c] Conversion\n[d] Derivative");
+        System.out.println("\nPlease select desired function:\n[a] Arithmetic\n[g] Graphing\n[c] Conversion\n[d] Derivative\n[r] Random");
         function = scnr.next();
-        if (!function.equals("a") && !function.equals("g") && !function.equals("c") && !function.equals("d")) {
+        if (!function.equals("a") && !function.equals("g") && !function.equals("c") && !function.equals("d") && !function.equals("r")) {
             System.out.println("\nInvalid function.");
             setFunction();
         }
@@ -22,7 +24,7 @@ public class Input {
 
     public void setOperation() {
         if (function.equals("a")) {
-            System.out.println("\nPlease input an operation:\n[1] Add\n[2] Subtract\n[3] Multiply\n[4] Divide\n[5] CircleArea\n[6] CircleCircumference\n[7] SphereSurface\n[8] SphereVolume");
+            System.out.println("\nPlease input the desired operation:\n[1] Add\n[2] Subtract\n[3] Multiply\n[4] Divide\n[5] CircleArea\n[6] CircleCircumference\n[7] SphereSurface\n[8] SphereVolume");
             operation  = this.getUserInt(scnr);
             if (operation > 9 || operation < 1) {
                 System.out.println("\nInvalid operation.");
@@ -30,25 +32,33 @@ public class Input {
             }   
         }
         else if (function.equals("g")) {
-            System.out.println("\nPlease input graphing function:\n[1] Linear\n[2] Quadratic\n[3] Cubic\n[4] Exponential");
+            System.out.println("\nPlease input the desired graphing function:\n[1] Linear\n[2] Quadratic\n[3] Cubic\n[4] Exponential");
             operation  = this.getUserInt(scnr);
             if (operation > 4 || operation < 1) {
-                System.out.println("\nInvalid operation.");
+                System.out.println("\nInvalid graphing function.");
                 setOperation();
             }
         }
         else if (function.equals("c")) {
-            System.out.println("\nPlease input desired conversion:\n[1] Imperial to Metric\n[2] Metric to Imperial");
+            System.out.println("\nPlease input the desired conversion:\n[1] Imperial to Metric\n[2] Metric to Imperial");
             operation  = this.getUserInt(scnr);
             if (operation > 2 || operation < 1) {
-                System.out.println("\nInvalid operation.");
+                System.out.println("\nInvalid conversion.");
                 setOperation();
             }
         }
         else if (function.equals("d")) {
-            System.out.println("\nPlease input the desired derivative:\n[1] nx^a\n[2] sin(ax)\n[3] cos(ax)\n[4] tan(ax)\n[5] sinh(ax)\n[6] cosh(ax)\n[7] tanh(ax)\n[8] arcsin(ax)\n[9] arccos(ax)\n[10] arctan(ax)\n[11] ln(ax)\n[12] a/x\n[13] e^ax\n[14] sqrt(ax)");
+            System.out.println("\nPlease input the desired derivative:\n[1] nx^a\n[2] sin(ax)\n[3] cos(ax)\n[4] tan(ax)\n[5] sinh(ax)\n[6] cosh(ax)\n[7] tanh(ax)\n[8] arcsin(ax)\n[9] arccos(ax)\n[10] arctan(ax)\n[11] ln(ax)\n[12] a/x\n[13] e^ax\n[14] sqrt(ax)\n[15] a^x");
             operation  = this.getUserInt(scnr);
-            if (operation > 14 || operation < 1) {
+            if (operation > 15 || operation < 1) {
+                System.out.println("\nInvalid derivative.");
+                setOperation();
+            }
+        }
+        else if (function.equals("r")) {
+            System.out.println("\nPlease input the desired operation:\n[1] Random Number Generator\n[2] List Shuffler\n[3] Coin Flip");
+            operation = this.getUserInt(scnr);
+            if (operation > 3 || operation < 1) {
                 System.out.println("\nInvalid operation.");
                 setOperation();
             }
@@ -60,7 +70,7 @@ public class Input {
         if (function.equals("a")) {
             if (operation == 1 || operation == 3) {
                 System.out.println("\nPlease input the number of values (2-100):");
-                numVals  = this.getUserInt(scnr);
+                numVals = this.getUserInt(scnr);
                 if (numVals > 100 || numVals < 2) {
                     numVals = 0;
                     System.out.println("\nInvalid number of values.");
@@ -71,6 +81,23 @@ public class Input {
         }
         else if (function.equals("d")) {
             if (operation == 1) {numVals = 2;}
+        }
+        else if (function.equals("r") && operation == 1) {
+            System.out.println("\nPlease input the upper bound for your random number:");
+            numVals = this.getUserInt(scnr);
+            if (numVals > Integer.MAX_VALUE || numVals < 0) {
+                numVals = 0;
+                System.out.println("\nInvalid upper bound.");
+                setNumVals();
+            }
+        }
+        else if (function.equals("r") && operation == 3) {
+            System.out.println("\nPlease input the number of times you wish to flip the coin: ");
+            numVals = this.getUserInt(scnr);
+            if (numVals < 1) {
+                System.out.println("Invalid number.");
+                setNumVals();
+            }
         }
     }
     public int getNumVals() {return numVals;}
@@ -123,6 +150,21 @@ public class Input {
         }
     }
     public double[] getUserArray() {return userArray;}
+
+    public void setArrayList() {
+        if (operation == 2) {
+            s.clear();
+            boolean noEnd = true;
+            String input;
+            System.out.println("\nPlease input values to be scrambled. Separate all values by a space. To finish inputting, type \"END.\"");
+            while (noEnd) {
+                input = scnr.next();
+                if (input.equals("END")) noEnd = false;
+                else s.add(input);
+            }
+        }
+    }
+    public ArrayList getArrayList() {return s;}
 
     public void defineUserPlane() {
         for (int upYIndex = 0; upYIndex < 31; upYIndex++) {

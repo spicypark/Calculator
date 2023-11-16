@@ -1,9 +1,14 @@
 package Modules;
+
+import java.util.ArrayList;
+import java.util.Random;
+
 public class Output {
-    public void operationOutput() {
+    Operations operation = new Operations();
+    public void start() {
         double result = 0;
         Input input = new Input();
-        Operations operation = new Operations();
+        Random rand = new Random();
         double[] userArray = input.getUserArray();
         int numVals = input.getNumVals();
         String function = input.getFunction();
@@ -16,76 +21,56 @@ public class Output {
                     result = operation.runAddition(userArray);
                     System.out.println("");
                     for (int aIndex = 0; aIndex < numVals; aIndex++) {
-                        
                         String equalsPlace = numVals - aIndex > 1 ? " + " : " = ";
                         System.out.print(userArray[aIndex] + equalsPlace);
-
                     }
-
                     break;
 
                 case 2:
-
                     result = operation.runSubtraction(userArray);
                     System.out.println("");
                     System.out.print(userArray[0] + " - " + userArray[1] + " = ");
-
                     break;
 
                 case 3:
-
                     result = operation.runMultiplication(userArray);
                     System.out.println("");
                     for (int mIndex = 0; mIndex < numVals; mIndex++) {
-
                         String equalsPlace = numVals - mIndex > 1 ? " * " : " = ";
                         System.out.print(userArray[mIndex] + equalsPlace);
-
                     }
-
                     break;
 
                 case 4:
-
                     result = operation.runDivision(userArray);
                     System.out.println("");
                     if (result == 0) {
                         System.out.println("ERROR");
                         return;
                     }
-
                     else {
                         System.out.print(userArray[0] + " / " + userArray[1] + " = ");
                     }
-
                     break;
 
                 case 5:
-
                     result = operation.runCircleArea(userArray);
                     System.out.print("\nThe area of a circle with radius " + userArray[0] + " is ");
-
                     break;
 
                 case 6:
-
                     result = operation.runCircleCircumference(userArray);
                     System.out.print("\nThe circumference of a circle with radius " + userArray[0] + " is ");
-
                     break;
 
                 case 7:
-
                     result = operation.runSphereSurface(userArray);
                     System.out.print("\nThe surface area of a sphere with radius " + userArray[0] + " is ");
-
                     break;
 
                 case 8:
-
                     result = operation.runSphereVolume(userArray);
                     System.out.print("\nThe volume of a sphere with radius " + userArray[0] + " is ");
-
                     break;
 
                 case 9:
@@ -180,60 +165,56 @@ public class Output {
             }
             
         }
-        else if (function.equals("d")) {
-            double[] dUserArray = input.getUserArray();
-            
+        else if (function.equals("d")) {            
             switch (input.getOperation()) {
 
                 case 1:
                     System.out.println("");
-                    if (dUserArray[1] == 1) {System.out.println(dUserArray[0]);}
-                    else {System.out.println((dUserArray[0] * dUserArray[1]) + "x^" + (dUserArray[1] - 1));}
+                    if (userArray[1] == 1) {System.out.println(userArray[0]);}
+                    else {System.out.println((userArray[0] * userArray[1]) + "x^" + (userArray[1] - 1));}
                     break;
                 
                 case 2:
                     System.out.println("");
-                    System.out.println(dUserArray[0] + "cos(" + dUserArray[0] + "x)");
+                    System.out.println(userArray[0] + "cos(" + userArray[0] + "x)");
                     break;
 
                 case 3:
-                    System.out.println("");
-                    System.out.println("-" + dUserArray[0] + "sin(" + dUserArray[0] + "x)");
+                    System.out.println("\n-" + userArray[0] + "sin(" + userArray[0] + "x)");
                     break;
 
                 case 4:
                     System.out.println("");
-                    System.out.println(dUserArray[0] + "/cos^2(" + dUserArray[0] + "x)");
+                    System.out.println(userArray[0] + "/cos^2(" + userArray[0] + "x)");
                     break;
 
                 case 5:
                     System.out.println("");
-                    System.out.println(dUserArray[0] + "cosh(" + dUserArray[0] + "x)");
+                    System.out.println(userArray[0] + "cosh(" + userArray[0] + "x)");
                     break;
 
                 case 6:
                     System.out.println("");
-                    System.out.println(dUserArray[0] + "sinh(" + dUserArray[0] + "x)");
+                    System.out.println(userArray[0] + "sinh(" + userArray[0] + "x)");
                     break;
 
                 case 7:
                     System.out.println("");
-                    System.out.println(dUserArray[0] + "/cosh^2(" + dUserArray[0] + "x)");
+                    System.out.println(userArray[0] + "/cosh^2(" + userArray[0] + "x)");
                     break;
 
                 case 8:
                     System.out.println("");
-                    System.out.println(dUserArray[0] + "/sqrt(1-" + Math.pow(dUserArray[0], 2) + "x^2)");
+                    System.out.println(userArray[0] + "/sqrt(1-" + Math.pow(userArray[0], 2) + "x^2)");
                     break;
 
                 case 9:
-                    System.out.println("");
-                    System.out.println("-" + dUserArray[0] + "/sqrt(1-" + Math.pow(dUserArray[0], 2) + "x^2)");
+                    System.out.println("\n-" + userArray[0] + "/sqrt(1-" + Math.pow(userArray[0], 2) + "x^2)");
                     break;
 
                 case 10:
                     System.out.println("");
-                    System.out.println(dUserArray[0] + "/1+" + Math.pow(dUserArray[0], 2) + "x^2");
+                    System.out.println(userArray[0] + "/1+" + Math.pow(userArray[0], 2) + "x^2");
                     break;
 
                 case 11:
@@ -241,18 +222,48 @@ public class Output {
                     break;
 
                 case 12:
-                    System.out.println("");
-                    System.out.println("-" + dUserArray[0] + "/x^2");
+                    System.out.println("\n-" + userArray[0] + "/x^2");
                     break;
 
                 case 13:
-                    if (dUserArray[0] == 1) System.out.println("\ne^x");
-                    else System.out.println("\n" + dUserArray[0] + "e^" + dUserArray[0] + "x");
+                    if (userArray[0] == 1) System.out.println("\ne^x");
+                    else System.out.println("\n" + userArray[0] + "e^" + userArray[0] + "x");
                     break;
 
                 case 14:
+                    System.out.println("\n" + Math.sqrt(userArray[0]) + "/2sqrt(x)");
+                    break;
+                
+                case 15:
+                    System.out.println("\nln" + userArray[0] + "(" + userArray[0] + "^x)");
+                    break;
+
+            }
+        }
+        else if (function.equals("r")) {
+            switch (input.getOperation()) {
+
+                case 1:
+                    System.out.println(operation.randomNumGen(input.getNumVals()));
+                    break;
+                
+                case 2:
+                    ArrayList<String> s = operation.RSS(input.getArrayList());
                     System.out.println("");
-                    System.out.println("\n" + Math.sqrt(dUserArray[0]) + "/2sqrt(x)");
+                    for (int i = 0; i < s.size(); i++) {
+                        System.out.print(s.get(i) + " ");
+                    }
+                    System.out.println("");
+                    break;
+
+                case 3:
+                    int coinFlip;
+                    System.out.println("");
+                    for (int i = 0; i < input.getNumVals(); i++) {
+                        coinFlip = rand.nextInt(20000);
+                        if (coinFlip < 10000) System.out.println("Heads ");
+                        else if (coinFlip >= 10000) System.out.println("Tails ");
+                    }
                     break;
 
             }

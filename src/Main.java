@@ -1,7 +1,7 @@
 /** MADE BY JERRY ZHENG
  *  INSPIRED BY NICHOLAS MOFFA
  *  THANKS TO JASON GUO, JADEN TU
- *  VERSION 2.2.0
+ *  VERSION 2.3.0
  *  PORTIONS OF THIS CODE ARE EXTREMELY OLD
  */
 
@@ -11,35 +11,37 @@ import Modules.Output;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("\nMADE BY JERRY ZHENG\nINSPIRED BY NICHOLAS MOFFA\nTHANKS TO JASON GUO, JADEN TU\n\nVERSION 2.2.0");
+        System.out.println("\nMADE BY JERRY ZHENG\nINSPIRED BY NICHOLAS MOFFA\nTHANKS TO JASON GUO, JADEN TU\n\nVERSION 2.3.0");
         Input input = new Input();
         Output output = new Output();
         Battery battery = new Battery();
         battery.setBatteryLimit();
         int batteryLimit = battery.getBatteryLimit();
-        while ((battery.getInstance() < batteryLimit) && battery.continueUse()) {
+
+        while (battery.getInstance() < batteryLimit && battery.continueUse()) {
             battery.increaseInstance();
             input.setFunction();
+            input.setOperation();
             if (input.getFunction().equals("a")) {
-                input.setOperation();
                 input.setNumVals();
                 input.setUserArray();
             }
             else if (input.getFunction().equals("g")) {
-                input.setOperation();
                 input.defineUserPlane();
             }
             else if (input.getFunction().equals("c")) {
-                input.setOperation();
                 input.setConversion();
                 input.setUserArray();
             }
             else if (input.getFunction().equals("d")) {
-                input.setOperation();
                 input.setNumVals();
                 input.setUserArray();
             }
-            output.operationOutput();
+            else if (input.getFunction().equals("r")) {
+                input.setNumVals();
+                input.setArrayList();
+            }
+            output.start();
         }
     }
 }
