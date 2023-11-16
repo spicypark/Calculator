@@ -1,4 +1,4 @@
-# Welcome to Calculator 2.3.0!
+# Welcome to Calculator 2.3.1!
 
 ***Disclaimer:
 Portions of this code are extremely old and may seem extremely redundant or erroneous, however, this program does work as intended.***
@@ -62,4 +62,9 @@ Version 3.0.0 will be a major update and will completely rehaul all modules and 
 - Integrated Random feature
 - Added fifteenth derivative to Derivative mode (a^x)
 - Refactoring and optimization
-- Code format and output standardization
+- Code format and output standardization<br>
+
+11.16.2023 - 2.3.1
+- Derivatives 11, 14, 15 fixed
+- Battery restrictions fixed
+- Random number generator restrictions fixed
