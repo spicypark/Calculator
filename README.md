@@ -59,7 +59,7 @@ Version 3.0.0 will be a major update and will completely rehaul all modules and 
 - Major bug patch (thanks to rocketbooster1000 for discovering and fixing the bug)
 
 ### 11.15.2023 - 2.3.0
-- Integrated Random Feature
+- Integrated Random feature
 - Added fifteenth derivative to Derivative mode (a^x)
 - Refactoring and optimization
 - Code format and output standardization
