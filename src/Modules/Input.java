@@ -67,6 +67,7 @@ public class Input {
     public int getOperation() {return operation;}
 
     public void setNumVals() {
+        numVals = 1;
         if (function.equals("a")) {
             if (operation == 1 || operation == 3) {
                 System.out.println("\nPlease input the number of values (2-100):");
@@ -85,7 +86,7 @@ public class Input {
         else if (function.equals("r") && operation == 1) {
             System.out.println("\nPlease input the upper bound for your random number:");
             numVals = this.getUserInt(scnr);
-            if (numVals > Integer.MAX_VALUE || numVals < 0) {
+            if (numVals > Integer.MAX_VALUE || numVals < 1) {
                 numVals = 0;
                 System.out.println("\nInvalid upper bound.");
                 setNumVals();
@@ -146,6 +147,10 @@ public class Input {
             else {
                 System.out.println("\nPlease input your a value:");
                 userArray[0] = this.getUserDouble(scnr);
+                if (operation == 14 && userArray[0] < 0) {
+                    System.out.println("Please do not input a negative number.");
+                    setUserArray();
+                }
             }
         }
     }

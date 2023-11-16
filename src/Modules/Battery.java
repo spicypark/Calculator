@@ -11,8 +11,11 @@ public class Battery {
     public void setBatteryLimit() {
         System.out.println("\nPlease input desired battery limit:");
         batteryLimit = input.getUserInt(scnr);
+        if (batteryLimit < 1) {
+            System.out.println("Invalid battery limit.");
+            setBatteryLimit();
+        }
     }
-    
     public int getBatteryLimit() {
         return batteryLimit;
     }

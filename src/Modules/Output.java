@@ -218,7 +218,9 @@ public class Output {
                     break;
 
                 case 11:
-                    System.out.println("\n1/x, x>0");
+                    if (userArray[0] > 0) System.out.println("\n1/x, x>0");
+                    else if (userArray[0] == 0) System.out.println("\nDNE");
+                    else if (userArray[0] < 0) System.out.println("\n1/x, x<0");
                     break;
 
                 case 12:
@@ -231,11 +233,14 @@ public class Output {
                     break;
 
                 case 14:
-                    System.out.println("\n" + Math.sqrt(userArray[0]) + "/2sqrt(x)");
+                    if (userArray[0] == 0) System.out.println("\n0");
+                    else System.out.println("\n" + Math.sqrt(userArray[0]) + "/2sqrt(x)");
                     break;
                 
                 case 15:
-                    System.out.println("\nln" + userArray[0] + "(" + userArray[0] + "^x)");
+                    if (userArray[0] > 0) System.out.println("\nln" + userArray[0] + "(" + userArray[0] + "^x)");
+                    else if (userArray[0] < 0) System.out.println("\nDNE");
+                    else if (userArray[0] == 0) System.out.println("\n0");
                     break;
 
             }
