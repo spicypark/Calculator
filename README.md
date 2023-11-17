@@ -56,7 +56,7 @@ Version 3.0.0 will be a major update and will completely rehaul all modules and 
 - Integrated Derivative feature
 - User option to toggle battery limit
 - Various interaction changes
-- Major bug patch (thanks to rocketbooster1000 for discovering and fixing the bug)
+- Major bug patch (thanks to [@rocketbooster1000](https://github.com/rocketbooster1000) for discovering and fixing the bug)
 
 ### 11.15.2023 - 2.3.0
 - Integrated Random feature
