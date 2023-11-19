@@ -5,15 +5,8 @@
  *  PORTIONS OF THIS CODE ARE EXTREMELY OLD
  */
 
-import Modules.Battery;
-import Modules.Input;
-import Modules.Output;
-import Graphics.ArithmeticPanel;
-import Graphics.ConversionPanel;
-import Graphics.DerivativePanel;
-import Graphics.GraphingPanel;
-import Graphics.HomePanel;
-import Graphics.RandomPanel;
+import Modules.*;
+import Graphics.*;
 import javax.swing.*;
 
 public class Main {
