@@ -9,6 +9,9 @@ This calculator has five currently implemented modes: Arithmetic, Graphing, Conv
 The changelog for this application may be viewed in the wiki.<br>
 https://github.com/SpicyPark/Calculator/wiki
 
+## How to use this program
+Coming soon.
+
 ## Roadmap
 *This roadmap is not final and changes may be added or removed during, before, or after the expected dates.*
 
