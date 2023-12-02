@@ -1,4 +1,4 @@
-package Modules;
+package Archive;
 import java.util.Scanner;
 
 public class Battery {

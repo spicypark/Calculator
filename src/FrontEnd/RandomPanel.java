@@ -1,4 +1,4 @@
-package Graphics;
+package FrontEnd;
 import javax.swing.*;
 import java.awt.*;
 
