@@ -1,6 +1,6 @@
-/** MADE BY JERRY ZHENG
- *  INSPIRED BY NICHOLAS MOFFA
- *  THANKS TO JASON GUO, JADEN TU
+/** MADE BY SPICYPARK
+ *  INSPIRED BY NICHOLAS
+ *  THANKS TO ROCKETBOOSTER1K, INFINITELESS
  *  VERSION 2.3.1
  *  PORTIONS OF THIS CODE ARE EXTREMELY OLD
  */
@@ -11,7 +11,7 @@ import Modules.Output;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("\nMADE BY JERRY ZHENG\nINSPIRED BY NICHOLAS MOFFA\nTHANKS TO JASON GUO, JADEN TU\n\nVERSION 2.3.1");
+        System.out.println("\nMADE BY SPICYPARK\nINSPIRED BY NICHOLAS\nTHANKS TO ROCKETBOOSTER1K, INFINITELESS\n\nVERSION 2.3.1");
         Input input = new Input();
         Output output = new Output();
         Battery battery = new Battery();
