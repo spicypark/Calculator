@@ -9,16 +9,17 @@ public class Operations {
     Scanner scnr = new Scanner(System.in);
     Random rand = new Random();
     NumberFormat decimal = new DecimalFormat("#0.00000");
-    static double result = 0;
+    double result = 0;
     //ARITHMETIC OPERATIONS
 
-    public static void main(String[] args) { //TODO test class
+    public void main(String[] args) { //TODO test class
         //System.out.println("FINAL SOLUTION " + getFirstOrder("5*4*4*3/2.5/32.4224"));//*6/2+2
         //double bruh = calculate("-3+5/54/-35*2+4/3+4*2-1");
-        double bruh2 = calculate("5/54/-35*2+5+5*5*5+43.33");
+        double bruh2 = calculate("5.4+3.5*61-56.2314+4+3/5*40");
+        System.out.println("FINAL RESULT " + bruh2);
     }
 
-    // public static double runFirstOrder(String eq) {
+    // public double runFirstOrder(String eq) {
     //     double result = 0;
     //     ArrayList<String> firstOperators = new ArrayList<>();
     //     ArrayList<Integer> firstOperatorIndexes = new ArrayList<>();
@@ -107,7 +108,7 @@ public class Operations {
     //     return result;
     // }
 
-    public static double runFirstOrder(String eq) {
+    public double runFirstOrder(String eq) {
         ArrayList<String> firstOperators = new ArrayList<>();
         ArrayList<Integer> firstOperatorIndexes = new ArrayList<>();
         ArrayList<Integer> negativeIndexes = new ArrayList<>();
@@ -194,11 +195,11 @@ public class Operations {
         return result;
     }
 
-    public static double getFirstOrder(String eq) {
+    public double getFirstOrder(String eq) {
         return runFirstOrder(eq);
     }
 
-    public static ArrayList<String> splitFirstOrder(String eq) {
+    public ArrayList<String> splitFirstOrder(String eq) {
         ArrayList<String> operands = new ArrayList<>();
         ArrayList<Integer> breaks = new ArrayList<>();
         char before;
@@ -223,17 +224,14 @@ public class Operations {
         return operands;
     }
 
-    //TODO this thing here
-    public static double runSecondOrder(String eq) {
+    public double runSecondOrder(String eq) {
         double result = 0;
-        ArrayList<String> operands = splitFirstOrder(eq);//ADD BACK this.
+        ArrayList<String> operands = this.splitFirstOrder(eq);
         ArrayList<Double> processedOperands = new ArrayList<>();
-        ArrayList<String> bruhOperators = new ArrayList<>();
-        ArrayList<Integer> bruhOperatorIndexes = new ArrayList<>();
-        int opIndex = 0;
+        ArrayList<Character> secondOperators = new ArrayList<>();
 
         for (int i = 0; i < operands.size(); i++) {
-            if (operands.get(i).contains("*") || operands.get(i).contains("*")) processedOperands.add(getFirstOrder(operands.get(i)));//ADD BACK this.
+            if (operands.get(i).contains("*") || operands.get(i).contains("/")) processedOperands.add(this.getFirstOrder(operands.get(i)));
             else processedOperands.add(Double.parseDouble(operands.get(i)));
         }
         System.out.println("-------");
@@ -241,18 +239,24 @@ public class Operations {
         
         for (int i = 0; i < eq.length(); i++) {
             Character c = eq.charAt(i);
-            // if (c.equal s('+') || c.equals('-')) {
-            //     firstOperators.add(c.toString());
-            //     firstOperators.add("" + opIndex);
-            //     opIndex++;
-            //     firstOperatorIndexes.add(i);
-            // }
+            Character before = '~';
+            if (i > 0) before = eq.charAt(i - 1); 
+            if (c == '+' || (c == '-' && before != '*' && before != '/')) secondOperators.add(c);
+        }
+
+        for (int i = 0; i < secondOperators.size(); i++) {
+            double left = processedOperands.get(i);
+            double right = processedOperands.get(i + 1);
+            if (i == 0 && secondOperators.get(i) == '+') result = left + right;
+            else if (i == 0 && secondOperators.get(i) == '-') result = left - right;
+            else if (secondOperators.get(i) == '+') result += right;
+            else if (secondOperators.get(i) == '-') result -= right;
         }
         
         return result;
     }
 
-    public static double calculate(String eq) {
+    public double calculate(String eq) {
         return runSecondOrder(eq);
     }
 
