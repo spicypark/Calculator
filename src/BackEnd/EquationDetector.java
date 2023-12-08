@@ -61,6 +61,7 @@ public class EquationDetector {
     public boolean detectArithmetic(String eq) {
         boolean detected = false;
         boolean continueDetecting = true;
+        boolean hasDecimal = false;
         if (eq.length() <= 2) {
             return false;
         }
@@ -69,6 +70,7 @@ public class EquationDetector {
                 Character c = eq.charAt(i);
                 Character next = '%';
                 Character afterNext = '%';
+                Character afterAfterNext = '%';
 
                 if (i < eq.length() - 1) {
                     next = eq.charAt(i + 1);
@@ -76,6 +78,10 @@ public class EquationDetector {
 
                 if (i < eq.length() - 2) {
                     afterNext = eq.charAt(i + 2);
+                }
+
+                if (i < eq.length() - 3) {
+                    afterAfterNext = eq.charAt(i + 3);
                 }
                 
                 if (!c.equals('/') && !c.equals('*') && !c.equals('+') && !c.equals('-') && !Character.isDigit(c) && !c.equals('.') ) {
@@ -92,20 +98,77 @@ public class EquationDetector {
                     }
                 }
                 else if (c.equals('+') || c.equals('-') || c.equals('*') || c.equals('/')) {
-                    if (c.equals('/') && (next.equals('0') || (next.equals('-') && afterNext.equals('0')))) continueDetecting = false;
+                    if (c.equals('/') && ((next.equals('0') && Character.isDigit(afterNext)) || (next.equals('-') && afterNext.equals('0') && Character.isDigit(afterAfterNext)))) continueDetecting = true;
+                    else if (c.equals('/') && (next.equals('0') || (next.equals('-') && afterNext.equals('0')))) continueDetecting = false;
                     else if ((c.equals('*') || c.equals('/')) && next.equals('-')) continueDetecting = true;
                     else if (c.equals('-') && i == 0 && Character.isDigit(next)) continueDetecting = true;
                     else if (i == eq.length() - 1) continueDetecting = false;
                     else if (!Character.isDigit(next)) {
                         continueDetecting = false;
                     }
+                    hasDecimal = false;
                 }
-                else if (!c.equals('.')) {
-                    if (!Character.isDigit(next)) continueDetecting = false;
+                else if (c.equals('.')) {
+                    System.out.println(i + " ----- " + hasDecimal);
+                    if (hasDecimal) continueDetecting = false;
+                    else hasDecimal = true;
                 }
             }
             if ((i == eq.length() - 1) && continueDetecting) detected = true;
         }
         return detected;
     }
+
+    // public boolean detectArithmetic2(String eq) {
+    //     boolean detected = false;
+    //     boolean continueDetecting = true;
+    //     String[] splitArray = eq.split("[-\\+/\\*]");
+
+    //     if (eq.length() <= 2) {
+    //         return false;
+    //     }
+    //     for (int i = 0; i < eq.length(); i++) {
+    //         if (continueDetecting) {
+    //             Character c = eq.charAt(i);
+    //             Character next = '%';
+    //             Character afterNext = '%';
+
+    //             if (i < eq.length() - 1) {
+    //                 next = eq.charAt(i + 1);
+    //             }
+
+    //             if (i < eq.length() - 2) {
+    //                 afterNext = eq.charAt(i + 2);
+    //             }
+                
+    //             if (!c.equals('/') && !c.equals('*') && !c.equals('+') && !c.equals('-') && !Character.isDigit(c) && !c.equals('.') ) {
+    //                 continueDetecting = false;
+    //                 continue;
+    //             }
+    //             else if (!eq.contains("+") && !eq.contains("-") && !eq.contains("*") && !eq.contains("/")) {
+    //                 continueDetecting = false;
+    //                 continue;
+    //             }
+    //             else if (Character.isDigit(c))  {
+    //                 if (!Character.isDigit(next) && !next.equals('*') && !next.equals('+') && !next.equals('-') && !next.equals('/') && i != eq.length() - 1 && !next.equals('.')) {
+    //                     continueDetecting = false;
+    //                 }
+    //             }
+    //             else if (c.equals('+') || c.equals('-') || c.equals('*') || c.equals('/')) {
+    //                 if (c.equals('/') && (next.equals('0') || (next.equals('-') && afterNext.equals('0')))) continueDetecting = false;
+    //                 else if ((c.equals('*') || c.equals('/')) && next.equals('-')) continueDetecting = true;
+    //                 else if (c.equals('-') && i == 0 && Character.isDigit(next)) continueDetecting = true;
+    //                 else if (i == eq.length() - 1) continueDetecting = false;
+    //                 else if (!Character.isDigit(next)) {
+    //                     continueDetecting = false;
+    //                 }
+    //             }
+    //             else if (!c.equals('.')) {
+    //                 if (!Character.isDigit(next)) continueDetecting = false;
+    //             }
+    //         }
+    //         if ((i == eq.length() - 1) && continueDetecting) detected = true;
+    //     }
+    //     return detected;
+    // }
 }

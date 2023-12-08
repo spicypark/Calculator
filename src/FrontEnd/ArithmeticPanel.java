@@ -38,7 +38,7 @@ public class ArithmeticPanel extends JPanel{
                     input.setText("Please input your equation here.");
                 }
                 else {
-                    solutionD = decimal.format(operation.getArithmetic(equation));
+                    solutionD = decimal.format(operation.calculate(equation));
                     System.out.println("THE SOLUTION HANDED TO APANEL IS " + solutionD);
                     solution.setText("Solution: " + solutionD);
                 }

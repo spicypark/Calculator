@@ -9,19 +9,107 @@ public class Operations {
     Scanner scnr = new Scanner(System.in);
     Random rand = new Random();
     NumberFormat decimal = new DecimalFormat("#0.00000");
-    double result;
-
+    static double result = 0;
     //ARITHMETIC OPERATIONS
 
-    // public static void main(String[] args) {//TODO test class
-        
+    public static void main(String[] args) { //TODO test class
+        //System.out.println("FINAL SOLUTION " + getFirstOrder("5*4*4*3/2.5/32.4224"));//*6/2+2
+        //double bruh = calculate("-3+5/54/-35*2+4/3+4*2-1");
+        double bruh2 = calculate("5/54/-35*2+5+5*5*5+43.33");
+    }
+
+    // public static double runFirstOrder(String eq) {
+    //     double result = 0;
+    //     ArrayList<String> firstOperators = new ArrayList<>();
+    //     ArrayList<Integer> firstOperatorIndexes = new ArrayList<>();
+    //     ArrayList<Integer> negativeIndexes = new ArrayList<>();
+    //     ArrayList<Double> operands = new ArrayList<>();
+    //     int opIndex = 0;
+    //     String[] splitArray = eq.split("[-\\+/\\*]");
+
+    //     for (int i = 0; i < eq.length(); i++) {
+    //         Character c = eq.charAt(i);
+    //         if (c.equals('*') || c.equals('/')) {
+    //             firstOperators.add(c.toString());
+    //             firstOperators.add("" + opIndex);
+    //             opIndex++;
+    //             firstOperatorIndexes.add(i);
+    //         }
+    //     }
+
+    //     for (int i = 0; i < eq.length(); i++) {
+    //         Character c = 'd', before = 'd', after = 'd';
+    //         c = eq.charAt(i);
+    //         if (i > 0)
+    //             before = eq.charAt(i - 1);
+    //         if (i < eq.length() - 1)
+    //             after = eq.charAt(i + 1);
+    //         if (c.equals('-') && (before.equals('*') || before.equals('/')) && Character.isDigit(after)) {
+    //             negativeIndexes.add(i);
+    //         }
+    //     } 
+
+    //     for (int i = 0; i < splitArray.length; i++) {
+    //         if (splitArray[i].equals("")) operands.add(-Double.parseDouble(splitArray[i + 1]));
+    //         else if (i > 0 && !splitArray[i].equals("") && !splitArray[i - 1].equals("")) operands.add(Double.parseDouble(splitArray[i]));
+    //         else if (i == 0) operands.add(Double.parseDouble(splitArray[i]));
+    //     }
+
+    //     for (int i = 0; i < operands.size(); i++) System.out.println(operands.get(i));
+    //     for (int i = 0; i < firstOperators.size(); i++) System.out.println(firstOperators.get(i));
+
+    //     double left = 0;
+    //     double right = 0;
+    //     double replacement = 0;
+    //     String replacementS;
+    //     String leftS;
+
+    //     if (firstOperators.size() > 0) {
+    //         if (eq.charAt(0) == '-') {
+    //             left = operands.get(Integer.parseInt(firstOperators.get(1)) - 1);
+    //             right = operands.get(Integer.parseInt(firstOperators.get(1)));
+    //         }
+    //         else {
+    //             left = operands.get(Integer.parseInt(firstOperators.get(1)));
+    //             right = operands.get(Integer.parseInt(firstOperators.get(1)) + 1);
+    //         }
+    //         leftS = "" + left;
+
+    //         System.out.println("Left: " + left);
+    //         System.out.println("Right: " + right);
+    //         System.out.println("LeftS: " + leftS);
+
+    //         if (firstOperators.get(0).equals("*")) replacement = left * right;
+    //         else if (firstOperators.get(0).equals("/")) replacement = left / right;
+    //         replacementS = "" + replacement;
+    //         System.out.println("REP: " + replacementS);
+
+    //         if (firstOperatorIndexes.size() > 1) {
+    //             System.out.println(eq.indexOf(leftS));
+    //             System.out.println(firstOperatorIndexes.get(1));
+    //             eq = replacementS + eq.substring(firstOperatorIndexes.get(1));//eq.substring(0, eq.indexOf(leftS)) + 
+    //             System.out.println("EQ IS HERE " + eq);
+    //         }
+    //         else {
+    //             System.out.println("solution found is " + replacementS);
+    //             //eq = replacementS; //WASTODO WILL NOT WORK WITH ADD/SUBTRACT
+    //             //eq = eq.substring(0, 2) + replacementS + eq.substring(firstOperatorIndexes.get(1));//eq.substring(0, eq.indexOf(leftS)) + 
+    //             result = Double.parseDouble(replacementS);
+    //             System.out.println("OTHEREQ IS HERE " + eq);
+    //         }
+    //         System.out.println("LEFTS " + leftS);
+    //         System.out.println(eq);
+
+    //         if (firstOperators.size() > 2) runFirstOrder(eq);
+    //     }
+    //     System.out.println("AFTER EVERYTHING IN METHOD " + eq);
+
+    //     return result;
     // }
 
-    public void runArithmetic(String eq) {
+    public static double runFirstOrder(String eq) {
         ArrayList<String> firstOperators = new ArrayList<>();
-        ArrayList<String> secondOperators = new ArrayList<>();
         ArrayList<Integer> firstOperatorIndexes = new ArrayList<>();
-        ArrayList<Integer> secondOperatorIndexes = new ArrayList<>();
         ArrayList<Integer> negativeIndexes = new ArrayList<>();
         ArrayList<Double> fSplitArray = new ArrayList<>();
         int opIndex = 0;
@@ -29,17 +117,12 @@ public class Operations {
 
         for (int i = 0; i < eq.length(); i++) {
             Character c = eq.charAt(i);
-            if (c.equals('+') || c.equals('-')) {
+            if (c.equals('+') || c.equals('-')) opIndex++;
+            if (c.equals('*') || c.equals('/')) {
                 firstOperators.add(c.toString());
                 firstOperators.add("" + opIndex);
                 opIndex++;
                 firstOperatorIndexes.add(i);
-            }
-            else if (c.equals('*') || c.equals('/')) {
-                secondOperators.add(c.toString());
-                secondOperators.add("" + opIndex);
-                opIndex++;
-                secondOperatorIndexes.add(i);
             }
         }
 
@@ -62,7 +145,7 @@ public class Operations {
         }
 
         for (int i = 0; i < fSplitArray.size(); i++) System.out.println(fSplitArray.get(i));
-        for (int i = 0; i < secondOperators.size(); i++) System.out.println(secondOperators.get(i));
+        for (int i = 0; i < firstOperators.size(); i++) System.out.println(firstOperators.get(i));
 
         double left = 0;
         double right = 0;
@@ -70,47 +153,107 @@ public class Operations {
         String replacementS;
         String leftS;
 
-        if (secondOperators.size() > 0) {
+        if (firstOperators.size() > 0) {
             if (eq.charAt(0) == '-') {
-                left = fSplitArray.get(Integer.parseInt(secondOperators.get(1)) - 1);
-                right = fSplitArray.get(Integer.parseInt(secondOperators.get(1)));
+                left = fSplitArray.get(Integer.parseInt(firstOperators.get(1)) - 1);
+                right = fSplitArray.get(Integer.parseInt(firstOperators.get(1)));
             }
             else {
-                left = fSplitArray.get(Integer.parseInt(secondOperators.get(1)));
-                right = fSplitArray.get(Integer.parseInt(secondOperators.get(1)) + 1);
+                left = fSplitArray.get(Integer.parseInt(firstOperators.get(1)));
+                right = fSplitArray.get(Integer.parseInt(firstOperators.get(1)) + 1);
             }
-            //leftS = splitArray[Integer.parseInt(secondOperators.get(1))];
+            //leftS = splitArray[Integer.parseInt(firstOperators.get(1))];
             leftS = "" + left;
 
             System.out.println("Left: " + left);
             System.out.println("Right: " + right);
             System.out.println("LeftS: " + leftS);
 
-            if (secondOperators.get(0).equals("*")) replacement = left * right;
-            else if (secondOperators.get(0).equals("/")) replacement = left / right;
+            if (firstOperators.get(0).equals("*")) replacement = left * right;
+            else if (firstOperators.get(0).equals("/")) replacement = left / right;
             replacementS = "" + replacement;
             System.out.println("REP: " + replacementS);
 
-            if (secondOperatorIndexes.size() > 1) {
+            if (firstOperatorIndexes.size() > 1) {
                 System.out.println(eq.indexOf(leftS));
-                System.out.println(secondOperatorIndexes.get(1));
-                eq = replacementS + eq.substring(secondOperatorIndexes.get(1));//eq.substring(0, eq.indexOf(leftS)) + 
+                System.out.println(firstOperatorIndexes.get(1));
+                eq = replacementS + eq.substring(firstOperatorIndexes.get(1));//eq.substring(0, eq.indexOf(leftS)) + 
             }
             else {
                 System.out.println("solution found is " + replacementS);
                 eq = replacementS;
                 result = Double.parseDouble(eq);
+                return Double.parseDouble(replacementS);
             }
             System.out.println("LEFTS " + leftS);
             System.out.println(eq);
 
-            if (secondOperators.size() > 2) runArithmetic(eq);
+            if (firstOperators.size() > 2) runFirstOrder(eq);
         }
+        System.out.println("AAAAAAAAAAAA " + result);
+        return result;
     }
 
-    public double getArithmetic(String eq) {
-        runArithmetic(eq);
+    public static double getFirstOrder(String eq) {
+        return runFirstOrder(eq);
+    }
+
+    public static ArrayList<String> splitFirstOrder(String eq) {
+        ArrayList<String> operands = new ArrayList<>();
+        ArrayList<Integer> breaks = new ArrayList<>();
+        char before;
+        char current;
+
+        for (int i = 0; i < eq.length(); i++) {
+            if (i == 0) continue;
+            else {
+                before = eq.charAt(i - 1);
+                current = eq.charAt(i);
+            }
+            if (current == '+' || (current == '-' && before != '*' && before != '/')) breaks.add(i);
+        }
+        for (int i = 0; i < breaks.size(); i++) {
+            if (i == 0) operands.add(eq.substring(0, breaks.get(i)));
+            //else if (i == breaks.size()) operands.add(eq.substring(breaks.get(i)));
+            else operands.add(eq.substring(breaks.get(i - 1), breaks.get(i)));
+        }
+        operands.add(eq.substring(breaks.get(breaks.size() - 1)));
+        for (int i = 0; i < operands.size(); i++) if (operands.get(i).charAt(0) == '+' || operands.get(i).charAt(0) == '-') operands.set(i, operands.get(i).substring(1));
+
+        return operands;
+    }
+
+    //TODO this thing here
+    public static double runSecondOrder(String eq) {
+        double result = 0;
+        ArrayList<String> operands = splitFirstOrder(eq);//ADD BACK this.
+        ArrayList<Double> processedOperands = new ArrayList<>();
+        ArrayList<String> bruhOperators = new ArrayList<>();
+        ArrayList<Integer> bruhOperatorIndexes = new ArrayList<>();
+        int opIndex = 0;
+
+        for (int i = 0; i < operands.size(); i++) {
+            if (operands.get(i).contains("*") || operands.get(i).contains("*")) processedOperands.add(getFirstOrder(operands.get(i)));//ADD BACK this.
+            else processedOperands.add(Double.parseDouble(operands.get(i)));
+        }
+        System.out.println("-------");
+        for (int i = 0; i < processedOperands.size(); i++) System.out.println(processedOperands.get(i));
+        
+        for (int i = 0; i < eq.length(); i++) {
+            Character c = eq.charAt(i);
+            // if (c.equal s('+') || c.equals('-')) {
+            //     firstOperators.add(c.toString());
+            //     firstOperators.add("" + opIndex);
+            //     opIndex++;
+            //     firstOperatorIndexes.add(i);
+            // }
+        }
+        
         return result;
+    }
+
+    public static double calculate(String eq) {
+        return runSecondOrder(eq);
     }
 
     // public double runAddition(double[] inputArray) {
@@ -327,12 +470,12 @@ public class Operations {
 
     //RANDOM OPERATIONS
 
-    public double randomNumGen(int numVals) {
-        double result = rand.nextInt(numVals + 1);
+    public double randomNumGen(int numoperands) {
+        double result = rand.nextInt(numoperands + 1);
         return result;
     }
 
-    public ArrayList RSS(ArrayList<String> s) {
+    public ArrayList<String> RSS(ArrayList<String> s) {
         String temp;
         int randNum;
         for (int i = 0; i < s.size(); i++) {
