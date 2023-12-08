@@ -1,9 +1,9 @@
-package FrontEnd;
+package Graphics;
 import javax.swing.*;
 import java.awt.*;
 
-public class ConversionPanel extends JPanel {
-    public ConversionPanel() {
+public class GraphingPanel extends JPanel {
+    public GraphingPanel() {
         super();
         this.setBackground(Color.WHITE);
     }

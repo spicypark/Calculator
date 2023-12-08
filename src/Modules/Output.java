@@ -1,10 +1,6 @@
-//obsolete class now
-
-package Archive;
+package Modules;
 import java.util.ArrayList;
 import java.util.Random;
-
-import BackEnd.*;
 
 public class Output {
     Operations operation = new Operations();
@@ -17,91 +13,91 @@ public class Output {
         String function = input.getFunction();
         boolean found = false;
 
-        // if (function.equals("a")) {
-        //     switch (input.getOperation()) {
+        if (function.equals("a")) {
+            switch (input.getOperation()) {
 
-        //         case 1:
-        //             result = operation.runAddition(userArray);
-        //             System.out.println("");
-        //             for (int aIndex = 0; aIndex < numVals; aIndex++) {
-        //                 String equalsPlace = numVals - aIndex > 1 ? " + " : " = ";
-        //                 System.out.print(userArray[aIndex] + equalsPlace);
-        //             }
-        //             break;
+                case 1:
+                    result = operation.runAddition(userArray);
+                    System.out.println("");
+                    for (int aIndex = 0; aIndex < numVals; aIndex++) {
+                        String equalsPlace = numVals - aIndex > 1 ? " + " : " = ";
+                        System.out.print(userArray[aIndex] + equalsPlace);
+                    }
+                    break;
 
-        //         case 2:
-        //             result = operation.runSubtraction(userArray);
-        //             System.out.println("");
-        //             System.out.print(userArray[0] + " - " + userArray[1] + " = ");
-        //             break;
+                case 2:
+                    result = operation.runSubtraction(userArray);
+                    System.out.println("");
+                    System.out.print(userArray[0] + " - " + userArray[1] + " = ");
+                    break;
 
-        //         case 3:
-        //             result = operation.runMultiplication(userArray);
-        //             System.out.println("");
-        //             for (int mIndex = 0; mIndex < numVals; mIndex++) {
-        //                 String equalsPlace = numVals - mIndex > 1 ? " * " : " = ";
-        //                 System.out.print(userArray[mIndex] + equalsPlace);
-        //             }
-        //             break;
+                case 3:
+                    result = operation.runMultiplication(userArray);
+                    System.out.println("");
+                    for (int mIndex = 0; mIndex < numVals; mIndex++) {
+                        String equalsPlace = numVals - mIndex > 1 ? " * " : " = ";
+                        System.out.print(userArray[mIndex] + equalsPlace);
+                    }
+                    break;
 
-        //         case 4:
-        //             result = operation.runDivision(userArray);
-        //             System.out.println("");
-        //             if (result == 0) {
-        //                 System.out.println("ERROR");
-        //                 return;
-        //             }
-        //             else {
-        //                 System.out.print(userArray[0] + " / " + userArray[1] + " = ");
-        //             }
-        //             break;
+                case 4:
+                    result = operation.runDivision(userArray);
+                    System.out.println("");
+                    if (result == 0) {
+                        System.out.println("ERROR");
+                        return;
+                    }
+                    else {
+                        System.out.print(userArray[0] + " / " + userArray[1] + " = ");
+                    }
+                    break;
 
-        //         case 5:
-        //             result = operation.runCircleArea(userArray);
-        //             System.out.print("\nThe area of a circle with radius " + userArray[0] + " is ");
-        //             break;
+                case 5:
+                    result = operation.runCircleArea(userArray);
+                    System.out.print("\nThe area of a circle with radius " + userArray[0] + " is ");
+                    break;
 
-        //         case 6:
-        //             result = operation.runCircleCircumference(userArray);
-        //             System.out.print("\nThe circumference of a circle with radius " + userArray[0] + " is ");
-        //             break;
+                case 6:
+                    result = operation.runCircleCircumference(userArray);
+                    System.out.print("\nThe circumference of a circle with radius " + userArray[0] + " is ");
+                    break;
 
-        //         case 7:
-        //             result = operation.runSphereSurface(userArray);
-        //             System.out.print("\nThe surface area of a sphere with radius " + userArray[0] + " is ");
-        //             break;
+                case 7:
+                    result = operation.runSphereSurface(userArray);
+                    System.out.print("\nThe surface area of a sphere with radius " + userArray[0] + " is ");
+                    break;
 
-        //         case 8:
-        //             result = operation.runSphereVolume(userArray);
-        //             System.out.print("\nThe volume of a sphere with radius " + userArray[0] + " is ");
-        //             break;
+                case 8:
+                    result = operation.runSphereVolume(userArray);
+                    System.out.print("\nThe volume of a sphere with radius " + userArray[0] + " is ");
+                    break;
 
-        //         case 9:
-        //             System.out.println("\nYou found an Easter egg :)");
-        //             found = true;
-        //             break;
+                case 9:
+                    System.out.println("\nYou found an Easter egg :)");
+                    found = true;
+                    break;
 
-        //     } 
+            } 
 
-        //     if (!found) {System.out.printf("%.2f\n", result);}
-        // }
-        // if (function.equals("g")) {//used to be else if
-        //     String[][] userPlane = new String[31][31];
-        //     userPlane = operation.runGraphFunction(input.getOperation(), input.getUserPlane());
-        //     System.out.println("");
-        //     for (int i = 0; i < 31; i++) {
-        //         for (int j = 0; j < 31; j++) {
-        //             if (j == 30) {
-        //                 System.out.println(userPlane[i][j]);
-        //             }
-        //             else {
-        //                 System.out.print(userPlane[i][j]);
-        //             }
-        //         }
-        //     }
+            if (!found) {System.out.printf("%.2f\n", result);}
+        }
+        else if (function.equals("g")) {
+            String[][] userPlane = new String[31][31];
+            userPlane = operation.runGraphFunction(input.getOperation(), input.getUserPlane());
+            System.out.println("");
+            for (int i = 0; i < 31; i++) {
+                for (int j = 0; j < 31; j++) {
+                    if (j == 30) {
+                        System.out.println(userPlane[i][j]);
+                    }
+                    else {
+                        System.out.print(userPlane[i][j]);
+                    }
+                }
+            }
 
-        // }
-        if (function.equals("c")) {
+        }
+        else if (function.equals("c")) {
             String firstOP;
             String secondOP;
             switch(input.getConversion()) {
