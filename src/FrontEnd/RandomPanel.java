@@ -9,9 +9,9 @@ public class RandomPanel extends JPanel {
     }
 
     @Override
-    public void paintComponent(Graphics b) {
-        super.paintComponent(b);
-        b.drawString("Coming soon", 30, 30);
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        g.drawString("Coming soon", 30, 30);
         repaint();
     }
 }

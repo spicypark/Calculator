@@ -1,5 +1,7 @@
 package BackEnd;
 import java.util.Scanner;
+import java.awt.*;
+import java.awt.Graphics;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.ArrayList;
@@ -10,6 +12,7 @@ public class Operations {
     Random rand = new Random();
     NumberFormat decimal = new DecimalFormat("#0.00000");
     double result = 0;
+
     //ARITHMETIC OPERATIONS
 
     public void main(String[] args) { //TODO test class
@@ -213,6 +216,109 @@ public class Operations {
 
     public double calculate(String eq) {
         return runSecondOrder(eq);
+    }
+
+    //GRAPHING OPERATIONS
+
+    public void testMethod(Graphics g) {
+        g.setColor(Color.BLUE);
+        g.drawLine(34, 146, 51, 10);
+    }
+
+    public void drawPlane(Graphics g) {
+        int xCenter = 194;
+        int yCenter = 171;
+        
+        g.setColor(Color.LIGHT_GRAY);
+
+        g.drawLine(xCenter + 10, 0, xCenter + 10, 410);
+        g.drawLine(xCenter + 20, 0, xCenter + 20, 410);
+        g.drawLine(xCenter + 30, 0, xCenter + 30, 410);
+        g.drawLine(xCenter + 40, 0, xCenter + 40, 410);
+        g.drawLine(xCenter + 50, 0, xCenter + 50, 410);
+        g.drawLine(xCenter + 60, 0, xCenter + 60, 410);
+        g.drawLine(xCenter + 70, 0, xCenter + 70, 410);
+        g.drawLine(xCenter + 80, 0, xCenter + 80, 410);
+        g.drawLine(xCenter + 90, 0, xCenter + 90, 410);
+        g.drawLine(xCenter + 100, 0, xCenter + 100, 410);
+        g.drawLine(xCenter + 110, 0, xCenter + 110, 410);
+        g.drawLine(xCenter + 120, 0, xCenter + 120, 410);
+        g.drawLine(xCenter + 130, 0, xCenter + 130, 410);
+        g.drawLine(xCenter + 140, 0, xCenter + 140, 410);
+        g.drawLine(xCenter + 150, 0, xCenter + 150, 410);
+        g.drawLine(xCenter + 160, 0, xCenter + 160, 410);
+        g.drawLine(xCenter + 170, 0, xCenter + 170, 410);
+        g.drawLine(xCenter + 180, 0, xCenter + 180, 410);
+        g.drawLine(xCenter + 190, 0, xCenter + 190, 410);
+        g.drawLine(xCenter + 200, 0, xCenter + 200, 410);
+
+        g.drawLine(xCenter - 10, 0, xCenter - 10, 410);
+        g.drawLine(xCenter - 20, 0, xCenter - 20, 410);
+        g.drawLine(xCenter - 30, 0, xCenter - 30, 410);
+        g.drawLine(xCenter - 40, 0, xCenter - 40, 410);
+        g.drawLine(xCenter - 50, 0, xCenter - 50, 410);
+        g.drawLine(xCenter - 60, 0, xCenter - 60, 410);
+        g.drawLine(xCenter - 70, 0, xCenter - 70, 410);
+        g.drawLine(xCenter - 80, 0, xCenter - 80, 410);
+        g.drawLine(xCenter - 90, 0, xCenter - 90, 410);
+        g.drawLine(xCenter - 100, 0, xCenter - 100, 410);
+        g.drawLine(xCenter - 110, 0, xCenter - 110, 410);
+        g.drawLine(xCenter - 120, 0, xCenter - 120, 410);
+        g.drawLine(xCenter - 130, 0, xCenter - 130, 410);
+        g.drawLine(xCenter - 140, 0, xCenter - 140, 410);
+        g.drawLine(xCenter - 150, 0, xCenter - 150, 410);
+        g.drawLine(xCenter - 160, 0, xCenter - 160, 410);
+        g.drawLine(xCenter - 170, 0, xCenter - 170, 410);
+        g.drawLine(xCenter - 180, 0, xCenter - 180, 410);
+        g.drawLine(xCenter - 190, 0, xCenter - 190, 410);
+        g.drawLine(xCenter - 200, 0, xCenter - 200, 410);
+
+        g.drawLine(0, yCenter + 10, 410, yCenter + 10);
+        g.drawLine(0, yCenter + 20, 410, yCenter + 20);
+        g.drawLine(0, yCenter + 30, 410, yCenter + 30);
+        g.drawLine(0, yCenter + 40, 410, yCenter + 40);
+        g.drawLine(0, yCenter + 50, 410, yCenter + 50);
+        g.drawLine(0, yCenter + 60, 410, yCenter + 60);
+        g.drawLine(0, yCenter + 70, 410, yCenter + 70);
+        g.drawLine(0, yCenter + 80, 410, yCenter + 80);
+        g.drawLine(0, yCenter + 90, 410, yCenter + 90);
+        g.drawLine(0, yCenter + 100, 410, yCenter + 100);
+        g.drawLine(0, yCenter + 110, 410, yCenter + 110);
+        g.drawLine(0, yCenter + 120, 410, yCenter + 120);
+        g.drawLine(0, yCenter + 130, 410, yCenter + 130);
+        g.drawLine(0, yCenter + 140, 410, yCenter + 140);
+        g.drawLine(0, yCenter + 150, 410, yCenter + 150);
+        g.drawLine(0, yCenter + 160, 410, yCenter + 160);
+        g.drawLine(0, yCenter + 170, 410, yCenter + 170);
+        g.drawLine(0, yCenter + 180, 410, yCenter + 180);
+        g.drawLine(0, yCenter + 190, 410, yCenter + 190);
+        g.drawLine(0, yCenter + 200, 410, yCenter + 200);
+  
+        g.drawLine(0, yCenter - 10, 410, yCenter - 10);
+        g.drawLine(0, yCenter - 20, 410, yCenter - 20);
+        g.drawLine(0, yCenter - 30, 410, yCenter - 30);
+        g.drawLine(0, yCenter - 40, 410, yCenter - 40);
+        g.drawLine(0, yCenter - 50, 410, yCenter - 50);
+        g.drawLine(0, yCenter - 60, 410, yCenter - 60);
+        g.drawLine(0, yCenter - 70, 410, yCenter - 70);
+        g.drawLine(0, yCenter - 80, 410, yCenter - 80);
+        g.drawLine(0, yCenter - 90, 410, yCenter - 90);
+        g.drawLine(0, yCenter - 100, 410, yCenter - 100);
+        g.drawLine(0, yCenter - 110, 410, yCenter - 110);
+        g.drawLine(0, yCenter - 120, 410, yCenter - 120);
+        g.drawLine(0, yCenter - 130, 410, yCenter - 130);
+        g.drawLine(0, yCenter - 140, 410, yCenter - 140);
+        g.drawLine(0, yCenter - 150, 410, yCenter - 150);
+        g.drawLine(0, yCenter - 160, 410, yCenter - 160);
+        g.drawLine(0, yCenter - 170, 410, yCenter - 170);
+        g.drawLine(0, yCenter - 180, 410, yCenter - 180);
+        g.drawLine(0, yCenter - 190, 410, yCenter - 190);
+        g.drawLine(0, yCenter - 200, 410, yCenter - 200);
+
+        g.setColor(Color.BLACK);
+
+        g.drawLine(xCenter, 0, xCenter, 410);
+        g.drawLine(0, yCenter, 410, yCenter);
     }
 
     // public double runCircleArea(double[] inputArray) {

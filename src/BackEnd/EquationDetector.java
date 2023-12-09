@@ -1,5 +1,3 @@
-//THIS CLASS IS NOT IMPLEMENTED WITHIN 2.3.1 AND IS INTENDED FOR FUTURE USES
-
 package BackEnd;
 
 public class EquationDetector {
