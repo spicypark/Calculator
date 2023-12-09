@@ -109,6 +109,8 @@ public class Operations {
     // }
 
     public double runFirstOrder(String eq) {
+        
+        //declare variables
         ArrayList<String> firstOperators = new ArrayList<>();
         ArrayList<Integer> firstOperatorIndexes = new ArrayList<>();
         ArrayList<Integer> negativeIndexes = new ArrayList<>();
@@ -116,6 +118,7 @@ public class Operations {
         int opIndex = 0;
         String[] splitArray = eq.split("[-\\+/\\*]");
 
+        //add all multiplication or division signs and their order to an ArrayList
         for (int i = 0; i < eq.length(); i++) {
             Character c = eq.charAt(i);
             if (c.equals('+') || c.equals('-')) opIndex++;
@@ -127,6 +130,7 @@ public class Operations {
             }
         }
 
+        //scan the equation and record indexes of negative values
         for (int i = 0; i < eq.length(); i++) {
             Character c = 'd', before = 'd', after = 'd';
             c = eq.charAt(i);
@@ -139,22 +143,27 @@ public class Operations {
             }
         }
 
+        //take the split array without negative values and use negativeIndexes to make appropriate values negative
         for (int i = 0; i < splitArray.length; i++) {
             if (splitArray[i].equals("")) fSplitArray.add(-Double.parseDouble(splitArray[i + 1]));
             else if (i > 0 && !splitArray[i].equals("") && !splitArray[i - 1].equals("")) fSplitArray.add(Double.parseDouble(splitArray[i]));
             else if (i == 0) fSplitArray.add(Double.parseDouble(splitArray[i]));
         }
 
-        for (int i = 0; i < fSplitArray.size(); i++) System.out.println(fSplitArray.get(i));
-        for (int i = 0; i < firstOperators.size(); i++) System.out.println(firstOperators.get(i));
+        for (int i = 0; i < fSplitArray.size(); i++) System.out.println(fSplitArray.get(i));//TODO test
+        for (int i = 0; i < firstOperators.size(); i++) System.out.println(firstOperators.get(i));//TODO test
 
+        //declare necessary variables for calculation
         double left = 0;
         double right = 0;
         double replacement = 0;
         String replacementS;
         String leftS;
 
+        //calculation
         if (firstOperators.size() > 0) {
+
+            //get values to the left and to the right of operator
             if (eq.charAt(0) == '-') {
                 left = fSplitArray.get(Integer.parseInt(firstOperators.get(1)) - 1);
                 right = fSplitArray.get(Integer.parseInt(firstOperators.get(1)));
@@ -163,35 +172,39 @@ public class Operations {
                 left = fSplitArray.get(Integer.parseInt(firstOperators.get(1)));
                 right = fSplitArray.get(Integer.parseInt(firstOperators.get(1)) + 1);
             }
-            //leftS = splitArray[Integer.parseInt(firstOperators.get(1))];
             leftS = "" + left;
 
-            System.out.println("Left: " + left);
-            System.out.println("Right: " + right);
-            System.out.println("LeftS: " + leftS);
+            System.out.println("Left: " + left);//TODO test
+            System.out.println("Right: " + right);//TODO test
+            System.out.println("LeftS: " + leftS);//TODO test
 
+            //calculate the result of left and right according to the operator
             if (firstOperators.get(0).equals("*")) replacement = left * right;
             else if (firstOperators.get(0).equals("/")) replacement = left / right;
             replacementS = "" + replacement;
-            System.out.println("REP: " + replacementS);
+            System.out.println("REP: " + replacementS);//TODO test
 
+            //recursion to solve entire equation
             if (firstOperatorIndexes.size() > 1) {
-                System.out.println(eq.indexOf(leftS));
-                System.out.println(firstOperatorIndexes.get(1));
+                System.out.println(eq.indexOf(leftS));//TODO test
+                System.out.println(firstOperatorIndexes.get(1));//TODO test
                 eq = replacementS + eq.substring(firstOperatorIndexes.get(1));//eq.substring(0, eq.indexOf(leftS)) + 
             }
             else {
-                System.out.println("solution found is " + replacementS);
+                System.out.println("solution found is " + replacementS);//TODO test
                 eq = replacementS;
                 result = Double.parseDouble(eq);
                 return Double.parseDouble(replacementS);
             }
-            System.out.println("LEFTS " + leftS);
-            System.out.println(eq);
+
+            System.out.println("LEFTS " + leftS);//TODO test
+            System.out.println(eq);//TODO test
 
             if (firstOperators.size() > 2) runFirstOrder(eq);
         }
-        System.out.println("AAAAAAAAAAAA " + result);
+        System.out.println("AAAAAAAAAAAA " + result);//TODO test
+
+        //return calculated result
         return result;
     }
 
@@ -200,11 +213,30 @@ public class Operations {
     }
 
     public ArrayList<String> splitFirstOrder(String eq) {
+
+        //declare variables
         ArrayList<String> operands = new ArrayList<>();
         ArrayList<Integer> breaks = new ArrayList<>();
         char before;
         char current;
+        boolean hasSecondOrder = false;
 
+        //detect if equation has second order of operations
+        for (int i = 0; i < eq.length(); i++) {
+            if (i == 0) continue;
+            else {
+                before = eq.charAt(i - 1);
+                current = eq.charAt(i);
+            }
+            if (current == '+' || (current == '-' && before != '*' && before != '/')) hasSecondOrder = true;
+        }
+        if (!hasSecondOrder) {
+            operands.add(eq);
+            return operands;
+        }
+
+        //add indexes of addition and subtraction
+        
         for (int i = 0; i < eq.length(); i++) {
             if (i == 0) continue;
             else {
@@ -213,36 +245,56 @@ public class Operations {
             }
             if (current == '+' || (current == '-' && before != '*' && before != '/')) breaks.add(i);
         }
+
+        //add individual operands based on break indexes
         for (int i = 0; i < breaks.size(); i++) {
             if (i == 0) operands.add(eq.substring(0, breaks.get(i)));
-            //else if (i == breaks.size()) operands.add(eq.substring(breaks.get(i)));
             else operands.add(eq.substring(breaks.get(i - 1), breaks.get(i)));
         }
+        System.out.println("BREAKS SIZE " + breaks.size());
+        for (int i = 0; i < breaks.size(); i++) System.out.println(breaks.get(i));
         operands.add(eq.substring(breaks.get(breaks.size() - 1)));
-        for (int i = 0; i < operands.size(); i++) if (operands.get(i).charAt(0) == '+' || operands.get(i).charAt(0) == '-') operands.set(i, operands.get(i).substring(1));
 
+        //remove add and subtract signs from the front of operands
+        for (int i = 0; i < operands.size(); i++) if (operands.get(i).charAt(0) == '+' || operands.get(i).charAt(0) == '-' && i != 0) operands.set(i, operands.get(i).substring(1));
+
+        //return properly split array
         return operands;
     }
 
     public double runSecondOrder(String eq) {
+
         double result = 0;
         ArrayList<String> operands = this.splitFirstOrder(eq);
         ArrayList<Double> processedOperands = new ArrayList<>();
         ArrayList<Character> secondOperators = new ArrayList<>();
 
+        if (operands.size() == 1) return this.getFirstOrder(operands.get(0));
+
+        System.out.println("WWWWWWWWWWWWWWWWWWWWWWWWW");
+        for (int i = 0; i < operands.size(); i++) System.out.println(operands.get(i));
+
         for (int i = 0; i < operands.size(); i++) {
             if (operands.get(i).contains("*") || operands.get(i).contains("/")) processedOperands.add(this.getFirstOrder(operands.get(i)));
             else processedOperands.add(Double.parseDouble(operands.get(i)));
         }
-        System.out.println("-------");
-        for (int i = 0; i < processedOperands.size(); i++) System.out.println(processedOperands.get(i));
+        System.out.println("-------");//TODO test
+        for (int i = 0; i < processedOperands.size(); i++) System.out.println(processedOperands.get(i));//TODO test
         
         for (int i = 0; i < eq.length(); i++) {
             Character c = eq.charAt(i);
             Character before = '~';
+            if (i == 0 && c == '-') continue;
             if (i > 0) before = eq.charAt(i - 1); 
-            if (c == '+' || (c == '-' && before != '*' && before != '/')) secondOperators.add(c);
+            if (c == '+' || (c == '-' && before != '*' && before != '/')) secondOperators.add(c);//-34*1.13/-23+5.5-3.134/524*-2
         }
+
+        System.out.println("bruh moment weeeeeeeeeeeee");
+        for (int i = 0; i < secondOperators.size(); i++) System.out.println(secondOperators.get(i));
+        System.out.println("bruh moment weeeeeeeeeeeee");
+        System.out.println("QEWQEEWQEQWEQWEQWEQWEQW");
+        for (int i = 0; i < processedOperands.size(); i++) System.out.println(processedOperands.get(i));
+        System.out.println("QEWQEEWQEQWEQWEQWEQWEQW");
 
         for (int i = 0; i < secondOperators.size(); i++) {
             double left = processedOperands.get(i);
@@ -252,7 +304,7 @@ public class Operations {
             else if (secondOperators.get(i) == '+') result += right;
             else if (secondOperators.get(i) == '-') result -= right;
         }
-        
+
         return result;
     }
 
