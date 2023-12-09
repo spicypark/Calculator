@@ -11,7 +11,7 @@ public class HomePanel extends JPanel {
     @Override
     public void paintComponent(Graphics b) {
         super.paintComponent(b);
-        b.drawString("Version 3.0.0-alpha.1", 30, 30);
+        b.drawString("Version 3.0.0-alpha.2", 30, 30);
 
         b.drawString("Made by SpicyPark", 30, 55);
         b.drawString("Inspired by Nicholas", 30, 70);

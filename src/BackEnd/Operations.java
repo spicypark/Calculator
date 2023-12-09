@@ -19,95 +19,6 @@ public class Operations {
         System.out.println("FINAL RESULT " + bruh2);
     }
 
-    // public double runFirstOrder(String eq) {
-    //     double result = 0;
-    //     ArrayList<String> firstOperators = new ArrayList<>();
-    //     ArrayList<Integer> firstOperatorIndexes = new ArrayList<>();
-    //     ArrayList<Integer> negativeIndexes = new ArrayList<>();
-    //     ArrayList<Double> operands = new ArrayList<>();
-    //     int opIndex = 0;
-    //     String[] splitArray = eq.split("[-\\+/\\*]");
-
-    //     for (int i = 0; i < eq.length(); i++) {
-    //         Character c = eq.charAt(i);
-    //         if (c.equals('*') || c.equals('/')) {
-    //             firstOperators.add(c.toString());
-    //             firstOperators.add("" + opIndex);
-    //             opIndex++;
-    //             firstOperatorIndexes.add(i);
-    //         }
-    //     }
-
-    //     for (int i = 0; i < eq.length(); i++) {
-    //         Character c = 'd', before = 'd', after = 'd';
-    //         c = eq.charAt(i);
-    //         if (i > 0)
-    //             before = eq.charAt(i - 1);
-    //         if (i < eq.length() - 1)
-    //             after = eq.charAt(i + 1);
-    //         if (c.equals('-') && (before.equals('*') || before.equals('/')) && Character.isDigit(after)) {
-    //             negativeIndexes.add(i);
-    //         }
-    //     } 
-
-    //     for (int i = 0; i < splitArray.length; i++) {
-    //         if (splitArray[i].equals("")) operands.add(-Double.parseDouble(splitArray[i + 1]));
-    //         else if (i > 0 && !splitArray[i].equals("") && !splitArray[i - 1].equals("")) operands.add(Double.parseDouble(splitArray[i]));
-    //         else if (i == 0) operands.add(Double.parseDouble(splitArray[i]));
-    //     }
-
-    //     for (int i = 0; i < operands.size(); i++) System.out.println(operands.get(i));
-    //     for (int i = 0; i < firstOperators.size(); i++) System.out.println(firstOperators.get(i));
-
-    //     double left = 0;
-    //     double right = 0;
-    //     double replacement = 0;
-    //     String replacementS;
-    //     String leftS;
-
-    //     if (firstOperators.size() > 0) {
-    //         if (eq.charAt(0) == '-') {
-    //             left = operands.get(Integer.parseInt(firstOperators.get(1)) - 1);
-    //             right = operands.get(Integer.parseInt(firstOperators.get(1)));
-    //         }
-    //         else {
-    //             left = operands.get(Integer.parseInt(firstOperators.get(1)));
-    //             right = operands.get(Integer.parseInt(firstOperators.get(1)) + 1);
-    //         }
-    //         leftS = "" + left;
-
-    //         System.out.println("Left: " + left);
-    //         System.out.println("Right: " + right);
-    //         System.out.println("LeftS: " + leftS);
-
-    //         if (firstOperators.get(0).equals("*")) replacement = left * right;
-    //         else if (firstOperators.get(0).equals("/")) replacement = left / right;
-    //         replacementS = "" + replacement;
-    //         System.out.println("REP: " + replacementS);
-
-    //         if (firstOperatorIndexes.size() > 1) {
-    //             System.out.println(eq.indexOf(leftS));
-    //             System.out.println(firstOperatorIndexes.get(1));
-    //             eq = replacementS + eq.substring(firstOperatorIndexes.get(1));//eq.substring(0, eq.indexOf(leftS)) + 
-    //             System.out.println("EQ IS HERE " + eq);
-    //         }
-    //         else {
-    //             System.out.println("solution found is " + replacementS);
-    //             //eq = replacementS; //WASTODO WILL NOT WORK WITH ADD/SUBTRACT
-    //             //eq = eq.substring(0, 2) + replacementS + eq.substring(firstOperatorIndexes.get(1));//eq.substring(0, eq.indexOf(leftS)) + 
-    //             result = Double.parseDouble(replacementS);
-    //             System.out.println("OTHEREQ IS HERE " + eq);
-    //         }
-    //         System.out.println("LEFTS " + leftS);
-    //         System.out.println(eq);
-
-    //         if (firstOperators.size() > 2) runFirstOrder(eq);
-    //     }
-    //     System.out.println("AFTER EVERYTHING IN METHOD " + eq);
-
-    //     return result;
-    // }
-
     public double runFirstOrder(String eq) {
         
         //declare variables
@@ -264,23 +175,20 @@ public class Operations {
 
     public double runSecondOrder(String eq) {
 
+        //declare variables
         double result = 0;
         ArrayList<String> operands = this.splitFirstOrder(eq);
         ArrayList<Double> processedOperands = new ArrayList<>();
         ArrayList<Character> secondOperators = new ArrayList<>();
 
+        //solve for any first order of operations terms
         if (operands.size() == 1) return this.getFirstOrder(operands.get(0));
-
-        System.out.println("WWWWWWWWWWWWWWWWWWWWWWWWW");
-        for (int i = 0; i < operands.size(); i++) System.out.println(operands.get(i));
-
         for (int i = 0; i < operands.size(); i++) {
             if (operands.get(i).contains("*") || operands.get(i).contains("/")) processedOperands.add(this.getFirstOrder(operands.get(i)));
             else processedOperands.add(Double.parseDouble(operands.get(i)));
         }
-        System.out.println("-------");//TODO test
-        for (int i = 0; i < processedOperands.size(); i++) System.out.println(processedOperands.get(i));//TODO test
         
+        //add second order operators in order to an ArrayList
         for (int i = 0; i < eq.length(); i++) {
             Character c = eq.charAt(i);
             Character before = '~';
@@ -289,13 +197,7 @@ public class Operations {
             if (c == '+' || (c == '-' && before != '*' && before != '/')) secondOperators.add(c);//-34*1.13/-23+5.5-3.134/524*-2
         }
 
-        System.out.println("bruh moment weeeeeeeeeeeee");
-        for (int i = 0; i < secondOperators.size(); i++) System.out.println(secondOperators.get(i));
-        System.out.println("bruh moment weeeeeeeeeeeee");
-        System.out.println("QEWQEEWQEQWEQWEQWEQWEQW");
-        for (int i = 0; i < processedOperands.size(); i++) System.out.println(processedOperands.get(i));
-        System.out.println("QEWQEEWQEQWEQWEQWEQWEQW");
-
+        //solve for any second order of operations terms
         for (int i = 0; i < secondOperators.size(); i++) {
             double left = processedOperands.get(i);
             double right = processedOperands.get(i + 1);
@@ -305,6 +207,7 @@ public class Operations {
             else if (secondOperators.get(i) == '-') result -= right;
         }
 
+        //return final calculated result
         return result;
     }
 
@@ -312,57 +215,25 @@ public class Operations {
         return runSecondOrder(eq);
     }
 
-    // public double runAddition(double[] inputArray) {
-    //     double addResult = 0;
-    //     for (int i = 0; i < inputArray.length; i++) {
-    //         addResult = addResult + inputArray[i];
-    //     }
-    //     return addResult;
+    // public double runCircleArea(double[] inputArray) {
+    //     double cAreaResult = inputArray[0] * inputArray[0] * Math.PI;
+    //     return cAreaResult;
     // }
 
-    // public double runSubtraction(double[] inputArray) {
-    //     double subtractResult = inputArray[0] - inputArray[1];
-    //     return subtractResult;
+    // public double runCircleCircumference(double[] inputArray) {
+    //     double cCircumferenceResult = inputArray[0] * Math.PI * 2;
+    //     return cCircumferenceResult;
     // }
 
-    // public double runMultiplication(double[] inputArray) {
-    //     double multiplyResult = 1;
-    //     for (int i = 0; i < inputArray.length; i++) {
-    //         multiplyResult = multiplyResult * inputArray[i];
-    //     }
-    //     return multiplyResult;
+    // public double runSphereSurface(double[] inputArray) {
+    //     double sSurfaceResult = inputArray[0] * inputArray[0] * Math.PI * 4;
+    //     return sSurfaceResult;
     // }
 
-    // public double runDivision(double[] inputArray) {
-    //     if (inputArray[1] < 1) {
-    //         return 0;
-    //     }
-
-    //     else { 
-    //         double divideResult = inputArray[0] / inputArray[1];
-    //         return divideResult;
-    //     }
+    // public double runSphereVolume(double[] inputArray) {
+    //     double sVolumeResult = (inputArray[0] * inputArray[0] * inputArray[0] * Math.PI * 4) / 3;
+    //     return sVolumeResult;
     // }
-
-    public double runCircleArea(double[] inputArray) {
-        double cAreaResult = inputArray[0] * inputArray[0] * Math.PI;
-        return cAreaResult;
-    }
-
-    public double runCircleCircumference(double[] inputArray) {
-        double cCircumferenceResult = inputArray[0] * Math.PI * 2;
-        return cCircumferenceResult;
-    }
-
-    public double runSphereSurface(double[] inputArray) {
-        double sSurfaceResult = inputArray[0] * inputArray[0] * Math.PI * 4;
-        return sSurfaceResult;
-    }
-
-    public double runSphereVolume(double[] inputArray) {
-        double sVolumeResult = (inputArray[0] * inputArray[0] * inputArray[0] * Math.PI * 4) / 3;
-        return sVolumeResult;
-    }
 
     //GRAPHING OPERATIONS
 
@@ -482,64 +353,64 @@ public class Operations {
 
     //CONVERSION OPERATIONS
 
-    public double runCentimeterInch(int operation, double[] userArray) {
-        double result = 0;
-        if (operation == 2) {result = userArray[0] * 0.393701;}
-        else {result = userArray[0] * 2.54;}
-        return result;
-    }
+//     public double runCentimeterInch(int operation, double[] userArray) {
+//         double result = 0;
+//         if (operation == 2) {result = userArray[0] * 0.393701;}
+//         else {result = userArray[0] * 2.54;}
+//         return result;
+//     }
 
-    public double runMeterFoot(int operation, double[] userArray) {
-        double result = 0;
-        if (operation == 2) {result = userArray[0] * 3.28084;}
-        else {result = userArray[0] * 0.3048;}
-        return result;
-    }
+//     public double runMeterFoot(int operation, double[] userArray) {
+//         double result = 0;
+//         if (operation == 2) {result = userArray[0] * 3.28084;}
+//         else {result = userArray[0] * 0.3048;}
+//         return result;
+//     }
 
-    public double runKilometerMile(int operation, double[] userArray) {
-        double result = 0;
-        if (operation == 2) {result = userArray[0] * 0.621371;}
-        else {result = userArray[0] * 1.60934;}
-        return result;
-    }
+//     public double runKilometerMile(int operation, double[] userArray) {
+//         double result = 0;
+//         if (operation == 2) {result = userArray[0] * 0.621371;}
+//         else {result = userArray[0] * 1.60934;}
+//         return result;
+//     }
 
-    public double runKilogramPound(int operation, double[] userArray) {
-        double result = 0;
-        if (operation == 2) {result = userArray[0] * 2.20462;}
-        else {result = userArray[0] * 0.453592;}
-        return result;
-    }
+//     public double runKilogramPound(int operation, double[] userArray) {
+//         double result = 0;
+//         if (operation == 2) {result = userArray[0] * 2.20462;}
+//         else {result = userArray[0] * 0.453592;}
+//         return result;
+//     }
 
-    public double runGramOunce(int operation, double[] userArray) {
-        double result = 0;
-        if (operation == 2) {result = userArray[0] * 0.035274;}
-        else {result = userArray[0] * 28.3495;}
-        return result;
-    }
+//     public double runGramOunce(int operation, double[] userArray) {
+//         double result = 0;
+//         if (operation == 2) {result = userArray[0] * 0.035274;}
+//         else {result = userArray[0] * 28.3495;}
+//         return result;
+//     }
 
-    public double runLiterGallon(int operation, double[] userArray) {
-        double result = 0;
-        if (operation == 2) {result = userArray[0] * 0.264172;}
-        else {result = userArray[0] * 3.78541;}
-        return result;
-    }
+//     public double runLiterGallon(int operation, double[] userArray) {
+//         double result = 0;
+//         if (operation == 2) {result = userArray[0] * 0.264172;}
+//         else {result = userArray[0] * 3.78541;}
+//         return result;
+//     }
 
-    //RANDOM OPERATIONS
+//     //RANDOM OPERATIONS
 
-    public double randomNumGen(int numoperands) {
-        double result = rand.nextInt(numoperands + 1);
-        return result;
-    }
+//     public double randomNumGen(int numoperands) {
+//         double result = rand.nextInt(numoperands + 1);
+//         return result;
+//     }
 
-    public ArrayList<String> RSS(ArrayList<String> s) {
-        String temp;
-        int randNum;
-        for (int i = 0; i < s.size(); i++) {
-            randNum = rand.nextInt(s.size());
-            temp = s.get(i);
-            s.set(i, s.get(randNum));
-            s.set(randNum, temp);
-        }
-        return s;
-    }
+//     public ArrayList<String> RSS(ArrayList<String> s) {
+//         String temp;
+//         int randNum;
+//         for (int i = 0; i < s.size(); i++) {
+//             randNum = rand.nextInt(s.size());
+//             temp = s.get(i);
+//             s.set(i, s.get(randNum));
+//             s.set(randNum, temp);
+//         }
+//         return s;
+//     }
 }

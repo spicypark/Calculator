@@ -58,7 +58,7 @@ public class ArithmeticPanel extends JPanel{
     @Override
     public void paintComponent(Graphics b) {
         super.paintComponent(b);
-        b.drawString("v3.0.0-alpha.1", 160, 330);
+        b.drawString("v3.0.0-alpha.2", 160, 330);
         repaint();
     }
 }
