@@ -1,7 +1,6 @@
 package BackEnd;
 import java.util.Scanner;
 import java.awt.*;
-import java.awt.Graphics;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.ArrayList;
@@ -15,11 +14,21 @@ public class Operations {
 
     //ARITHMETIC OPERATIONS
 
-    public void main(String[] args) { //TODO test class
+    public static void main(String[] args) { //TODO test class
         //System.out.println("FINAL SOLUTION " + getFirstOrder("5*4*4*3/2.5/32.4224"));//*6/2+2
         //double bruh = calculate("-3+5/54/-35*2+4/3+4*2-1");
-        double bruh2 = calculate("5.4+3.5*61-56.2314+4+3/5*40");
-        System.out.println("FINAL RESULT " + bruh2);
+        // ArrayList<String> bruh2 = splitFirstOrder("-3.54x^-2.42+5.1x-45.424");
+        // for (int i = 0; i < bruh2.size(); i++) {
+        //     System.out.println(bruh2.get(i));
+        // }
+        ArrayList<String> testTerms = new ArrayList<>();
+        testTerms.add("3x^2");
+        testTerms.add("4x");
+        testTerms.add("13");
+        ArrayList<Character> testOperators = new ArrayList<>();
+        testOperators.add('+');
+        testOperators.add('+');
+        System.out.println("RESULT IS " + calculateY(10, testTerms, testOperators));
     }
 
     public double runFirstOrder(String eq) {
@@ -150,14 +159,13 @@ public class Operations {
         }
 
         //add indexes of addition and subtraction
-        
         for (int i = 0; i < eq.length(); i++) {
             if (i == 0) continue;
             else {
                 before = eq.charAt(i - 1);
                 current = eq.charAt(i);
             }
-            if (current == '+' || (current == '-' && before != '*' && before != '/')) breaks.add(i);
+            if (current == '+' || (current == '-' && before != '*' && before != '/' && before != '^')) breaks.add(i);
         }
 
         //add individual operands based on break indexes
@@ -197,7 +205,7 @@ public class Operations {
             Character before = '~';
             if (i == 0 && c == '-') continue;
             if (i > 0) before = eq.charAt(i - 1); 
-            if (c == '+' || (c == '-' && before != '*' && before != '/')) secondOperators.add(c);//-34*1.13/-23+5.5-3.134/524*-2
+            if (c == '+' || (c == '-' && before != '*' && before != '/')) secondOperators.add(c);
         }
 
         //solve for any second order of operations terms
@@ -225,100 +233,71 @@ public class Operations {
         g.drawLine(34, 146, 51, 10);
     }
 
+    public void plotLine(Graphics g, String eq) {
+        ArrayList<String> terms = this.splitFirstOrder(eq);
+        ArrayList<Character> operators = new ArrayList<>();
+        for (int i = 0; i < eq.length(); i++) {
+            Character c = eq.charAt(i);
+            Character before = '~';
+            if (i == 0 && c == '-') continue;
+            if (i > 0) before = eq.charAt(i - 1); 
+            if (c == '+' || (c == '-' && before != '*' && before != '/' && before != '^')) operators.add(c);
+        }
+
+        g.setColor(Color.BLUE);
+        for (int xVal = -194; xVal < 195; xVal++) {
+            g.drawLine(this.convertX(xVal), this.convertY(this.calculateY(xVal * Constants.Graphing.X_SCALE, terms, operators)), this.convertX(xVal), this.convertY(this.calculateY(xVal * Constants.Graphing.X_SCALE, terms, operators)));
+        }
+    }
+
+    public static int calculateY(double x, ArrayList<String> terms, ArrayList<Character> operators) {//TODO unstatic this
+        double calculatedTerm = 0.0;
+        for (int i = 0; i < terms.size(); i++) {
+            double gradual;
+            double coeff;
+            if (terms.get(i).contains("x") && terms.get(i).indexOf("x") > 0) coeff = Double.parseDouble(terms.get(i).substring(0, terms.get(i).indexOf("x")));
+            else coeff = 1;
+            if (terms.get(i).contains("^")) {
+                gradual = Math.pow(x, Double.parseDouble(terms.get(i).substring(terms.get(i).indexOf("^") + 1)));
+            }
+            else gradual = x;
+            if (!terms.get(i).contains("x") && !terms.get(i).contains("^")) {
+                if (i == 0) calculatedTerm = Double.parseDouble(terms.get(i));
+                else if (operators.get(i - 1).equals('+')) calculatedTerm += Double.parseDouble(terms.get(i));
+                else if (operators.get(i - 1).equals('-')) calculatedTerm -= Double.parseDouble(terms.get(i));
+            }
+            else {
+                if (i == 0) calculatedTerm = coeff * gradual;
+                else if (operators.get(i - 1).equals('+')) calculatedTerm += coeff * gradual;
+                else if (operators.get(i - 1).equals('-')) calculatedTerm -= coeff * gradual;
+            }
+        }
+        System.out.println("for x value " + x + " y is " + ((int) (calculatedTerm + 0.5)));
+        // System.out.println("same thing but scaled is " + (((int) (calculatedTerm + 0.5)) * Constants.Graphing.SCALE));
+        return (int) ((calculatedTerm) * Constants.Graphing.Y_SCALE);
+        // return (int) (calculatedTerm + 0.5);
+    }
+
+    public int convertX(int x) {return x + Constants.Graphing.X_CENTER;}
+    public int convertY(int y) {return -y + Constants.Graphing.Y_CENTER;}
+
     public void drawPlane(Graphics g) {
-        int xCenter = 194;
-        int yCenter = 171;
-        
+        int xOffset = -190;
+        int yOffset = -170;
+
         g.setColor(Color.LIGHT_GRAY);
-
-        g.drawLine(xCenter + 10, 0, xCenter + 10, 410);
-        g.drawLine(xCenter + 20, 0, xCenter + 20, 410);
-        g.drawLine(xCenter + 30, 0, xCenter + 30, 410);
-        g.drawLine(xCenter + 40, 0, xCenter + 40, 410);
-        g.drawLine(xCenter + 50, 0, xCenter + 50, 410);
-        g.drawLine(xCenter + 60, 0, xCenter + 60, 410);
-        g.drawLine(xCenter + 70, 0, xCenter + 70, 410);
-        g.drawLine(xCenter + 80, 0, xCenter + 80, 410);
-        g.drawLine(xCenter + 90, 0, xCenter + 90, 410);
-        g.drawLine(xCenter + 100, 0, xCenter + 100, 410);
-        g.drawLine(xCenter + 110, 0, xCenter + 110, 410);
-        g.drawLine(xCenter + 120, 0, xCenter + 120, 410);
-        g.drawLine(xCenter + 130, 0, xCenter + 130, 410);
-        g.drawLine(xCenter + 140, 0, xCenter + 140, 410);
-        g.drawLine(xCenter + 150, 0, xCenter + 150, 410);
-        g.drawLine(xCenter + 160, 0, xCenter + 160, 410);
-        g.drawLine(xCenter + 170, 0, xCenter + 170, 410);
-        g.drawLine(xCenter + 180, 0, xCenter + 180, 410);
-        g.drawLine(xCenter + 190, 0, xCenter + 190, 410);
-        g.drawLine(xCenter + 200, 0, xCenter + 200, 410);
-
-        g.drawLine(xCenter - 10, 0, xCenter - 10, 410);
-        g.drawLine(xCenter - 20, 0, xCenter - 20, 410);
-        g.drawLine(xCenter - 30, 0, xCenter - 30, 410);
-        g.drawLine(xCenter - 40, 0, xCenter - 40, 410);
-        g.drawLine(xCenter - 50, 0, xCenter - 50, 410);
-        g.drawLine(xCenter - 60, 0, xCenter - 60, 410);
-        g.drawLine(xCenter - 70, 0, xCenter - 70, 410);
-        g.drawLine(xCenter - 80, 0, xCenter - 80, 410);
-        g.drawLine(xCenter - 90, 0, xCenter - 90, 410);
-        g.drawLine(xCenter - 100, 0, xCenter - 100, 410);
-        g.drawLine(xCenter - 110, 0, xCenter - 110, 410);
-        g.drawLine(xCenter - 120, 0, xCenter - 120, 410);
-        g.drawLine(xCenter - 130, 0, xCenter - 130, 410);
-        g.drawLine(xCenter - 140, 0, xCenter - 140, 410);
-        g.drawLine(xCenter - 150, 0, xCenter - 150, 410);
-        g.drawLine(xCenter - 160, 0, xCenter - 160, 410);
-        g.drawLine(xCenter - 170, 0, xCenter - 170, 410);
-        g.drawLine(xCenter - 180, 0, xCenter - 180, 410);
-        g.drawLine(xCenter - 190, 0, xCenter - 190, 410);
-        g.drawLine(xCenter - 200, 0, xCenter - 200, 410);
-
-        g.drawLine(0, yCenter + 10, 410, yCenter + 10);
-        g.drawLine(0, yCenter + 20, 410, yCenter + 20);
-        g.drawLine(0, yCenter + 30, 410, yCenter + 30);
-        g.drawLine(0, yCenter + 40, 410, yCenter + 40);
-        g.drawLine(0, yCenter + 50, 410, yCenter + 50);
-        g.drawLine(0, yCenter + 60, 410, yCenter + 60);
-        g.drawLine(0, yCenter + 70, 410, yCenter + 70);
-        g.drawLine(0, yCenter + 80, 410, yCenter + 80);
-        g.drawLine(0, yCenter + 90, 410, yCenter + 90);
-        g.drawLine(0, yCenter + 100, 410, yCenter + 100);
-        g.drawLine(0, yCenter + 110, 410, yCenter + 110);
-        g.drawLine(0, yCenter + 120, 410, yCenter + 120);
-        g.drawLine(0, yCenter + 130, 410, yCenter + 130);
-        g.drawLine(0, yCenter + 140, 410, yCenter + 140);
-        g.drawLine(0, yCenter + 150, 410, yCenter + 150);
-        g.drawLine(0, yCenter + 160, 410, yCenter + 160);
-        g.drawLine(0, yCenter + 170, 410, yCenter + 170);
-        g.drawLine(0, yCenter + 180, 410, yCenter + 180);
-        g.drawLine(0, yCenter + 190, 410, yCenter + 190);
-        g.drawLine(0, yCenter + 200, 410, yCenter + 200);
-  
-        g.drawLine(0, yCenter - 10, 410, yCenter - 10);
-        g.drawLine(0, yCenter - 20, 410, yCenter - 20);
-        g.drawLine(0, yCenter - 30, 410, yCenter - 30);
-        g.drawLine(0, yCenter - 40, 410, yCenter - 40);
-        g.drawLine(0, yCenter - 50, 410, yCenter - 50);
-        g.drawLine(0, yCenter - 60, 410, yCenter - 60);
-        g.drawLine(0, yCenter - 70, 410, yCenter - 70);
-        g.drawLine(0, yCenter - 80, 410, yCenter - 80);
-        g.drawLine(0, yCenter - 90, 410, yCenter - 90);
-        g.drawLine(0, yCenter - 100, 410, yCenter - 100);
-        g.drawLine(0, yCenter - 110, 410, yCenter - 110);
-        g.drawLine(0, yCenter - 120, 410, yCenter - 120);
-        g.drawLine(0, yCenter - 130, 410, yCenter - 130);
-        g.drawLine(0, yCenter - 140, 410, yCenter - 140);
-        g.drawLine(0, yCenter - 150, 410, yCenter - 150);
-        g.drawLine(0, yCenter - 160, 410, yCenter - 160);
-        g.drawLine(0, yCenter - 170, 410, yCenter - 170);
-        g.drawLine(0, yCenter - 180, 410, yCenter - 180);
-        g.drawLine(0, yCenter - 190, 410, yCenter - 190);
-        g.drawLine(0, yCenter - 200, 410, yCenter - 200);
+        for (int i = 0; i < 39; i++) {
+            g.drawLine(Constants.Graphing.X_CENTER + xOffset, 0, Constants.Graphing.X_CENTER + xOffset, 410);
+            xOffset += 10;
+        }
+        for (int i = 0; i < 35; i++) {
+            g.drawLine(0, Constants.Graphing.Y_CENTER + yOffset, 410, Constants.Graphing.Y_CENTER + yOffset);
+            yOffset += 10;
+        }
 
         g.setColor(Color.BLACK);
-
-        g.drawLine(xCenter, 0, xCenter, 410);
-        g.drawLine(0, yCenter, 410, yCenter);
+        g.drawLine(Constants.Graphing.X_CENTER, 0, Constants.Graphing.X_CENTER, 410);
+        g.drawLine(0, Constants.Graphing.Y_CENTER, 410, Constants.Graphing.Y_CENTER);
     }
 
     // public double runCircleArea(double[] inputArray) {
@@ -339,122 +318,6 @@ public class Operations {
     // public double runSphereVolume(double[] inputArray) {
     //     double sVolumeResult = (inputArray[0] * inputArray[0] * inputArray[0] * Math.PI * 4) / 3;
     //     return sVolumeResult;
-    // }
-
-    //GRAPHING OPERATIONS
-
-    // public String[] [] runGraphFunction(int userGraphOp, String[] [] userPlane) {
-    //     // WHEN I KEEP SAYING THAT THIS PROGRAM MAY BE REDUNDANT, PROBABLY 90% OF THOSE REDUNDANCIES ARE IN THIS METHOD
-    //     double userX;
-    //     double userY;
-
-    //     if (userGraphOp == 1) {
-    //         System.out.println("\nPlease input slope and y-intercept:");
-    //         double userSlope = input.getUserDouble(scnr);
-    //         double userYInt = input.getUserDouble(scnr);
-
-    //         for (int j = 0; j < 31; j++) {
-
-    //             userX = j;
-    //             userY = ((j - 15) * -userSlope) - userYInt;
-
-    //             if ((int)userY + 15 < 0 || (int)userY + 15 > 31) {
-    //                 userPlane[15][j] = "- ";
-    //             }
-
-    //             else if (userY + 15 >=0 && userY + 15 < 31) {
-    //                 userPlane[(int)userY + 15][(int)userX] = "■ ";
-    //             }
-    //         }
-    //     }
-        
-    //     else if (userGraphOp == 2) {
-    //         System.out.println("\nPlease input a, b, and c values:");
-    //         double aValQ = input.getUserDouble(scnr);
-    //         System.out.println(aValQ);
-    //         double bValQ = input.getUserDouble(scnr);
-    //         System.out.println(bValQ);
-    //         double cValQ = input.getUserDouble(scnr);
-    //         System.out.println(cValQ);
-
-    //         for (int k = 0; k < 31; k++) {
-
-    //             userX = k;
-    //             userY = ((k - 15) * (k - 15) * -aValQ) - (bValQ * (k - 15)) - cValQ;
-
-    //             if ((int)userY + 15 < 0 || (int)userY + 15 > 31) {
-    //                 userPlane[15][k] = "- ";
-    //             }
-
-    //             else if (userY + 15 >=0 && userY + 15 < 31) {
-    //                 userPlane[(int)userY + 15][(int)userX] = "■ ";
-    //             }
-    //         }
-    //     }
-
-    //     else if (userGraphOp == 3) {
-    //         System.out.println("\nPlease input a, b, c, and d values:");
-    //         double aValC = input.getUserDouble(scnr);
-    //         double bValC = input.getUserDouble(scnr);
-    //         double cValC = input.getUserDouble(scnr);
-    //         double dValC = input.getUserDouble(scnr);
-
-    //         for (int k = 0; k < 31; k++) {
-
-    //             userX = k;
-    //             userY = ((k - 15) * (k - 15) * (k - 15) * -aValC) - ((k - 15) * (k - 15) * -bValC) - (cValC * (k - 15)) - dValC;
-
-    //             if ((int)userY + 15 < 0 || (int)userY + 15 > 31) {
-    //                 userPlane[15][k] = "- ";
-    //             }
-
-    //             else if (userY + 15 >=0 && userY + 15 < 31) {
-    //                 userPlane[(int)userY + 15][(int)userX] = "■ ";
-    //             }
-    //         }
-    //     }
-
-    //     else if (userGraphOp == 4) {
-    //         System.out.println("\nPlease input a value:");
-    //         double aValE = input.getUserDouble(scnr);
-
-    //         for (int k = 0; k < 31; k++) {
-    //             userX = k;
-    //             userY = 1;
-    //             double tempUserX = userX - 15.0;
-
-    //             if (tempUserX < 0) {
-    //                 double negDenom = 1;
-    //                 for (int l = 0; l < (tempUserX * -1) ; l++) {
-    //                     negDenom *= aValE;
-    //                 }
-
-    //                 userY = (1 / negDenom) * -1.0;
-    //             }
-
-    //             else if (tempUserX == 0) {
-    //                 userY = -1.0;
-    //             }
-
-    //             else if (tempUserX > 0) {
-    //                 double userYE = 1;
-    //                 for (int l = 0; l < tempUserX; l++) {
-    //                     userYE *= aValE;
-    //                 }
-    //                 userY = userYE * -1.0;
-    //             }
-
-    //             if ((int)userY + 15 < 0 || (int)userY + 15 > 31) {
-    //                 userPlane[15][k] = "- ";
-    //             }
-
-    //             else if (userY + 15 >=0 && userY + 15 < 31) {
-    //                 userPlane[(int)userY + 15][(int)userX] = "■ ";
-    //             }
-    //         }
-    //     }
-        
-    //     return userPlane;
     // }
 
     //CONVERSION OPERATIONS

@@ -31,10 +31,9 @@ public class ArithmeticPanel extends JPanel{
         submit.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 equation = input.getText();
-                // input.setText("");
                 boolean detected = detector.detectArithmetic(equation);
                 if (!detected) {
-                    solution.setText("Solution: Invalid input");
+                    solution.setText("Solution: Invalid or unsupported input");
                     input.setText("Please input your equation here.");
                 }
                 else {

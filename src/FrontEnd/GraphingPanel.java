@@ -7,8 +7,10 @@ import java.awt.event.ActionListener;
 import BackEnd.*;
 
 public class GraphingPanel extends JPanel {
-    Operations operations = new Operations();
-    public boolean refresh = false;
+    Operations operation = new Operations();
+    EquationDetector detector = new EquationDetector();
+    private boolean refresh = false;
+    private String eq;
     public GraphingPanel() {
         super();
         this.setBackground(Color.WHITE);
@@ -22,16 +24,32 @@ public class GraphingPanel extends JPanel {
         submit.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 refresh = true;
+                boolean detected;
+                eq = input.getText();
+                detected = detector.detectPolynomial(eq);
+                if (detected) {refresh = true;}
+                else input.setText("Invalid or unsupported equation");
+                System.out.println(detected);
             }
+        });
+
+        JButton clear = new JButton("Clear");
+        this.add(clear);
+        clear.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                input.setText("");
+            }   
         });
     }
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        operations.drawPlane(g);
+        operation.drawPlane(g);
         if (refresh) {
-            operations.testMethod(g);
+            operation.plotLine(g, eq);//3x^2+5x-3
         }
+        g.setColor(Color.BLACK);
+        g.drawString("v3.0.0-alpha.2", 160, 330);
         repaint();
     }
 }
