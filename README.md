@@ -7,4 +7,21 @@ More information and the changelog for this application may be viewed in the wik
 https://github.com/SpicyPark/Calculator/wiki
 
 ## How to use this program
-Coming soon.
+
+To use the program, download the runnable .jar file. You must have Java 8 to run the program.
+
+The only currently implemented mode for version 3.0.0 is Arithmetic. This mode has received a major revamp. Instead of the user inputting various values to tell the computer what to do, the user instead inputs an equation and the solution is automatically outputted, similar to programs such as Wolfram|Alpha or Symbolab.
+
+*Decimal outputs are rounded to 5 places.* <br>
+*Do not put spaces in your equation.*
+
+Examples of currently viable inputs:<br>
+3\*4/7<br>
+-34.52+4\*43.3332\*8-45.333*1.313<br>
+2+5\*3-1<br>
+
+Examples of currently invalid inputs:<br>
+3n+4<br>
+3 + 4 - 3 * 5<br>
+
+After inputting your equation, press the submit button. Your solution will appear in the solution box. If the solution is incorrect, please report the issue and include both your inputted equation and the erroneous solution. If you wish to clear your input, press the clear button.
