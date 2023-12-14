@@ -6,7 +6,7 @@ This calculator has five currently implemented modes: Arithmetic, Graphing, Conv
 More information and the changelog for this application may be viewed in the wiki.<br>
 https://github.com/SpicyPark/Calculator/wiki
 
-## How to use this program
+## How to use this program (3.0.0 only)
 
 To use the program, download the runnable .jar file. You must have Java 8 to run the program.
 
