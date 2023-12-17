@@ -8,7 +8,7 @@ https://github.com/SpicyPark/Calculator/wiki
 
 ## How to use this program (3.0.0 only)
 
-To use the program, download the runnable .jar file. You must have Java 8 to run the program.
+To use the program, download the latest runnable .jar file (v3.0.0-alpha.2). You must have Java 8 to run the program.
 
 The only currently implemented mode for version 3.0.0 is Arithmetic. This mode has received a major revamp. Instead of the user inputting various values to tell the computer what to do, the user instead inputs an equation and the solution is automatically outputted, similar to programs such as Wolfram|Alpha or Symbolab.
 
