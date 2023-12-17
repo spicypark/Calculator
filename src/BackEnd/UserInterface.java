@@ -1,6 +1,7 @@
 package BackEnd;
 import javax.swing.*;
-import FrontEnd.*;
+import FrontEnd.HomePanel;
+import FrontEnd.ModePanels.*;
 
 public class UserInterface {
     public void initialize() {

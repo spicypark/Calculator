@@ -10,8 +10,7 @@ public class Operations {
     Scanner scnr = new Scanner(System.in);
     Random rand = new Random();
     NumberFormat decimal = new DecimalFormat("#0.00000");
-    double result = 0;
-
+    
     public static void main(String[] args) { //TODO test class
     }
     
@@ -20,6 +19,7 @@ public class Operations {
     public double runFirstOrder(String eq) {
         
         //declare variables
+        double result = 0;
         ArrayList<String> firstOperators = new ArrayList<>();
         ArrayList<Integer> firstOperatorIndexes = new ArrayList<>();
         ArrayList<Integer> negativeIndexes = new ArrayList<>();
@@ -242,7 +242,7 @@ public class Operations {
             }
         }
 
-        //return calculated y value for the given x value
+        //return calculated and scaled y value for the given x value
         return (int) ((calculatedTerm) * Constants.Graphing.Y_SCALE);
     }
 
@@ -253,7 +253,7 @@ public class Operations {
     //draw the grid with axes
     public void drawPlane(Graphics g) {
 
-        //declalre variables for offsetting each gridline
+        //declare variables for offsetting each gridline
         int xOffset = -190;
         int yOffset = -170;
 
