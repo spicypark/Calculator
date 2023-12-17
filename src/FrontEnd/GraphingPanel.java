@@ -23,12 +23,15 @@ public class GraphingPanel extends JPanel {
         this.add(submit);
         submit.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                refresh = true;
-                boolean detected;
                 eq = input.getText();
-                detected = detector.detectPolynomial(eq);
-                if (detected) {refresh = true;}
-                else input.setText("Invalid or unsupported equation");
+                boolean detected = detector.detectPolynomial(eq);
+                if (detected) {
+                    refresh = true;
+                }
+                else {
+                    input.setText("Invalid or unsupported equation");
+                    refresh = false;
+                }
                 System.out.println(detected);
             }
         });
@@ -45,9 +48,7 @@ public class GraphingPanel extends JPanel {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         operation.drawPlane(g);
-        if (refresh) {
-            operation.plotLine(g, eq);//3x^2+5x-3
-        }
+        if (refresh) operation.plotLine(g, eq);
         g.setColor(Color.BLACK);
         g.drawString("v3.0.0-alpha.2", 160, 330);
         repaint();
