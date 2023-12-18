@@ -190,7 +190,7 @@ public class Operations {
         //declare variables
         ArrayList<String> terms = this.splitFirstOrder(eq);
         ArrayList<Character> operators = new ArrayList<>();
-        int lastY;
+        int lastY = 0;
 
         //add all operators to an ArrayList
         for (int i = 0; i < eq.length(); i++) {
@@ -201,12 +201,21 @@ public class Operations {
             if (c == '+' || (c == '-' && before != '*' && before != '/' && before != '^')) operators.add(c);
         }
 
-        //set color and graph y values for given x while filling any gaps
+        //set color and graph y values for given x while filling any gaps and accounting for undefined areas
         g.setColor(Color.BLUE);
-        lastY = this.convertY(this.calculateY(-194 * Constants.Graphing.X_SCALE, terms, operators));
+        for (int i = -194; i < 195; i++) {
+            if (this.calculateY(i * Constants.Graphing.X_SCALE, terms, operators) != Integer.MIN_VALUE) {
+                lastY = this.convertY(this.calculateY(i * Constants.Graphing.X_SCALE, terms, operators));
+                break;
+            }
+            else continue;
+        }
         for (int xVal = -194; xVal < 195; xVal++) {
-            g.drawLine(this.convertX(xVal), this.convertY(this.calculateY(xVal * Constants.Graphing.X_SCALE, terms, operators)), this.convertX(xVal), lastY);
-            lastY = this.convertY(this.calculateY(xVal * Constants.Graphing.X_SCALE, terms, operators));
+            if (this.calculateY(xVal * Constants.Graphing.X_SCALE, terms, operators) != Integer.MIN_VALUE) {
+                g.drawLine(this.convertX(xVal), this.convertY(this.calculateY(xVal * Constants.Graphing.X_SCALE, terms, operators)), this.convertX(xVal), lastY);
+                lastY = this.convertY(this.calculateY(xVal * Constants.Graphing.X_SCALE, terms, operators));
+            }
+            else continue;
         }
     }
 
@@ -226,7 +235,8 @@ public class Operations {
             if (terms.get(i).contains("x") && terms.get(i).indexOf("x") > 0 && terms.get(i).charAt(terms.get(i).indexOf("x") - 1) != '-') coeff = Double.parseDouble(terms.get(i).substring(0, terms.get(i).indexOf("x")));
             else if (terms.get(0).charAt(0) == '-') coeff = -1;
             else coeff = 1;
-            if (terms.get(i).contains("^")) gradual = Math.pow(x, Double.parseDouble(terms.get(i).substring(terms.get(i).indexOf("^") + 1)));
+            if (terms.get(i).contains("^") && !terms.get(i).substring(terms.get(i).indexOf("^") + 1).contains("x")) gradual = Math.pow(x, Double.parseDouble(terms.get(i).substring(terms.get(i).indexOf("^") + 1)));
+            else if (terms.get(i).contains("^") && terms.get(i).substring(terms.get(i).indexOf("^") + 1).contains("x")) gradual = Math.pow(x, x);
             else gradual = x;
 
             //add the calculated single term of the polynomial and add it to the overall result
@@ -243,7 +253,8 @@ public class Operations {
         }
 
         //return calculated and scaled y value for the given x value
-        return (int) ((calculatedTerm) * Constants.Graphing.Y_SCALE);
+        if (calculatedTerm != calculatedTerm) return Integer.MIN_VALUE;
+        else return (int) ((calculatedTerm) * Constants.Graphing.Y_SCALE);
     }
 
     //convert cartesian coordinates to coordinates that can be graphed on JPanel

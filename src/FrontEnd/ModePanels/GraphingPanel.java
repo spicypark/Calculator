@@ -29,7 +29,7 @@ public class GraphingPanel extends JPanel {
                     refresh = true;
                 }
                 else {
-                    input.setText("Invalid or unsupported equation");
+                    input.setText("Invalid or unsupported input");
                     refresh = false;
                 }
                 System.out.println(detected);

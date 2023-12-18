@@ -26,7 +26,11 @@ public class EquationDetector {
                 }
 
                 if (Character.isDigit(c)) if (!Character.isDigit(next) && !next.equals('x') && !next.equals('+') && !next.equals('-') && !next.equals('^') && !next.equals('.') && i != eq.length() - 1) continueDetecting = false;
-                else if (c.equals('x')) if (!next.equals('^') && !next.equals('+') && !next.equals('-') && i != eq.length() - 1) continueDetecting = false;
+                else if (c.equals('x')) {
+                    System.out.println("x detected");
+                    if (!next.equals('^') && !next.equals('+') && !next.equals('-') && i != eq.length() - 1) continueDetecting = false;
+                    if (next.equals('x') || Character.isDigit(next)) continueDetecting = false;
+                }
                 else if (c.equals('+') || c.equals('-')) {
                     if (i == eq.length() - 1) continueDetecting = false;
                     else if (!Character.isDigit(next) && !next.equals('x')) continueDetecting = false;
@@ -42,8 +46,6 @@ public class EquationDetector {
                     else hasDecimal = true;
                     if (!Character.isDigit(next)) continueDetecting = false;
                 }
-
-                //if () make it so that no decimals in exponent right side of carrot
             }
             if ((i == eq.length() - 1) && continueDetecting) detected = true;
         }
