@@ -9,10 +9,12 @@ public class EquationDetector {
         boolean detected = false;
         boolean continueDetecting = true;
         boolean hasDecimal = false;
+        boolean hasExponent = false;
         if (eq.length() == 1) {
             if (eq.equals("x") || Character.isDigit(eq.charAt(0))) return true;
             else return false;
         }
+        if (eq.equals("sinx") || eq.equals("cosx")) return true; // || eq.equals("tanx")
         for (int i = 0; i < eq.length(); i++) {
             if (continueDetecting) {
                 Character c = eq.charAt(i);
@@ -25,21 +27,27 @@ public class EquationDetector {
                     continue;
                 }
 
-                if (Character.isDigit(c)) if (!Character.isDigit(next) && !next.equals('x') && !next.equals('+') && !next.equals('-') && !next.equals('^') && !next.equals('.') && i != eq.length() - 1) continueDetecting = false;
+                if (Character.isDigit(c)) {
+                    if (!Character.isDigit(next) && !next.equals('x') && !next.equals('+') && !next.equals('-') && !next.equals('^') && !next.equals('.') && i != eq.length() - 1) continueDetecting = false;
+                    if (next.equals('^')) continueDetecting = false;
+                }
                 else if (c.equals('x')) {
-                    System.out.println("x detected");
                     if (!next.equals('^') && !next.equals('+') && !next.equals('-') && i != eq.length() - 1) continueDetecting = false;
                     if (next.equals('x') || Character.isDigit(next)) continueDetecting = false;
+                    if (hasExponent && eq.charAt(i - 1) != '^') continueDetecting = false;
                 }
                 else if (c.equals('+') || c.equals('-')) {
                     if (i == eq.length() - 1) continueDetecting = false;
                     else if (!Character.isDigit(next) && !next.equals('x')) continueDetecting = false;
                     hasDecimal = false;
+                    hasExponent = false;
                 }
                 else if (c.equals('^')) {
                     if (i == eq.length() - 1) continueDetecting = false;
                     else if (!Character.isDigit(next) && !next.equals('-') && !next.equals('x')) continueDetecting = false;
+                    if (hasExponent) continueDetecting = false;
                     hasDecimal = false;
+                    hasExponent = true;
                 }
                 else if (c.equals('.')) {
                     if (hasDecimal) continueDetecting = false;

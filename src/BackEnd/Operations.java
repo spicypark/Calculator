@@ -186,36 +186,55 @@ public class Operations {
     //GRAPHING OPERATIONS
 
     public void plotLine(Graphics g, String eq) {
-        
-        //declare variables
-        ArrayList<String> terms = this.splitFirstOrder(eq);
-        ArrayList<Character> operators = new ArrayList<>();
-        int lastY = 0;
 
-        //add all operators to an ArrayList
-        for (int i = 0; i < eq.length(); i++) {
-            Character c = eq.charAt(i);
-            Character before = '~';
-            if (i == 0 && c == '-') continue;
-            if (i > 0) before = eq.charAt(i - 1); 
-            if (c == '+' || (c == '-' && before != '*' && before != '/' && before != '^')) operators.add(c);
+        //trigonometric
+        if (eq.equals("sinx") || eq.equals("cosx") || eq.equals("tanx")) {
+
+            //declare variables
+            int lastY = 0;
+
+            //set color and graph y values for given x while filling any gaps and accounting for undefined areas
+            g.setColor(Color.BLUE);
+            lastY = this.convertY(this.calculateYTrig(-194, eq));
+            for (int xVal = -194; xVal < 195; xVal++) {
+                g.drawLine(this.convertX(xVal), this.convertY(this.calculateYTrig(xVal * Constants.Graphing.X_SCALE, eq)), this.convertX(xVal), lastY);
+                lastY = this.convertY(this.calculateYTrig(xVal * Constants.Graphing.X_SCALE, eq));
+            }
         }
 
-        //set color and graph y values for given x while filling any gaps and accounting for undefined areas
-        g.setColor(Color.BLUE);
-        for (int i = -194; i < 195; i++) {
-            if (this.calculateY(i * Constants.Graphing.X_SCALE, terms, operators) != Integer.MIN_VALUE) {
-                lastY = this.convertY(this.calculateY(i * Constants.Graphing.X_SCALE, terms, operators));
-                break;
+        //polynomial
+        else {
+
+            //declare variables
+            ArrayList<String> terms = this.splitFirstOrder(eq);
+            ArrayList<Character> operators = new ArrayList<>();
+            int lastY = 0;
+
+            //add all operators to an ArrayList
+            for (int i = 0; i < eq.length(); i++) {
+                Character c = eq.charAt(i);
+                Character before = '~';
+                if (i == 0 && c == '-') continue;
+                if (i > 0) before = eq.charAt(i - 1); 
+                if (c == '+' || (c == '-' && before != '*' && before != '/' && before != '^')) operators.add(c);
             }
-            else continue;
-        }
-        for (int xVal = -194; xVal < 195; xVal++) {
-            if (this.calculateY(xVal * Constants.Graphing.X_SCALE, terms, operators) != Integer.MIN_VALUE) {
-                g.drawLine(this.convertX(xVal), this.convertY(this.calculateY(xVal * Constants.Graphing.X_SCALE, terms, operators)), this.convertX(xVal), lastY);
-                lastY = this.convertY(this.calculateY(xVal * Constants.Graphing.X_SCALE, terms, operators));
+
+            //set color and graph y values for given x while filling any gaps and accounting for undefined areas
+            g.setColor(Color.BLUE);
+            for (int i = -194; i < 195; i++) {
+                if (this.calculateY(i * Constants.Graphing.X_SCALE, terms, operators) != Integer.MIN_VALUE) {
+                    lastY = this.convertY(this.calculateY(i * Constants.Graphing.X_SCALE, terms, operators));
+                    break;
+                }
+                else continue;
             }
-            else continue;
+            for (int xVal = -194; xVal < 195; xVal++) {
+                if (this.calculateY(xVal * Constants.Graphing.X_SCALE, terms, operators) != Integer.MIN_VALUE) {
+                    g.drawLine(this.convertX(xVal), this.convertY(this.calculateY(xVal * Constants.Graphing.X_SCALE, terms, operators)), this.convertX(xVal), lastY);
+                    lastY = this.convertY(this.calculateY(xVal * Constants.Graphing.X_SCALE, terms, operators));
+                }
+                else continue;
+            }
         }
     }
 
@@ -255,6 +274,20 @@ public class Operations {
         //return calculated and scaled y value for the given x value
         if (calculatedTerm != calculatedTerm) return Integer.MIN_VALUE;
         else return (int) ((calculatedTerm) * Constants.Graphing.Y_SCALE);
+    }
+
+    public int calculateYTrig(double x, String eq) {
+
+        //declare variables
+        double calculatedTerm = 0.0;
+
+        //calculate based on trig function
+        if (eq.equals("sinx")) calculatedTerm = Math.sin(x);
+        else if (eq.equals("cosx")) calculatedTerm = Math.cos(x);
+        //else if (eq.equals("tanx")) calculatedTerm = Math.tan(x);
+        
+        //return calculated and scaled y value for the given x value
+        return (int) ((calculatedTerm) * Constants.Graphing.Y_SCALE);
     }
 
     //convert cartesian coordinates to coordinates that can be graphed on JPanel

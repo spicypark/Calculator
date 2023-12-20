@@ -6,6 +6,24 @@ public class ConversionPanel extends JPanel {
     public ConversionPanel() {
         super();
         this.setBackground(Color.WHITE);
+
+        // JTextField input = new JTextField(10);
+        // this.add(input);
+
+        // String[] units = {"units", "centimeters", "inches", "meters", "feet", "kilometers", "miles", "kilograms", "pounds", "grams", "ounces", "liters", "gallons"};
+        
+        // JComboBox<String> from = new JComboBox<String>(units);
+        // from.setEditable(false);
+        // this.add(from);
+
+        // JTextField middle = new JTextField(2);
+        // middle.setText("to");
+        // middle.setEditable(false);
+        // this.add(middle);
+
+        // JComboBox<String> to = new JComboBox<String>(units);
+        // to.setEditable(false);
+        // this.add(to);
     }
 
     @Override

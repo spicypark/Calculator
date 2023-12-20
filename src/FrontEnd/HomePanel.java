@@ -23,8 +23,9 @@ public class HomePanel extends JPanel {
         g.drawString("D - Derivative", 30, 155);
         g.drawString("R - Random", 30, 170);
 
-        g.drawString("The calculator is currently in alpha testing.", 30, 300);
-        g.drawString("Please report any bugs you encounter.", 30, 315);
+        g.drawString("The calculator is currently in alpha testing.", 30, 285);
+        g.drawString("Please report any bugs you encounter.", 30, 300);
+        g.drawString("https://github.com/SpicyPark/Calculator", 30, 315);
 
         repaint();
     }
