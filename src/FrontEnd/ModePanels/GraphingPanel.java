@@ -1,9 +1,7 @@
 package FrontEnd.ModePanels;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
+import java.awt.event.*;
 import BackEnd.*;
 
 public class GraphingPanel extends JPanel {
@@ -50,7 +48,7 @@ public class GraphingPanel extends JPanel {
         operation.drawPlane(g);
         if (refresh) operation.plotLine(g, eq);
         g.setColor(Color.BLACK);
-        g.drawString("v3.0.0-alpha.3", 160, 330);
+        g.drawString("v3.0.0-alpha.4", 160, 330);
         repaint();
     }
 }
