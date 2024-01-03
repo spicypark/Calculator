@@ -1,6 +1,6 @@
 package BackEnd;
 
-public class EquationDetector {
+public class Detector {
 
     public static void main(String[] args) {//TODO test class
     }
@@ -101,6 +101,16 @@ public class EquationDetector {
             }
             if ((i == eq.length() - 1) && continueDetecting) detected = true;
         }
+        return detected;
+    }
+
+    public boolean detectConversion(String from, String to, String num) {
+        boolean detected = false;
+        String[] units = {"units", "centimeters", "inches", "meters", "feet", "kilometers", "miles", "kilograms", "pounds", "grams", "ounces", "liters", "gallons"};
+
+        if (from.equals(units[0]) || to.equals(units[0])) return false;
+
+
         return detected;
     }
 }

@@ -1,5 +1,4 @@
 package BackEnd;
-import java.util.Scanner;
 import java.awt.*;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
@@ -7,7 +6,6 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Operations {
-    Scanner scnr = new Scanner(System.in);
     Random rand = new Random();
     NumberFormat decimal = new DecimalFormat("#0.00000");
     
@@ -316,5 +314,16 @@ public class Operations {
         g.setColor(Color.BLACK);
         g.drawLine(Constants.Graphing.X_CENTER, 0, Constants.Graphing.X_CENTER, 410);
         g.drawLine(0, Constants.Graphing.Y_CENTER, 410, Constants.Graphing.Y_CENTER);
+    }
+
+    //CONVERSION OPERATIONS
+
+    public double convert(String from, String to, double num) {
+        double result = 0.0;
+        String[] units = {"units", "centimeters", "inches", "meters", "feet", "kilometers", "miles", "kilograms", "pounds", "grams", "ounces", "liters", "gallons"};
+
+        //TODO
+
+        return result;
     }
 }

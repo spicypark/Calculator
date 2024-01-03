@@ -1,12 +1,14 @@
 package FrontEnd.ModePanels;
 import javax.swing.*;
+
+import BackEnd.*;
+
 import java.awt.*;
 import java.awt.event.*;
-import BackEnd.*;
 
 public class GraphingPanel extends JPanel {
     Operations operation = new Operations();
-    EquationDetector detector = new EquationDetector();
+    Detector detector = new Detector();
     private boolean refresh = false;
     private String eq;
     public GraphingPanel() {
@@ -30,7 +32,6 @@ public class GraphingPanel extends JPanel {
                     input.setText("Invalid or unsupported input");
                     refresh = false;
                 }
-                System.out.println(detected);
             }
         });
 

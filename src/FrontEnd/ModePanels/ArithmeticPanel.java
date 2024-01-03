@@ -8,7 +8,7 @@ import java.awt.event.*;
 import java.text.*;
 
 public class ArithmeticPanel extends JPanel{
-    EquationDetector detector = new EquationDetector();
+    Detector detector = new Detector();
     String equation;
     String solutionD = "0";
     NumberFormat decimal = new DecimalFormat("#0.00000");

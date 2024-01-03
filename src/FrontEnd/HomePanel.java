@@ -1,6 +1,7 @@
 package FrontEnd;
 import javax.swing.*;
 import java.awt.*;
+import BackEnd.Constants;
 
 public class HomePanel extends JPanel {
     public HomePanel() {
@@ -11,7 +12,7 @@ public class HomePanel extends JPanel {
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.drawString("Version 3.0.0-alpha.4", 30, 30);
+        g.drawString(Constants.VERSION, 30, 30);
 
         g.drawString("Made by SpicyPark", 30, 55);
         g.drawString("Inspired by Nicholas", 30, 70);

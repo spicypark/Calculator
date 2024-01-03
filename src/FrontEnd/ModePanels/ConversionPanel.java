@@ -1,10 +1,18 @@
 package FrontEnd.ModePanels;
 import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
+
 import BackEnd.*;
 
+import java.awt.*;
+import java.awt.event.*;
+import java.text.*;
+
 public class ConversionPanel extends JPanel {
+    Detector detector = new Detector();
+    String solutionD = "0";
+    NumberFormat decimal = new DecimalFormat("#0.00000");
+    Operations operation = new Operations();
+    
     public ConversionPanel() {
         super();
         this.setBackground(Color.WHITE);
@@ -35,6 +43,12 @@ public class ConversionPanel extends JPanel {
         this.add(submit);
         submit.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                boolean detected = detector.detectConversion(from.getSelectedItem().toString(), to.getSelectedItem().toString(), input.getText());//first detect if input num value is a double
+                if (!detected) solution.setText("Solution: Invalid or unsupported input");
+                else {
+                    solutionD = decimal.format(operation.convert(from.getSelectedItem().toString(), to.getSelectedItem().toString(), Double.parseDouble(input.getText())));
+                    solution.setText("Solution: " + solutionD);
+                }
                 System.out.println(input.getText());
                 System.out.println(from.getSelectedItem());
                 System.out.println(to.getSelectedItem());
