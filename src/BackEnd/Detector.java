@@ -1,10 +1,6 @@
 package BackEnd;
 
 public class Detector {
-
-    public static void main(String[] args) {//TODO test class
-    }
-
     public boolean detectPolynomial(String eq) {
         boolean detected = false;
         boolean continueDetecting = true;

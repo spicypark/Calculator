@@ -1,7 +1,6 @@
 package BackEnd;
 
 public class Constants {
-
     public static final String VERSION = "v3.0.0-alpha.4";
 
     public static class Graphing {

@@ -9,9 +9,6 @@ public class Operations {
     Random rand = new Random();
     NumberFormat decimal = new DecimalFormat("#0.00000");
     
-    public static void main(String[] args) { //TODO test class
-    }
-    
     //ARITHMETIC OPERATIONS
 
     double fResult = 0.0;
