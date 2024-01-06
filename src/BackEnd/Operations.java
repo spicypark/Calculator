@@ -354,7 +354,7 @@ public class Operations {
             case "gallons": toIndex = 1; break;
         }
 
-        //baesd off which table calculate the conversion using the tables
+        //based off which table calculate the conversion using the tables
         switch (table) {
             case 1: result = num * Constants.Conversion.LENGTH_CONVERSION_TABLE[fromIndex][toIndex]; break;
             case 2: result = num * Constants.Conversion.MASS_CONVERSION_TABLE[fromIndex][toIndex]; break;
@@ -364,4 +364,8 @@ public class Operations {
         //return calculated result
         return result;
     }
+
+    //RANDOM OPERATIONS
+
+    //TODO
 }

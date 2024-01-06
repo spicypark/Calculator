@@ -1,7 +1,7 @@
 package BackEnd;
 
 public class Constants {
-    public static final String VERSION = "v3.0.0-alpha.4";
+    public static final String VERSION = "v3.0.0-alpha.5";
 
     public static class Graphing {
         public static final int X_CENTER = 194;
@@ -11,6 +11,7 @@ public class Constants {
         public static final double X_SCALE = 0.1;
         public static final double Y_SCALE = 10;
     }
+    
     public static class Conversion {
         public static final double[][] LENGTH_CONVERSION_TABLE = {
             {1, 0.393701, 0.01, 0.0328084, 0.00001, 0.00000621371},//CM

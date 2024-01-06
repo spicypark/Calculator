@@ -2,6 +2,7 @@ package BackEnd;
 import javax.swing.*;
 import FrontEnd.HomePanel;
 import FrontEnd.ModePanels.*;
+import FrontEnd.ModePanels.RandomPanel.*;
 
 public class UserInterface {
     public void initialize() {
@@ -20,7 +21,7 @@ public class UserInterface {
         panel.addTab("C", null, conversion);
         DerivativePanel derivative = new DerivativePanel();
         panel.addTab("D", null, derivative);
-        RandomPanel random = new RandomPanel();
+        CentralPanel random = new CentralPanel();
         panel.addTab("R", null, random);
         
         frame.setTitle("Calculator");

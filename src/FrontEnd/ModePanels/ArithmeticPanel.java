@@ -7,7 +7,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.text.*;
 
-public class ArithmeticPanel extends JPanel{
+public class ArithmeticPanel extends JPanel {
     Detector detector = new Detector();
     String equation;
     String solutionD = "0";

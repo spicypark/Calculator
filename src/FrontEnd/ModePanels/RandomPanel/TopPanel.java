@@ -1,0 +1,20 @@
+package FrontEnd.ModePanels.RandomPanel;
+import javax.swing.*;
+
+import BackEnd.*;
+
+import java.awt.*;
+
+public class TopPanel extends JPanel {
+    GridLayout layout = new GridLayout(1, 2);
+    GeneratorPanel generator = new GeneratorPanel();
+    CoinPanel coin = new CoinPanel();    
+    
+    public TopPanel() {
+        super();
+        this.setBackground(Color.WHITE);
+        this.setLayout(layout);
+        this.add(generator);
+        this.add(coin);
+    }
+}
