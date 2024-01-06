@@ -320,11 +320,14 @@ public class Operations {
     //CONVERSION OPERATIONS
 
     public double convert(String from, String to, double num) {
+
+        //declare variables
         double result = 0.0;
         int table = 0;
         int fromIndex = 0;
         int toIndex = 0;
 
+        //based off the from and to set which table and the indexes to use the table
         switch (from) {
             case "centimeters": table = 1; fromIndex = 0; break;
             case "inches": table = 1; fromIndex = 1; break;
@@ -353,12 +356,15 @@ public class Operations {
             case "liters": toIndex = 0; break;
             case "gallons": toIndex = 1; break;
         }
+
+        //baesd off which table calculate the conversion using the tables
         switch (table) {
             case 1: result = num * Constants.Conversion.LENGTH_CONVERSION_TABLE[fromIndex][toIndex]; break;
             case 2: result = num * Constants.Conversion.MASS_CONVERSION_TABLE[fromIndex][toIndex]; break;
             case 3: result = num * Constants.Conversion.VOLUME_CONVERSION_TABLE[fromIndex][toIndex]; break;
         }
 
+        //return calculated result
         return result;
     }
 }
