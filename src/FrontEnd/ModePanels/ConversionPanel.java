@@ -43,15 +43,16 @@ public class ConversionPanel extends JPanel {
         this.add(submit);
         submit.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                boolean detected = detector.detectConversion(from.getSelectedItem().toString(), to.getSelectedItem().toString(), input.getText());//first detect if input num value is a double
-                if (!detected) solution.setText("Solution: Invalid or unsupported input");
-                else {
-                    solutionD = decimal.format(operation.convert(from.getSelectedItem().toString(), to.getSelectedItem().toString(), Double.parseDouble(input.getText())));
-                    solution.setText("Solution: " + solutionD);
+                boolean inputValueValid = detector.detectDouble(input.getText());
+                if (inputValueValid) {
+                    boolean detected = detector.detectConversion(from.getSelectedItem().toString(), to.getSelectedItem().toString());
+                    if (!detected) solution.setText("Solution: Invalid or unsupported input");
+                    else {
+                        solutionD = decimal.format(operation.convert(from.getSelectedItem().toString(), to.getSelectedItem().toString(), Double.parseDouble(input.getText())));
+                        solution.setText("Solution: " + solutionD);
+                    }
                 }
-                System.out.println(input.getText());
-                System.out.println(from.getSelectedItem());
-                System.out.println(to.getSelectedItem());
+                else solution.setText("Solution: Invalid or unsupported input");
             }
         });
 
@@ -70,7 +71,7 @@ public class ConversionPanel extends JPanel {
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.drawString("v3.0.0-alpha.4", 160, 330);
+        g.drawString(Constants.VERSION, 160, 330);
         repaint();
     }
 }

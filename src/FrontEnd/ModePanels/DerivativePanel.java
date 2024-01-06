@@ -1,5 +1,8 @@
 package FrontEnd.ModePanels;
 import javax.swing.*;
+
+import BackEnd.*;
+
 import java.awt.*;
 
 public class DerivativePanel extends JPanel {
@@ -12,7 +15,7 @@ public class DerivativePanel extends JPanel {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.drawString("Coming soon", 30, 30);
-        g.drawString("v3.0.0-alpha.4", 160, 330);
+        g.drawString(Constants.VERSION, 160, 330);
         repaint();
     }
 }

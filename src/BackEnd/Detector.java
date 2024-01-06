@@ -104,13 +104,20 @@ public class Detector {
         return detected;
     }
 
-    public boolean detectConversion(String from, String to, String num) {
-        boolean detected = false;
+    public boolean detectDouble(String num) {
+        try {Double.parseDouble(num);}
+        catch (NumberFormatException e) {return false;}
+        return true;
+    }
+
+    public boolean detectConversion(String from, String to) {
         String[] units = {"units", "centimeters", "inches", "meters", "feet", "kilometers", "miles", "kilograms", "pounds", "grams", "ounces", "liters", "gallons"};
 
         if (from.equals(units[0]) || to.equals(units[0])) return false;
+        if ((from.equals(units[1]) || from.equals(units[2]) || from.equals(units[3]) || from.equals(units[4]) || from.equals(units[5]) || from.equals(units[6])) && (!to.equals(units[1]) && !to.equals(units[2]) && !to.equals(units[3]) && !to.equals(units[4]) && !to.equals(units[5]) && !to.equals(units[6]))) return false;
+        if ((from.equals(units[7]) || from.equals(units[8]) || from.equals(units[9]) || from.equals(units[10])) && (!to.equals(units[7]) && !to.equals(units[8]) && !to.equals(units[9]) && !to.equals(units[10]))) return false;
+        if ((from.equals(units[11]) || from.equals(units[12])) && (!to.equals(units[11]) && !to.equals(units[12]))) return false;
 
-
-        return detected;
+        return true;
     }
 }

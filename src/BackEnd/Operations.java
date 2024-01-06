@@ -14,10 +14,10 @@ public class Operations {
     
     //ARITHMETIC OPERATIONS
 
+    double fResult = 0.0;
     public double runFirstOrder(String eq) {
         
         //declare variables
-        double result = 0;
         ArrayList<String> firstOperators = new ArrayList<>();
         ArrayList<Integer> firstOperatorIndexes = new ArrayList<>();
         ArrayList<Integer> negativeIndexes = new ArrayList<>();
@@ -81,15 +81,16 @@ public class Operations {
             if (firstOperatorIndexes.size() > 1) eq = replacementS + eq.substring(firstOperatorIndexes.get(1));
             else {
                 eq = replacementS;
-                result = Double.parseDouble(eq);
+                fResult = Double.parseDouble(replacementS);
                 return Double.parseDouble(replacementS);
             }
 
             if (firstOperators.size() > 2) runFirstOrder(eq);
+            else return fResult;
         }
 
         //return calculated result
-        return result;
+        return fResult;
     }
 
     public double getFirstOrder(String eq) {return runFirstOrder(eq);}
@@ -320,9 +321,43 @@ public class Operations {
 
     public double convert(String from, String to, double num) {
         double result = 0.0;
-        String[] units = {"units", "centimeters", "inches", "meters", "feet", "kilometers", "miles", "kilograms", "pounds", "grams", "ounces", "liters", "gallons"};
+        int table = 0;
+        int fromIndex = 0;
+        int toIndex = 0;
 
-        //TODO
+        switch (from) {
+            case "centimeters": table = 1; fromIndex = 0; break;
+            case "inches": table = 1; fromIndex = 1; break;
+            case "meters": table = 1; fromIndex = 2; break;
+            case "feet": table = 1; fromIndex = 3; break;
+            case "kilometers": table = 1; fromIndex = 4; break;
+            case "miles": table = 1; fromIndex = 5; break;
+            case "kilograms": table = 2; fromIndex = 0; break;
+            case "pounds": table = 2; fromIndex = 1; break;
+            case "grams": table = 2; fromIndex = 2; break;
+            case "ounces": table = 2; fromIndex = 3; break;
+            case "liters": table = 3; fromIndex = 0; break;
+            case "gallons": table = 3; fromIndex = 1; break;
+        }
+        switch (to) {
+            case "centimeters": toIndex = 0; break;
+            case "inches": toIndex = 1; break;
+            case "meters": toIndex = 2; break;
+            case "feet": toIndex = 3; break;
+            case "kilometers": toIndex = 4; break;
+            case "miles": toIndex = 5; break;
+            case "kilograms": toIndex = 0; break;
+            case "pounds": toIndex = 1; break;
+            case "grams": toIndex = 2; break;
+            case "ounces": toIndex = 3; break;
+            case "liters": toIndex = 0; break;
+            case "gallons": toIndex = 1; break;
+        }
+        switch (table) {
+            case 1: result = num * Constants.Conversion.LENGTH_CONVERSION_TABLE[fromIndex][toIndex]; break;
+            case 2: result = num * Constants.Conversion.MASS_CONVERSION_TABLE[fromIndex][toIndex]; break;
+            case 3: result = num * Constants.Conversion.VOLUME_CONVERSION_TABLE[fromIndex][toIndex]; break;
+        }
 
         return result;
     }

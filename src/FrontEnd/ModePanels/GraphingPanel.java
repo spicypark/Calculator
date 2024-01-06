@@ -49,7 +49,7 @@ public class GraphingPanel extends JPanel {
         operation.drawPlane(g);
         if (refresh) operation.plotLine(g, eq);
         g.setColor(Color.BLACK);
-        g.drawString("v3.0.0-alpha.4", 160, 330);
+        g.drawString(Constants.VERSION, 160, 330);
         repaint();
     }
 }
