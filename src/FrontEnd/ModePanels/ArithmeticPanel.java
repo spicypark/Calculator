@@ -19,12 +19,13 @@ public class ArithmeticPanel extends JPanel {
         this.setBackground(Color.WHITE);
         
         JTextField input = new JTextField(40);
-        JTextField solution = new JTextField(40);
         input.setText("Please input your equation here.");
-        solution.setText("Solution: ");
         this.add(input);
-        this.add(solution);
+
+        JTextField solution = new JTextField(40);
+        solution.setText("Solution: ");
         solution.setEditable(false);
+        this.add(solution);
 
         JButton submit = new JButton("Submit");
         this.add(submit);

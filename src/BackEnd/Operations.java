@@ -367,5 +367,13 @@ public class Operations {
 
     //RANDOM OPERATIONS
 
-    //TODO
+    public int generateRandomNumber(int bound) {
+        return rand.nextInt(bound + 1);
+    }
+
+    public String flipCoin() {
+        int seed = rand.nextInt(2);
+        if (seed == 0) return "Heads";
+        else return "Tails";
+    }
 }

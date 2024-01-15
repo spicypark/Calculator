@@ -1,7 +1,7 @@
 package FrontEnd.ModePanels.RandomPanel;
 import javax.swing.*;
 
-import BackEnd.*;
+import BackEnd.Constants;
 
 import java.awt.*;
 
@@ -16,5 +16,12 @@ public class TopPanel extends JPanel {
         this.setLayout(layout);
         this.add(generator);
         this.add(coin);
+    }
+
+    @Override
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        g.drawString(Constants.VERSION, 160, 330);
+        repaint();
     }
 }

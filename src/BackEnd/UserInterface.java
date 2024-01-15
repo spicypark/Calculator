@@ -21,7 +21,7 @@ public class UserInterface {
         panel.addTab("C", null, conversion);
         DerivativePanel derivative = new DerivativePanel();
         panel.addTab("D", null, derivative);
-        CentralPanel random = new CentralPanel();
+        TopPanel random = new TopPanel();
         panel.addTab("R", null, random);
         
         frame.setTitle("Calculator");

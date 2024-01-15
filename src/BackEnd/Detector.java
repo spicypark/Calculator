@@ -106,6 +106,13 @@ public class Detector {
         return true;
     }
 
+    public boolean detectPosInt(String num) {
+        try {Integer.parseInt(num);}
+        catch (NumberFormatException e) {return false;}
+        if (Integer.parseInt(num) > 0) return true;
+        return false;
+    }
+
     public boolean detectConversion(String from, String to) {
         String[] units = {"units", "centimeters", "inches", "meters", "feet", "kilometers", "miles", "kilograms", "pounds", "grams", "ounces", "liters", "gallons"};
 

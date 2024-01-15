@@ -4,36 +4,44 @@ import javax.swing.*;
 import BackEnd.*;
 
 import java.awt.*;
-import java.awt.event.*;
+// import java.awt.event.*;
 
 public class SelectorPanel  extends JPanel {
+    Operations operation = new Operations();
+    
     public SelectorPanel() {
         super();
-        this.setBackground(Color.GREEN);//TODO white
+        this.setBackground(new Color(0, 0, 0, 0));
 
-        JTextField input = new JTextField(40);
-        JTextField solution = new JTextField(40);
-        input.setText("Please input your terms here.");
-        solution.setText("Scrambled input: ");
-        this.add(input);
-        this.add(solution);
-        solution.setEditable(false);
+        // JTextField title = new JTextField(40);
+        // title.setText("List Scrambler");
+        // title.setEditable(false);
+        // this.add(title);
 
-        JButton submit = new JButton("Submit");
-        this.add(submit);
-        submit.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
+        // JTextField input = new JTextField(40);
+        // input.setText("Please input your terms here.");
+        // this.add(input);
+        
+        // JTextField solution = new JTextField(40);
+        // solution.setText("Scrambled input: ");
+        // solution.setEditable(false);
+        // this.add(solution);
 
-            }
-        });
+        // JButton submit = new JButton("Submit");
+        // this.add(submit);
+        // submit.addActionListener(new ActionListener() {
+        //     public void actionPerformed(ActionEvent e) {
 
-        JButton clear = new JButton("Clear");
-        this.add(clear);
-        clear.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                input.setText("");
-                solution.setText("Scrambled input: ");
-            }
-        });
+        //     }
+        // });
+
+        // JButton clear = new JButton("Clear");
+        // this.add(clear);
+        // clear.addActionListener(new ActionListener() {
+        //     public void actionPerformed(ActionEvent e) {
+        //         input.setText("");
+        //         solution.setText("Scrambled input: ");
+        //     }
+        // });
     }
 }
