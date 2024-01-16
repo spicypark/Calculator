@@ -368,7 +368,7 @@ public class Operations {
     //RANDOM OPERATIONS
 
     public int generateRandomNumber(int bound) {
-        return rand.nextInt(bound + 1);
+        return rand.nextInt(bound) + 1;
     }
 
     public String flipCoin() {
