@@ -280,7 +280,6 @@ public class Operations {
         //calculate based on trig function
         if (eq.equals("sinx")) calculatedTerm = Math.sin(x);
         else if (eq.equals("cosx")) calculatedTerm = Math.cos(x);
-        //else if (eq.equals("tanx")) calculatedTerm = Math.tan(x);
         
         //return calculated and scaled y value for the given x value
         return (int) ((calculatedTerm) * Constants.Graphing.Y_SCALE);
@@ -368,10 +367,12 @@ public class Operations {
     //RANDOM OPERATIONS
 
     public int generateRandomNumber(int bound) {
+        //generates random number from 1 to bound inclusive
         return rand.nextInt(bound) + 1;
     }
 
     public String flipCoin() {
+        //depending on a randomly generated seed returns heads or tails
         int seed = rand.nextInt(2);
         if (seed == 0) return "Heads";
         else return "Tails";

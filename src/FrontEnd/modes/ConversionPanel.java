@@ -71,7 +71,7 @@ public class ConversionPanel extends JPanel {
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.drawString(Constants.VERSION, 160, 330);
+        g.drawString(Constants.Version.UID, Constants.Version.VX, Constants.Version.VY);
         repaint();
     }
 }

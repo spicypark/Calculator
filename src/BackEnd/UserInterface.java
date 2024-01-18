@@ -1,7 +1,7 @@
 package backend;
 import javax.swing.*;
 
-import frontend.HomePanel;
+import frontend.*;
 import frontend.modes.*;
 import frontend.modes.random.*;
 

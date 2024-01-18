@@ -14,7 +14,7 @@ public class HomePanel extends JPanel {
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.drawString(Constants.VERSION, 30, 30);
+        g.drawString(Constants.Version.UID, 30, 30);
 
         g.drawString("Made by SpicyPark", 30, 55);
         g.drawString("Inspired by Nicholas", 30, 70);
@@ -26,7 +26,7 @@ public class HomePanel extends JPanel {
         g.drawString("D - Derivative", 30, 155);
         g.drawString("R - Random", 30, 170);
 
-        g.drawString("The calculator is currently in alpha testing.", 30, 285);
+        g.drawString("The calculator is currently in beta testing.", 30, 285);
         g.drawString("Please report any bugs you encounter.", 30, 300);
         g.drawString("https://github.com/SpicyPark/Calculator", 30, 315);
 

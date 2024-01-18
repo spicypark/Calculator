@@ -1,7 +1,11 @@
 package backend;
 
 public class Constants {
-    public static final String VERSION = "v3.0.0-alpha.5";
+    public static class Version {
+        public static final String UID = "v3.0.0-beta.1";
+        public static final int VX = 163;
+        public static final int VY = 330;
+    }
 
     public static class Graphing {
         public static final int X_CENTER = 194;
