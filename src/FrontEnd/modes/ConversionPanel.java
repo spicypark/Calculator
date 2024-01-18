@@ -1,7 +1,7 @@
-package FrontEnd.ModePanels;
+package frontend.modes;
 import javax.swing.*;
 
-import BackEnd.*;
+import backend.*;
 
 import java.awt.*;
 import java.awt.event.*;

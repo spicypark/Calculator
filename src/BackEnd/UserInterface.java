@@ -1,8 +1,9 @@
-package BackEnd;
+package backend;
 import javax.swing.*;
-import FrontEnd.HomePanel;
-import FrontEnd.ModePanels.*;
-import FrontEnd.ModePanels.RandomPanel.*;
+
+import frontend.HomePanel;
+import frontend.modes.*;
+import frontend.modes.random.*;
 
 public class UserInterface {
     public void initialize() {

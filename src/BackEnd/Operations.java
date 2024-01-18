@@ -1,4 +1,4 @@
-package BackEnd;
+package backend;
 import java.awt.*;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;

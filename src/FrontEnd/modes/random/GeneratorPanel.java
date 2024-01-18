@@ -1,7 +1,7 @@
-package FrontEnd.ModePanels.RandomPanel;
+package frontend.modes.random;
 import javax.swing.*;
 
-import BackEnd.*;
+import backend.*;
 
 import java.awt.*;
 import java.awt.event.*;

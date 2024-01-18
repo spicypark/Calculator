@@ -1,7 +1,9 @@
-package FrontEnd;
+package frontend;
 import javax.swing.*;
+
+import backend.Constants;
+
 import java.awt.*;
-import BackEnd.Constants;
 
 public class HomePanel extends JPanel {
     public HomePanel() {

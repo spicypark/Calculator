@@ -1,4 +1,4 @@
-package BackEnd;
+package backend;
 
 public class Detector {
     public boolean detectPolynomial(String eq) {
