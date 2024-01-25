@@ -1,5 +1,8 @@
 # Calculator by SpicyPark
 ## About
+**Latest full release:** v3.0.0<br>
+**Latest pre-release:** N/A
+
 This is a multi-function graphing calculator that has been developed by SpicyPark since April of 2023. It is currently in its fourth major iteration. The calculator currently has four modes with one more arriving soon. 
 
 For more information or changelogs of the calculator, visit the releases page at https://github.com/SpicyPark/Calculator/releases or the wiki at https://github.com/SpicyPark/Calculator/wiki.
