@@ -1,13 +1,9 @@
 package backend;
 import java.awt.*;
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
-import java.util.ArrayList;
-import java.util.Random;
+import java.util.*;
 
 public class Operations {
     Random rand = new Random();
-    NumberFormat decimal = new DecimalFormat("#0.00000");
     
     //ARITHMETIC OPERATIONS
 
@@ -36,7 +32,9 @@ public class Operations {
 
         //scan the equation and record indexes of negative values
         for (int i = 0; i < eq.length(); i++) {
-            Character c = 'd', before = 'd', after = 'd';
+            Character c = 'd';
+            Character before = 'd';
+            Character after = 'd';
             c = eq.charAt(i);
             if (i > 0) before = eq.charAt(i - 1);
             if (i < eq.length() - 1) after = eq.charAt(i + 1);

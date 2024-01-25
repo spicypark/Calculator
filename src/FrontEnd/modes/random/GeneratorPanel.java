@@ -1,8 +1,6 @@
 package frontend.modes.random;
 import javax.swing.*;
-
 import backend.*;
-
 import java.awt.*;
 import java.awt.event.*;
 

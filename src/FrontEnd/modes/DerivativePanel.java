@@ -1,8 +1,6 @@
 package frontend.modes;
 import javax.swing.*;
-
 import backend.*;
-
 import java.awt.*;
 
 public class DerivativePanel extends JPanel {

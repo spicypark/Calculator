@@ -2,8 +2,8 @@ package backend;
 
 public class Constants {
     public static class Version {
-        public static final String UID = "v3.0.0-beta.1";
-        public static final int VX = 163;
+        public static final String UID = "v3.0.0";
+        public static final int VX = 179;
         public static final int VY = 330;
     }
 

@@ -1,8 +1,6 @@
 package frontend.modes.random;
 import javax.swing.*;
-
-import backend.Constants;
-
+import backend.*;
 import java.awt.*;
 
 public class TopPanel extends JPanel {
