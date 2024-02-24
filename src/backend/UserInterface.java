@@ -6,7 +6,7 @@ import frontend.modes.*;
 import frontend.modes.random.*;
 
 public class UserInterface {
-    public void initialize() {
+    public static void initialize() {
         try {UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");} 
         catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException e) {}
         
