@@ -81,4 +81,4 @@ After you input a value in the box in the Settings page, press enter and the pro
 
 #### Coin Flipper
 - The flip button outputs either heads or tails.
-- Pressing flip will not change heads to tails in the output each time as flips are independent.
+- Pressing flip may or may not change heads to tails in the output each time as flips are independent.
