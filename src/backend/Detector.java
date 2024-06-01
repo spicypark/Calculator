@@ -1,6 +1,8 @@
 package backend;
 
 public class Detector {
+    private static Detector instance = null;
+
     public boolean detectPolynomial(String eq) {
         boolean detected = false;
         boolean continueDetecting = true;
@@ -91,7 +93,8 @@ public class Detector {
                     hasDecimal = false;
                 }
                 else if (c.equals('.')) {
-                    if (hasDecimal) continueDetecting = false;
+                    if (next.equals('.')) {continueDetecting = false; System.out.println("MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM");}
+                    else if (hasDecimal) continueDetecting = false;
                     else hasDecimal = true;
                 }
             }
@@ -122,5 +125,10 @@ public class Detector {
         if ((from.equals(units[11]) || from.equals(units[12])) && (!to.equals(units[11]) && !to.equals(units[12]))) return false;
 
         return true;
+    }
+
+    public static Detector getInstance() {
+        if (instance == null) instance = new Detector();
+        return instance;
     }
 }

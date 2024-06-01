@@ -6,11 +6,12 @@ import java.awt.event.*;
 import java.text.*;
 
 public class ArithmeticPanel extends JPanel {
-    Detector detector = new Detector();
+    private static ArithmeticPanel instance = null;
     String equation;
     String solutionD = "0";
     NumberFormat decimal = new DecimalFormat("#0.00000");
-    Operations operation = new Operations();
+    Operations operation = Operations.getInstance();
+    Detector detector = Detector.getInstance();
 
     public ArithmeticPanel() {
         super();
@@ -57,5 +58,10 @@ public class ArithmeticPanel extends JPanel {
         super.paintComponent(g);
         g.drawString(Constants.Version.UID, Constants.Version.VX, Constants.Version.VY);
         repaint();
+    }
+
+    public static ArithmeticPanel getInstance() {
+        if (instance == null) instance = new ArithmeticPanel();
+        return instance;
     }
 }

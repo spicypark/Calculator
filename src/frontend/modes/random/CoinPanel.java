@@ -5,7 +5,8 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class CoinPanel extends JPanel {
-    Operations operation = new Operations();
+    private static CoinPanel instance = null;
+    Operations operation = Operations.getInstance();
     
     public CoinPanel() {
         super();
@@ -27,5 +28,10 @@ public class CoinPanel extends JPanel {
                 output.setText(operation.flipCoin());
             }
         });
+    }
+
+    public static CoinPanel getInstance() {
+        if (instance == null) instance = new CoinPanel();
+        return instance;
     }
 }

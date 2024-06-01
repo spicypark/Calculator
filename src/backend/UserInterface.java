@@ -8,21 +8,23 @@ import frontend.modes.random.*;
 public class UserInterface {
     public static void initialize() {
         try {UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");} 
-        catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException e) {}
+        catch (Exception e) {}
         
         JFrame frame = new JFrame();
         JTabbedPane panel = new JTabbedPane();
-        HomePanel home = new HomePanel();
+        HomePanel home = HomePanel.getInstance();
         panel.addTab("Home", null, home);
-        ArithmeticPanel arithmetic = new ArithmeticPanel();
+        SettingsPanel settings = SettingsPanel.getInstance();
+        panel.addTab("Settings", null, settings);
+        ArithmeticPanel arithmetic = ArithmeticPanel.getInstance();
         panel.addTab("A", null, arithmetic);
-        GraphingPanel graphing = new GraphingPanel();
+        GraphingPanel graphing = GraphingPanel.getInstance();
         panel.addTab("G", null, graphing);
-        ConversionPanel conversion = new ConversionPanel();
+        ConversionPanel conversion = ConversionPanel.getInstance();
         panel.addTab("C", null, conversion);
-        DerivativePanel derivative = new DerivativePanel();
-        panel.addTab("D", null, derivative);
-        TopPanel random = new TopPanel();
+        // DerivativePanel derivative = DerivativePanel.getInstance();
+        // panel.addTab("D", null, derivative);
+        TopPanel random = TopPanel.getInstance();
         panel.addTab("R", null, random);
         
         frame.setTitle("Calculator");

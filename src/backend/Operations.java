@@ -2,8 +2,12 @@ package backend;
 import java.awt.*;
 import java.util.*;
 
+import frontend.SettingsPanel;
+
 public class Operations {
+    private static Operations instance = null;
     Random rand = new Random();
+    SettingsPanel settings = SettingsPanel.getInstance();
     
     //ARITHMETIC OPERATIONS
 
@@ -13,7 +17,6 @@ public class Operations {
         //declare variables
         ArrayList<String> firstOperators = new ArrayList<>();
         ArrayList<Integer> firstOperatorIndexes = new ArrayList<>();
-        ArrayList<Integer> negativeIndexes = new ArrayList<>();
         ArrayList<Double> fSplitArray = new ArrayList<>();
         int opIndex = 0;
         String[] splitArray = eq.split("[-\\+/\\*]");
@@ -30,18 +33,7 @@ public class Operations {
             }
         }
 
-        //scan the equation and record indexes of negative values
-        for (int i = 0; i < eq.length(); i++) {
-            Character c = 'd';
-            Character before = 'd';
-            Character after = 'd';
-            c = eq.charAt(i);
-            if (i > 0) before = eq.charAt(i - 1);
-            if (i < eq.length() - 1) after = eq.charAt(i + 1);
-            if (c.equals('-') && (before.equals('*') || before.equals('/')) && Character.isDigit(after)) negativeIndexes.add(i);
-        }
-
-        //take the split array without negative values and use negativeIndexes to make appropriate values negative
+        //take the split array without negative values make appropriate values negative
         for (int i = 0; i < splitArray.length; i++) {
             if (splitArray[i].equals("")) fSplitArray.add(-Double.parseDouble(splitArray[i + 1]));
             else if (i > 0 && !splitArray[i].equals("") && !splitArray[i - 1].equals("")) fSplitArray.add(Double.parseDouble(splitArray[i]));
@@ -214,7 +206,7 @@ public class Operations {
             }
 
             //set color and graph y values for given x while filling any gaps and accounting for undefined areas
-            g.setColor(Color.BLUE);
+            g.setColor(settings.getColorSelect());
             for (int i = -194; i < 195; i++) {
                 if (this.calculateY(i * Constants.Graphing.X_SCALE, terms, operators) != Integer.MIN_VALUE) {
                     lastY = this.convertY(this.calculateY(i * Constants.Graphing.X_SCALE, terms, operators));
@@ -311,6 +303,29 @@ public class Operations {
         g.drawLine(0, Constants.Graphing.Y_CENTER, 410, Constants.Graphing.Y_CENTER);
     }
 
+    //draw numbers every five gridlines
+    public void drawNumbers(Graphics g) {
+        int xOffset = -155;
+        int yOffset = -145;
+        int xVal = -15;
+        int yVal = 15;
+
+        //set color and draw x and y lines to form grid
+        g.setColor(Color.DARK_GRAY);
+        for (int i = 0; i < 7; i++) {
+            if (xVal == -10 || xVal == -15) g.drawString("" + xVal, Constants.Graphing.X_CENTER + xOffset - 3, Constants.Graphing.Y_CENTER + 9);
+            else if (xVal != 0) g.drawString("" + xVal, Constants.Graphing.X_CENTER + xOffset, Constants.Graphing.Y_CENTER + 9);
+            xOffset += 50;
+            xVal += 5;
+        }
+        for (int i = 0; i < 7; i++) {
+            if (yVal != 0) g.drawString("" + yVal, Constants.Graphing.X_CENTER + 1, Constants.Graphing.Y_CENTER + yOffset);
+            yOffset += 50;
+            yVal -= 5;
+        }
+        g.drawString("" + 0, Constants.Graphing.X_CENTER + 1, Constants.Graphing.Y_CENTER + 9);
+    }
+
     //CONVERSION OPERATIONS
 
     public double convert(String from, String to, double num) {
@@ -374,5 +389,12 @@ public class Operations {
         int seed = rand.nextInt(2);
         if (seed == 0) return "Heads";
         else return "Tails";
+    }
+
+    //SINGLETON INSTANCE GETTER
+
+    public static Operations getInstance() {
+        if (instance == null) instance = new Operations();
+        return instance;
     }
 }

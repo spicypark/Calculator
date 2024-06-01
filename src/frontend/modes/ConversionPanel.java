@@ -1,25 +1,30 @@
 package frontend.modes;
 import javax.swing.*;
 import backend.*;
+import frontend.SettingsPanel;
+
 import java.awt.*;
 import java.awt.event.*;
 import java.text.*;
 
 public class ConversionPanel extends JPanel {
-    Detector detector = new Detector();
+    private static ConversionPanel instance = null;
     String solutionD = "0";
     NumberFormat decimal = new DecimalFormat("#0.00000");
-    Operations operation = new Operations();
+    Operations operation = Operations.getInstance();
+    Detector detector = Detector.getInstance();
+    SettingsPanel settings = SettingsPanel.getInstance();
+
+    JComboBox<String> from = new JComboBox<String>(settings.getUnits());
+    JComboBox<String> to = new JComboBox<String>(settings.getUnits());
     
     public ConversionPanel() {
         super();
         this.setBackground(Color.WHITE);
-        String[] units = {"units", "centimeters", "inches", "meters", "feet", "kilometers", "miles", "kilograms", "pounds", "grams", "ounces", "liters", "gallons"};
 
         JTextField input = new JTextField(15);
         this.add(input);
         
-        JComboBox<String> from = new JComboBox<String>(units);
         from.setEditable(false);
         this.add(from);
 
@@ -27,8 +32,7 @@ public class ConversionPanel extends JPanel {
         middle.setText("to");
         middle.setEditable(false);
         this.add(middle);
-
-        JComboBox<String> to = new JComboBox<String>(units);
+        
         to.setEditable(false);
         this.add(to);
 
@@ -59,8 +63,8 @@ public class ConversionPanel extends JPanel {
         clear.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 input.setText("");
-                from.setSelectedItem(units[0]);
-                to.setSelectedItem(units[0]);
+                from.setSelectedItem(settings.getUnits()[0]);
+                to.setSelectedItem(settings.getUnits()[0]);
                 solution.setText("Solution: ");
             }
         });
@@ -71,5 +75,15 @@ public class ConversionPanel extends JPanel {
         super.paintComponent(g);
         g.drawString(Constants.Version.UID, Constants.Version.VX, Constants.Version.VY);
         repaint();
+    }
+
+    public void updateUnits() {
+        from.setModel(new JComboBox<>(settings.getUnits()).getModel());
+        to.setModel(new JComboBox<>(settings.getUnits()).getModel());
+    }
+
+    public static ConversionPanel getInstance() {
+        if (instance == null) instance = new ConversionPanel();
+        return instance;
     }
 }
