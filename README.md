@@ -40,7 +40,7 @@ After inputting your equation, press the submit button. Your solution will appea
 - Use only `x` as your variable.
 - `sinx` and `cosx` are the only currently supported trig functions, and they will only work exactly as shown here. Adding terms or multiplying (such as 3sinx or sinx+3x+2) is not currently supported.
 - `ax^x` (`a` being an arbitrary value) is supported. `x^bx` (`b` being an arbitrary value) is not supported.
-- You may toggle graph color, gridlines, and numbers in the Settings page
+- You may toggle graph color, gridlines, and numbers in the Settings page.
 
 Examples of currently viable inputs:
 - `2x^2-4x+2`
@@ -58,7 +58,7 @@ After inputting your equation, press the submit button. The equation, if valid, 
 - Invalid conversion (such as kilometers to gallons or grams to feet) are caught.
 - The middle "to" box is merely a visual guide and otherwise serves no functional purpose.
 - Decimal outputs are rounded to 5 places.
-- Units listed in the dropdowns default to all, however you may toggle between Distance, Weight, Volume, and All in the Settings page
+- Units listed in the dropdowns default to all, however you may toggle between Distance, Weight, Volume, and All in the Settings page.
 
 To convert a number of values of one measurement to another, first input your number (which may be a decimal or integer, positive or negative). Next, select in the leftmost dropdown box what unit to convert *from*, and in the rightmost dropdown box what unit to convert *to*. Pressing submit will give your converted value rounded to five decimal places, and pressing clear will clear all of the boxes to their default states.
 ### Random
