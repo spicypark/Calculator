@@ -40,6 +40,7 @@ After inputting your equation, press the submit button. Your solution will appea
 - Use only `x` as your variable.
 - `sinx` and `cosx` are the only currently supported trig functions, and they will only work exactly as shown here. Adding terms or multiplying (such as 3sinx or sinx+3x+2) is not currently supported.
 - `ax^x` (`a` being an arbitrary value) is supported. `x^bx` (`b` being an arbitrary value) is not supported.
+- You may toggle graph color, gridlines, and numbers in the Settings page
 
 Examples of currently viable inputs:
 - `2x^2-4x+2`
@@ -57,14 +58,14 @@ After inputting your equation, press the submit button. The equation, if valid, 
 - Invalid conversion (such as kilometers to gallons or grams to feet) are caught.
 - The middle "to" box is merely a visual guide and otherwise serves no functional purpose.
 - Decimal outputs are rounded to 5 places.
+- Units listed in the dropdowns default to all, however you may toggle between Distance, Weight, Volume, and All in the Settings page
 
 To convert a number of values of one measurement to another, first input your number (which may be a decimal or integer, positive or negative). Next, select in the leftmost dropdown box what unit to convert *from*, and in the rightmost dropdown box what unit to convert *to*. Pressing submit will give your converted value rounded to five decimal places, and pressing clear will clear all of the boxes to their default states.
-### Derivative
-Coming soon.
 ### Random
 #### Number Generator
-- Only positive integer values are valid in the input box
-- The randomly generated number has a possible range from 1 to the upper bound
+- Specify an upper bound for numbers generated in the Settings page.
+- Only positive integer values are valid in the input box.
+- The randomly generated number has a possible range from 1 to the upper bound.
 
 Examples of currently viable inputs:
 - `3`
@@ -76,8 +77,8 @@ Examples of currently invalid inputs:
 - `5.5`
 - `2,399`
 
-After you input a value in the first box, press submit and the program will save your upper bound. You may then generate as many numbers as you wish and may also change the upper bound at any time.
+After you input a value in the box in the Settings page, press enter and the program will save your upper bound. You may then generate as many numbers as you wish and may also change the upper bound at any time.
 
 #### Coin Flipper
-- The flip button outputs either heads or tails
-- Pressing flip will not change heads to tails in the output each time as flips are independent
+- The flip button outputs either heads or tails.
+- Pressing flip will not change heads to tails in the output each time as flips are independent.
