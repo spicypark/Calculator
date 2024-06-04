@@ -1,11 +1,13 @@
 # Calculator by SpicyPark
 ## About
-**Latest full release:** v3.1.0<br>
+**Latest full release:** v3.2.0<br>
 **Latest pre-release:** N/A
 
 This is a multi-function graphing calculator that has been developed by SpicyPark since April of 2023. It is currently in its fourth major iteration. The calculator currently has four modes with one more arriving soon. Any release past the very first alpha version of 3.0.0 has runnable files under the folder `release` in the event that you wish to try an earlier version of the calculator.
 
 For more information or changelogs of the calculator, visit the releases page at https://github.com/SpicyPark/Calculator/releases or the wiki at https://github.com/SpicyPark/Calculator/wiki.
+
+**NOTICE: The following information is accurate as of the latest full release, denoted above, of the calculator.**
 
 ## Installing the program
 ### Using Visual Studio Code
@@ -38,7 +40,7 @@ After inputting your equation, press the submit button. Your solution will appea
 - For fractional values, use decimals (0.333 instead of 1/3).
 - Supported operators are `+`, `-`. and `^`.
 - Use only `x` as your variable.
-- `sinx` and `cosx` are the only currently supported trig functions, and they will only work exactly as shown here. Adding terms or multiplying (such as 3sinx or sinx+3x+2) is not currently supported.
+- `sinx`, `cosx`, and `tanx` are the only currently supported trig functions, and they will only work exactly as shown here. Adding terms or multiplying (such as 3sinx or sinx+3x+2) is not currently supported.
 - `ax^x` (`a` being an arbitrary value) is supported. `x^bx` (`b` being an arbitrary value) is not supported.
 - You may toggle graph color, gridlines, and numbers in the Settings page.
 
@@ -52,7 +54,7 @@ Examples of currently invalid inputs:
 - `(3x+2)^2`
 - `3^x^3+4`
 
-After inputting your equation, press the submit button. The equation, if valid, will be graphed in a blue line. Only one equation appears at a time, so once you enter a new equation, your last one disappears. If the solution is incorrect, please report the issue and include both your inputted equation and the erroneous solution. If you wish to clear your input, press the clear button. Pressing clear will not clear your graph.
+After inputting your equation, press the submit button. The equation, if valid, will be graphed in a line of your selected color. Multiple equations may be graphed, so pressing submit will overlay a new graph over any previous graphs. If the solution is incorrect, please report the issue and include both your inputted equation and the erroneous solution. If you wish to clear all graphs and your input, press the clear button.
 ### Conversion
 - Only numerical (integer and decimal) inputs are valid in the input box.
 - Invalid conversion (such as kilometers to gallons or grams to feet) are caught.
