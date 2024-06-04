@@ -2,7 +2,7 @@ package backend;
 
 public class Constants {
     public static class Version {
-        public static final String UID = "v3.1.0";
+        public static final String UID = "v3.2.0";
         public static final int VX = 179;
         public static final int VY = 330;
     }

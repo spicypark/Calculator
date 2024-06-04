@@ -8,7 +8,7 @@ public class HomePanel extends JPanel {
 
     public HomePanel() {
         super();
-        this.setBackground(Color.WHITE);
+        setBackground(Color.WHITE);
     }
 
     @Override

@@ -14,19 +14,19 @@ public class GeneratorPanel extends JPanel {
 
     public GeneratorPanel() {
         super();
-        this.setBackground(new Color(0, 0, 0, 0));
+        setBackground(new Color(0, 0, 0, 0));
 
         JTextField title = new JTextField(19);
         title.setText("Random Number Generator");
         title.setEditable(false);
-        this.add(title);
+        add(title);
 
         JTextField output = new JTextField(19);
-        this.add(output);
+        add(output);
         output.setEditable(false);
 
         JButton inputSubmit = new JButton("Generate");
-        this.add(inputSubmit);
+        add(inputSubmit);
         inputSubmit.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 if (settings.getFalseLimit()) output.setText("Invalid or unsupported input");

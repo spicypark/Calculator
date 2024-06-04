@@ -12,37 +12,41 @@ public class GraphingPanel extends JPanel {
     Detector detector = Detector.getInstance();
     SettingsPanel settings = SettingsPanel.getInstance();
     private boolean refresh = false;
+    private boolean valid = false;
     private String eq;
 
     public GraphingPanel() {
         super();
-        this.setBackground(Color.WHITE);
+        setBackground(Color.WHITE);
 
         JTextField input = new JTextField(24);
         input.setText("Please input your equation here.");
-        this.add(input);
+        add(input);
 
         JButton submit = new JButton("Submit");
-        this.add(submit);
+        add(submit);
         submit.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 eq = input.getText();
-                boolean detected = detector.detectPolynomial(eq);
-                if (detected) {
+                if (detector.detectPolynomial(eq)) {
+                    if (!refresh) operation.clearGrid();
+                    valid = true;
                     refresh = true;
                 }
                 else {
                     input.setText("Invalid or unsupported input");
-                    refresh = false;
+                    valid = false;
                 }
             }
         });
 
         JButton clear = new JButton("Clear");
-        this.add(clear);
+        add(clear);
         clear.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 input.setText("");
+                operation.clearGrid();
+                refresh = false;
             }   
         });
     }
@@ -51,7 +55,8 @@ public class GraphingPanel extends JPanel {
         super.paintComponent(g);
         if (settings.getGridSelect()) operation.drawPlane(g);
         if (settings.getNumberSelect()) operation.drawNumbers(g);
-        if (refresh) operation.plotLine(g, eq);
+        if (valid) operation.plotLine(eq);
+        if (refresh) operation.drawGrid(g);
         g.setColor(Color.BLACK);
         g.drawString(Constants.Version.UID, Constants.Version.VX, Constants.Version.VY);
         repaint();

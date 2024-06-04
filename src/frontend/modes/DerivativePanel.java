@@ -8,7 +8,7 @@ public class DerivativePanel extends JPanel {
 
     public DerivativePanel() {
         super();
-        this.setBackground(Color.WHITE);
+        setBackground(Color.WHITE);
     }
 
     @Override

@@ -15,19 +15,19 @@ public class ArithmeticPanel extends JPanel {
 
     public ArithmeticPanel() {
         super();
-        this.setBackground(Color.WHITE);
+        setBackground(Color.WHITE);
         
         JTextField input = new JTextField(40);
         input.setText("Please input your equation here.");
-        this.add(input);
+        add(input);
 
         JTextField solution = new JTextField(40);
         solution.setText("Solution: ");
         solution.setEditable(false);
-        this.add(solution);
+        add(solution);
 
         JButton submit = new JButton("Submit");
-        this.add(submit);
+        add(submit);
         submit.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 equation = input.getText();
@@ -44,7 +44,7 @@ public class ArithmeticPanel extends JPanel {
         });
 
         JButton clear = new JButton("Clear");
-        this.add(clear);
+        add(clear);
         clear.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 input.setText("");

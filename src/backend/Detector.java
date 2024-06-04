@@ -12,7 +12,7 @@ public class Detector {
             if (eq.equals("x") || Character.isDigit(eq.charAt(0))) return true;
             else return false;
         }
-        if (eq.equals("sinx") || eq.equals("cosx")) return true;
+        if (eq.equals("sinx") || eq.equals("cosx") || eq.equals("tanx")) return true;
         for (int i = 0; i < eq.length(); i++) {
             if (continueDetecting) {
                 Character c = eq.charAt(i);

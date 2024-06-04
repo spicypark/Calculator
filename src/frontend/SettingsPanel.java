@@ -19,16 +19,16 @@ public class SettingsPanel extends JPanel {
 
     public SettingsPanel() {
         super();
-        this.setBackground(Color.WHITE);
-        this.setLayout(layout);
+        setBackground(Color.WHITE);
+        setLayout(layout);
 
         JLabel graphing = new JLabel(" Graphing");
-        this.add(graphing);
+        add(graphing);
         
         JCheckBox gridSelect = new JCheckBox();
         gridSelect.setText("Gridlines");
         gridSelect.setSelected(true);
-        this.add(gridSelect);
+        add(gridSelect);
         gridSelect.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 graphGrid = gridSelect.isSelected();
@@ -38,17 +38,17 @@ public class SettingsPanel extends JPanel {
         JCheckBox numberSelect = new JCheckBox();
         numberSelect.setText("Numbers");
         numberSelect.setSelected(true);
-        this.add(numberSelect);
+        add(numberSelect);
         numberSelect.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 graphNumbers = numberSelect.isSelected();
             }   
         });
 
-        String[] colors = {"Blue", "Red", "Green"};
+        String[] colors = {"Blue", "Red", "Green", "Magenta", "Black"};
         JComboBox<String> colorSelect = new JComboBox<String>(colors);
         colorSelect.setEditable(false);
-        this.add(colorSelect);
+        add(colorSelect);
         colorSelect.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 graphColor = (String) colorSelect.getSelectedItem();
@@ -56,12 +56,12 @@ public class SettingsPanel extends JPanel {
         });
 
         JLabel conversion = new JLabel(" Conversion");
-        this.add(conversion);
+        add(conversion);
 
         String[] units = {"Select units to be displayed", "Distance", "Weight", "Volume", "All"};
         JComboBox<String> unitSelect = new JComboBox<String>(units);
         unitSelect.setEditable(false);
-        this.add(unitSelect);
+        add(unitSelect);
         unitSelect.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 conversionUnits = (String) unitSelect.getSelectedItem();
@@ -70,11 +70,11 @@ public class SettingsPanel extends JPanel {
         });
 
         JLabel random = new JLabel(" Random");
-        this.add(random);
+        add(random);
 
         JTextField limit = new JTextField(10);
         limit.setText("Upper bound for randomly generated number");
-        this.add(limit);
+        add(limit);
         limit.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 boolean detected = detector.detectPosInt(limit.getText());
@@ -98,7 +98,9 @@ public class SettingsPanel extends JPanel {
     public Color getColorSelect() {
         if (graphColor.equals("Blue")) return Color.BLUE;
         else if (graphColor.equals("Red")) return Color.RED;
-        else return Color.GREEN;
+        else if (graphColor.equals("Green")) return Color.GREEN;
+        else if (graphColor.equals("Magenta")) return Color.MAGENTA;
+        else return Color.BLACK;
     }
 
     public String[] getUnits() {

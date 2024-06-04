@@ -20,29 +20,29 @@ public class ConversionPanel extends JPanel {
     
     public ConversionPanel() {
         super();
-        this.setBackground(Color.WHITE);
+        setBackground(Color.WHITE);
 
         JTextField input = new JTextField(15);
-        this.add(input);
+        add(input);
         
         from.setEditable(false);
-        this.add(from);
+        add(from);
 
         JTextField middle = new JTextField(2);
         middle.setText("to");
         middle.setEditable(false);
-        this.add(middle);
+        add(middle);
         
         to.setEditable(false);
-        this.add(to);
+        add(to);
 
         JTextField solution = new JTextField(40);
         solution.setText("Solution: ");
         solution.setEditable(false);
-        this.add(solution);
+        add(solution);
 
         JButton submit = new JButton("Submit");
-        this.add(submit);
+        add(submit);
         submit.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 boolean inputValueValid = detector.detectDouble(input.getText());
@@ -59,7 +59,7 @@ public class ConversionPanel extends JPanel {
         });
 
         JButton clear = new JButton("Clear");
-        this.add(clear);
+        add(clear);
         clear.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 input.setText("");

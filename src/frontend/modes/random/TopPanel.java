@@ -11,10 +11,10 @@ public class TopPanel extends JPanel {
     
     public TopPanel() {
         super();
-        this.setBackground(Color.WHITE);
-        this.setLayout(layout);
-        this.add(generator);
-        this.add(coin);
+        setBackground(Color.WHITE);
+        setLayout(layout);
+        add(generator);
+        add(coin);
     }
 
     @Override
