@@ -171,7 +171,7 @@ public class Operations {
 
     //GRAPHING OPERATIONS
 
-    private boolean[][] grid = new boolean[343][389];
+    private boolean[][] grid = new boolean[Constants.Graphing.Y_MAX][Constants.Graphing.X_MAX];
 
     public void plotLine(String eq) {
 
