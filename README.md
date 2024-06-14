@@ -10,12 +10,13 @@ For more information or changelogs of the calculator, visit the releases page at
 **NOTICE: The following information is accurate as of the latest full release, denoted above, of the calculator.**
 
 ## Installing the program
+**Java 8 or later is required to run this program. Please ensure you have either Java 8 or a later Java installment on your device.**
 ### Using Visual Studio Code
 To run the program using VSCode, you may download the source code by either navigating to the latest release and downloading the included `.zip` or by cloning the repository. Following the download, unzip the contents of the `.zip` file and open it with VSCode; you may then run the program from there.
 ### Using the executable file
-To run the program using the `.exe`, navigate to the latest release and download the file ending with `.exe`. You may then double click this file from your downloads folder and run it from there. Note that you still must have Java 8.
+To run the program using the `.exe`, navigate to the latest release and download the file ending with `.exe`. You may simply double click the `.exe` file to run the program. Note that you still must have Java.
 ### Using the JAR file
-To run the program using the .jar, navigate to the latest release and download the file ending with `.jar`. You must have Java 8 to run this program. If you have Java 8 you may simply double click the `.jar` file to run the program.
+To run the program using the `.jar`, navigate to the latest release and download the file ending with `.jar`. You may simply double click the `.jar` file to run the program.
 ## Running the program
 ### Arithmetic
 - Decimal outputs are rounded to 5 places.
