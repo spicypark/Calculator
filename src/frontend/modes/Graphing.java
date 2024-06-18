@@ -1,21 +1,21 @@
 package frontend.modes;
 import javax.swing.*;
 import backend.*;
-import frontend.SettingsPanel;
+import frontend.Settings;
 
 import java.awt.*;
 import java.awt.event.*;
 
-public class GraphingPanel extends JPanel {
-    private static GraphingPanel instance = null;
+public class Graphing extends JPanel {
+    private static Graphing instance = null;
     Operations operation = Operations.getInstance();
     Detector detector = Detector.getInstance();
-    SettingsPanel settings = SettingsPanel.getInstance();
+    Settings settings = Settings.getInstance();
     private boolean refresh = false;
     private boolean valid = false;
     private String eq;
 
-    public GraphingPanel() {
+    public Graphing() {
         super();
         setBackground(Color.WHITE);
 
@@ -62,8 +62,8 @@ public class GraphingPanel extends JPanel {
         repaint();
     }
 
-    public static GraphingPanel getInstance() {
-        if (instance == null) instance = new GraphingPanel();
+    public static Graphing getInstance() {
+        if (instance == null) instance = new Graphing();
         return instance;
     }
 }

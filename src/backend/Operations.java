@@ -2,12 +2,12 @@ package backend;
 import java.awt.*;
 import java.util.*;
 
-import frontend.SettingsPanel;
+import frontend.Settings;
 
 public class Operations {
     private static Operations instance = null;
     Random rand = new Random();
-    SettingsPanel settings = SettingsPanel.getInstance();
+    Settings settings = Settings.getInstance();
     
     //ARITHMETIC OPERATIONS
 

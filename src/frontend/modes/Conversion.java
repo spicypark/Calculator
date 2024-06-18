@@ -1,24 +1,24 @@
 package frontend.modes;
 import javax.swing.*;
 import backend.*;
-import frontend.SettingsPanel;
+import frontend.Settings;
 
 import java.awt.*;
 import java.awt.event.*;
 import java.text.*;
 
-public class ConversionPanel extends JPanel {
-    private static ConversionPanel instance = null;
+public class Conversion extends JPanel {
+    private static Conversion instance = null;
     String solutionD = "0";
     NumberFormat decimal = new DecimalFormat("#0.00000");
     Operations operation = Operations.getInstance();
     Detector detector = Detector.getInstance();
-    SettingsPanel settings = SettingsPanel.getInstance();
+    Settings settings = Settings.getInstance();
 
     JComboBox<String> from = new JComboBox<String>(settings.getUnits());
     JComboBox<String> to = new JComboBox<String>(settings.getUnits());
     
-    public ConversionPanel() {
+    public Conversion() {
         super();
         setBackground(Color.WHITE);
 
@@ -82,8 +82,8 @@ public class ConversionPanel extends JPanel {
         to.setModel(new JComboBox<>(settings.getUnits()).getModel());
     }
 
-    public static ConversionPanel getInstance() {
-        if (instance == null) instance = new ConversionPanel();
+    public static Conversion getInstance() {
+        if (instance == null) instance = new Conversion();
         return instance;
     }
 }

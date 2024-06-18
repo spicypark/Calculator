@@ -1,12 +1,12 @@
 package frontend;
 import javax.swing.*;
 import backend.*;
-import frontend.modes.ConversionPanel;
+import frontend.modes.Conversion;
 import java.awt.*;
 import java.awt.event.*;
 
-public class SettingsPanel extends JPanel {
-    private static SettingsPanel instance = null;
+public class Settings extends JPanel {
+    private static Settings instance = null;
     GridLayout layout = new GridLayout(15, 1);
     Detector detector = Detector.getInstance();
 
@@ -17,7 +17,7 @@ public class SettingsPanel extends JPanel {
     boolean falseLimit = false;
     int upperBound = 0;
 
-    public SettingsPanel() {
+    public Settings() {
         super();
         setBackground(Color.WHITE);
         setLayout(layout);
@@ -65,7 +65,7 @@ public class SettingsPanel extends JPanel {
         unitSelect.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 conversionUnits = (String) unitSelect.getSelectedItem();
-                ConversionPanel.getInstance().updateUnits();
+                Conversion.getInstance().updateUnits();
             }
         });
 
@@ -132,8 +132,8 @@ public class SettingsPanel extends JPanel {
         repaint();
     }
 
-    public static SettingsPanel getInstance() {
-        if (instance == null) instance = new SettingsPanel();
+    public static Settings getInstance() {
+        if (instance == null) instance = new Settings();
         return instance;
     }
 }

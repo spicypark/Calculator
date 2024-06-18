@@ -4,11 +4,11 @@ import backend.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class CoinPanel extends JPanel {
-    private static CoinPanel instance = null;
+public class CoinFlip extends JPanel {
+    private static CoinFlip instance = null;
     Operations operation = Operations.getInstance();
     
-    public CoinPanel() {
+    public CoinFlip() {
         super();
         setBackground(new Color(0, 0, 0, 0));
 
@@ -30,8 +30,8 @@ public class CoinPanel extends JPanel {
         });
     }
 
-    public static CoinPanel getInstance() {
-        if (instance == null) instance = new CoinPanel();
+    public static CoinFlip getInstance() {
+        if (instance == null) instance = new CoinFlip();
         return instance;
     }
 }

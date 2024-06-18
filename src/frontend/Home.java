@@ -3,10 +3,10 @@ import javax.swing.*;
 import backend.Constants;
 import java.awt.*;
 
-public class HomePanel extends JPanel {
-    private static HomePanel instance = null;
+public class Home extends JPanel {
+    private static Home instance = null;
 
-    public HomePanel() {
+    public Home() {
         super();
         setBackground(Color.WHITE);
     }
@@ -31,8 +31,8 @@ public class HomePanel extends JPanel {
         repaint();
     }
 
-    public static HomePanel getInstance() {
-        if (instance == null) instance = new HomePanel();
+    public static Home getInstance() {
+        if (instance == null) instance = new Home();
         return instance;
     }
 }

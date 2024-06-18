@@ -3,10 +3,10 @@ import javax.swing.*;
 import backend.*;
 import java.awt.*;
 
-public class DerivativePanel extends JPanel {
-    private static DerivativePanel instance = null;
+public class Derivative extends JPanel {
+    private static Derivative instance = null;
 
-    public DerivativePanel() {
+    public Derivative() {
         super();
         setBackground(Color.WHITE);
     }
@@ -19,8 +19,8 @@ public class DerivativePanel extends JPanel {
         repaint();
     }
 
-    public static DerivativePanel getInstance() {
-        if (instance == null) instance = new DerivativePanel();
+    public static Derivative getInstance() {
+        if (instance == null) instance = new Derivative();
         return instance;
     }
 }

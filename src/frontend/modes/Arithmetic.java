@@ -5,15 +5,15 @@ import java.awt.*;
 import java.awt.event.*;
 import java.text.*;
 
-public class ArithmeticPanel extends JPanel {
-    private static ArithmeticPanel instance = null;
+public class Arithmetic extends JPanel {
+    private static Arithmetic instance = null;
     String equation;
     String solutionD = "0";
     NumberFormat decimal = new DecimalFormat("#0.00000");
     Operations operation = Operations.getInstance();
     Detector detector = Detector.getInstance();
 
-    public ArithmeticPanel() {
+    public Arithmetic() {
         super();
         setBackground(Color.WHITE);
         
@@ -60,8 +60,8 @@ public class ArithmeticPanel extends JPanel {
         repaint();
     }
 
-    public static ArithmeticPanel getInstance() {
-        if (instance == null) instance = new ArithmeticPanel();
+    public static Arithmetic getInstance() {
+        if (instance == null) instance = new Arithmetic();
         return instance;
     }
 }

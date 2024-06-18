@@ -12,19 +12,19 @@ public class UserInterface {
         
         JFrame frame = new JFrame();
         JTabbedPane panel = new JTabbedPane();
-        HomePanel home = HomePanel.getInstance();
+        Home home = Home.getInstance();
         panel.addTab("Home", null, home);
-        SettingsPanel settings = SettingsPanel.getInstance();
+        Settings settings = Settings.getInstance();
         panel.addTab("Settings", null, settings);
-        ArithmeticPanel arithmetic = ArithmeticPanel.getInstance();
+        Arithmetic arithmetic = Arithmetic.getInstance();
         panel.addTab("A", null, arithmetic);
-        GraphingPanel graphing = GraphingPanel.getInstance();
+        Graphing graphing = Graphing.getInstance();
         panel.addTab("G", null, graphing);
-        ConversionPanel conversion = ConversionPanel.getInstance();
+        Conversion conversion = Conversion.getInstance();
         panel.addTab("C", null, conversion);
         // DerivativePanel derivative = DerivativePanel.getInstance();
         // panel.addTab("D", null, derivative);
-        TopPanel random = TopPanel.getInstance();
+        Random random = Random.getInstance();
         panel.addTab("R", null, random);
         
         frame.setTitle("Calculator");

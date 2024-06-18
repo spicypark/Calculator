@@ -1,18 +1,18 @@
 package frontend.modes.random;
 import javax.swing.*;
 import backend.*;
-import frontend.SettingsPanel;
+import frontend.Settings;
 
 import java.awt.*;
 import java.awt.event.*;
 
-public class GeneratorPanel extends JPanel {
-    private static GeneratorPanel instance = null;
+public class RandomGenerator extends JPanel {
+    private static RandomGenerator instance = null;
     Detector detector = Detector.getInstance();
     Operations operation = Operations.getInstance();
-    SettingsPanel settings = SettingsPanel.getInstance();
+    Settings settings = Settings.getInstance();
 
-    public GeneratorPanel() {
+    public RandomGenerator() {
         super();
         setBackground(new Color(0, 0, 0, 0));
 
@@ -35,8 +35,8 @@ public class GeneratorPanel extends JPanel {
         });
     }
 
-    public static GeneratorPanel getInstance() {
-        if (instance == null) instance = new GeneratorPanel();
+    public static RandomGenerator getInstance() {
+        if (instance == null) instance = new RandomGenerator();
         return instance;
     }
 }
