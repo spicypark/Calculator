@@ -82,18 +82,19 @@ public class Detector {
                     continueDetecting = false;
                     continue;
                 }
-                else if (Character.isDigit(c))  if (!Character.isDigit(next) && !next.equals('*') && !next.equals('+') && !next.equals('-') && !next.equals('/') && i != eq.length() - 1 && !next.equals('.')) continueDetecting = false;
+                else if (i == 0 && (c.equals('*') || c.equals('+') || c.equals('/'))) continueDetecting = false;
+                else if (Character.isDigit(c)) {if (!Character.isDigit(next) && !next.equals('*') && !next.equals('+') && !next.equals('-') && !next.equals('/') && i != eq.length() - 1 && !next.equals('.')) continueDetecting = false;}
                 else if (c.equals('+') || c.equals('-') || c.equals('*') || c.equals('/')) {
                     if (c.equals('/') && ((next.equals('0') && Character.isDigit(afterNext)) || (next.equals('-') && afterNext.equals('0') && Character.isDigit(afterAfterNext)))) continueDetecting = true;
                     else if (c.equals('/') && (next.equals('0') || (next.equals('-') && afterNext.equals('0')))) continueDetecting = false;
                     else if ((c.equals('*') || c.equals('/')) && next.equals('-')) continueDetecting = true;
-                    else if (c.equals('-') && i == 0 && Character.isDigit(next)) continueDetecting = true;
+                    else if (c.equals('-') && i == 0 && Character.isDigit(next)) continueDetecting = true;  
                     else if (i == eq.length() - 1) continueDetecting = false;
                     else if (!Character.isDigit(next)) continueDetecting = false;
                     hasDecimal = false;
                 }
                 else if (c.equals('.')) {
-                    if (next.equals('.')) {continueDetecting = false; System.out.println("MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM");}
+                    if (next.equals('.')) continueDetecting = false;
                     else if (hasDecimal) continueDetecting = false;
                     else hasDecimal = true;
                 }
