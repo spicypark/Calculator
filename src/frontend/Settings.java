@@ -86,18 +86,18 @@ public class Settings extends JPanel {
             }
         });
 
-        JLabel dev = new JLabel(" Developer");
-        add(dev);
+        // JLabel dev = new JLabel(" Developer");
+        // add(dev);
 
-        JCheckBox devSelect = new JCheckBox();
-        devSelect.setText("Show developer tab");
-        add(devSelect);
-        devSelect.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                if (devSelect.isSelected()) UserInterface.showDev();
-                else UserInterface.hideDev();
-            }   
-        });
+        // JCheckBox devSelect = new JCheckBox();
+        // devSelect.setText("Show developer tab");
+        // add(devSelect);
+        // devSelect.addActionListener(new ActionListener() {
+        //     public void actionPerformed(ActionEvent e) {
+        //         if (devSelect.isSelected()) UserInterface.showDev();
+        //         else UserInterface.hideDev();
+        //     }   
+        // });
     }
 
     public boolean getNumberSelect() {
