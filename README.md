@@ -7,6 +7,9 @@ This is a multi-function graphing calculator that has been developed by SpicyPar
 
 For more information or changelogs of the calculator, visit the releases page at https://github.com/SpicyPark/Calculator/releases or the wiki at https://github.com/SpicyPark/Calculator/wiki.
 
+![Screenshot 2024-06-19 191124](https://github.com/SpicyPark/Calculator/assets/122577562/71428e7d-2eee-4381-a1ae-c87d61764242) <br>
+![Screenshot 2024-06-19 191341](https://github.com/SpicyPark/Calculator/assets/122577562/64fec04a-71b4-4fa0-bff5-2c92e08a5872)
+
 **NOTICE: The following information is accurate as of the latest full release, denoted above, of the calculator.**
 
 ## Installing the program
